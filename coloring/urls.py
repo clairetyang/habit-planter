@@ -4,11 +4,13 @@ from . import views
 urlpatterns = [
     # path('demo', views.index, name='demo'),
     # path('new_interaction', views.index, name='new_interaction'),
-    path('', views.home, name='home'),
+    path('title', views.title, name='title'),
+    path('home', views.home, name='home'),
+    path('survey_name', views.survey_name, name='survey_name'),
+    path('survey_focus', views.survey_focus, name='survey_focus'),
+    path('survey_goal', views.survey_goal, name='survey_goal'),
+    path('survey_steps', views.survey_steps, name='survey_steps'),
     path('habit_tree', views.habit_tree, name='habit_tree'),
-    path('color_creative', views.color_creative, name='color_creative'),
-    path('rec_relaxed', views.rec_relaxed, name='rec_relaxed'),
-    path('rec_creative', views.rec_creative, name='rec_creative'),
-    path('info', views.info, name='info')
-
+    path('butterfly_streak', views.butterfly_streak, name='butterfly_streak'),
+    path('butterfly_completion', views.butterfly_completion, name='butterfly_completion')
 ]

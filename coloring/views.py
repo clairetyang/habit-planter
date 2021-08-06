@@ -2,23 +2,32 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 
-def index(request):
-    return render(request, 'coloring/index.html')
+# def index(request):
+#     return render(request, 'coloring/index.html')
+
+def title(request):
+    return render(request, 'coloring/title.html')
 
 def home(request):
     return render(request, 'coloring/home.html')
 
-def rec_relaxed(request):
-    return render(request, 'coloring/rec_relaxed.html')
+def survey_name(request):
+    return render(request, 'coloring/survey_name.html')
 
-def rec_creative(request):
-    return render(request, 'coloring/rec_creative.html')
+def survey_focus(request):
+    return render(request, 'coloring/survey_focus.html')
+
+def survey_goal(request):
+    return render(request, 'coloring/survey_goal.html')
+
+def survey_steps(request):
+    return render(request, 'coloring/survey_steps.html')
 
 def habit_tree(request):
     return render(request, 'coloring/habit_tree.html')
 
-def color_creative(request):
-    return render(request, 'coloring/color_creative.html')
-    
-def info(request):
-    return render(request, 'coloring/info.html')
+def butterfly_streak(request):
+    return render(request, 'coloring/butterfly_streak.html')
+
+def butterfly_completion(request):
+    return render(request, 'coloring/butterfly_completion.html')
