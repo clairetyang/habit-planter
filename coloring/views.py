@@ -8,8 +8,8 @@ from django.http import HttpResponse
 def title(request):
     return render(request, 'coloring/title.html')
 
-def home(request):
-    return render(request, 'coloring/home.html')
+def home_garden(request):
+    return render(request, 'coloring/home_garden.html')
 
 def survey_name(request):
     return render(request, 'coloring/survey_name.html')
