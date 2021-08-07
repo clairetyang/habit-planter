@@ -26,6 +26,18 @@ def survey_steps(request):
 def habit_tree(request):
     return render(request, 'habit_planter/habit_tree.html')
 
+def habit_tree_1(request):
+    return render(request, 'habit_planter/habit_tree_1.html')
+
+def habit_tree_2(request):
+    return render(request, 'habit_planter/habit_tree_2.html')
+
+def habit_tree_3(request):
+    return render(request, 'habit_planter/habit_tree_3.html')
+
+def habit_tree_4(request):
+    return render(request, 'habit_planter/habit_tree_4.html')
+
 def butterfly_streak(request):
     return render(request, 'habit_planter/butterfly_streak.html')
 
