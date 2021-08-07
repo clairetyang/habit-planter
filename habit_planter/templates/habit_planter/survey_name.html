@@ -16,7 +16,23 @@
 
 <body>
     <br /><br />
-    <h1> Hello! What is your name? </h1>
+    <div class="container">
+        <img class="background" src="{% static 'habit_planter/images/survey_intro_bg.png' %}">
+        <div class="row">
+            <div class="survey-progress col-3"></div>
+            <div class="col-3"></div>
+            <div class="col-3"></div>
+            <div class="col-3"></div>
+        </div>
+        <h1> Hello! What is your <br> name? </h1>
+
+        <!-- <input type="text" class="name-input"> -->
+        <!-- may need to combine submit button with next button to send and parse text? -->
+        <input class="form-control name-input" type="text" placeholder="Name">
+        <a href="{% url 'survey_focus' %}">
+            <button class="btn next-btn" type="submit" value="submit">Next</button>
+        </a>
+    </div>
 
 </body>
 
