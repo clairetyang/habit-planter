@@ -177,16 +177,34 @@
 			};
 
 		// tries to save
-		function saveCanvas(){
-			// coloring page
-			var canvas = document.getElementById("myCanvas");
-			console.log("What is this: ", mandala);
-			// var canvasContext = document.querySelector("myCanvas").getContext("2d");
-			var blob = new Blob([ mandala], {type: "application/svg+xml;charset=utf-8"});
-			// saveAs(new Blob([SVG_DATA_HERE], {type:"application/svg+xml"}), "name.svg")
-			saveAs(blob, "{% static 'habit_planter/images/leaves_big.svg' %}");
+
+		/// view-source:http://paperjs.org/features/#svg-import-and-export
+		function downloadDataUri(options) {
+			if (!options.url)
+				options.url = "http://download-data-uri.appspot.com/";
+			$('<form method="post" action="' + options.url
+				+ '" style="display:none"><input type="hidden" name="filename" value="'
+				+ options.filename + '"/><input type="hidden" name="data" value="'
+				+ options.data + '"/></form>').appendTo('body').submit().remove();
 		}
 
+		function saveCanvas(){
+			// coloring page
+			var svg = paper.project.exportSVG({ asString: true });
+			downloadDataUri({
+				data: 'data:image/svg+xml;base64,' + btoa(svg),
+				filename: '/static/habit_planter/images/leaves_big.svg'
+			});
+
+		///view source svg import
+			// paper.project.exportSVG(mandala, "{% static 'habit_planter/images/leaves_big.svg' %}");
+			// var canvas = document.getElementById("myCanvas");
+			// console.log("What is this: ", mandala);
+			// // var canvasContext = document.querySelector("myCanvas").getContext("2d");
+			// var blob = new Blob([ mandala], {type: "application/svg+xml;charset=utf-8"});
+			// // saveAs(new Blob([SVG_DATA_HERE], {type:"application/svg+xml"}), "name.svg")
+			// saveAs(blob, "{% static 'habit_planter/images/leaves_big.svg' %}");
+		}
 		window.onload = function () {
 			var canvas = document.getElementById('myCanvas');
 			var lastColor = null;
@@ -223,7 +241,6 @@
 							streakPopup();
 						}
 					}
-					console.log("What is this: ", mandala);
 				}
 
 			}
@@ -296,6 +313,8 @@
 					//print("hello");
 					mandala.item = item._children["design-freepik"];
 					paper.project.insertLayer(0, mandala.item);
+					console.log(paper.project.getItems(mandala));
+
 
 					if (custom) {
 						myCustomInteraction();
