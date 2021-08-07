@@ -28,10 +28,22 @@
 
         <!-- <input type="text" class="name-input"> -->
         <!-- may need to combine submit button with next button to send and parse text? -->
-        <input class="form-control name-input" type="text" placeholder="Name">
+        <input class="form-control name-input" type="text" placeholder="Name" id = "name">
         <a href="{% url 'survey_focus' %}">
-            <button class="btn next-btn" type="submit" value="submit">Next</button>
+            <button class="btn next-btn" type="submit" value="submit" onclick = sendMessage()>Next</button>
         </a>
+        <script>
+            console.log('what hape');
+            var socket = new WebSocket('ws://' + window.location.host + '/habit_planter/survey_name');
+            function sendMessage(){
+                var message = document.getElementById("name").value;
+                console.log(message);
+                socket.send("{\"name\" : " + JSON.stringify(message) + "}");
+                }  
+             socket.onclose = function(e) {
+            console.error('Chat socket closed unexpectedly' + e);
+        };
+        </script>
     </div>
 
 </body>

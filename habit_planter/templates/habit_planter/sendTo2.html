@@ -1,31 +1,28 @@
-{% load static %}
+h{% load static %}
 
 <!DOCTYPE html>
 <html>
 
 <head>
-    <title>Home Garden</title>
+    <title>TESTING PAGE Send To</title>
     <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alice&family=Quicksand&display=swap" rel="stylesheet">
-    
+
     <link rel="stylesheet" type="text/css" href="{% static 'habit_planter/vendors/bootstrap/css/bootstrap.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'habit_planter/style.css' %}" />
 </head>
+
 <body>
-<br /><br /><br /><br /><br/>
-    <h1> Home</h1>
-    <h2>Garden</h2>
-    <br /><br /><br /><br /><br/>
     <h1></h1>
     <script>
-        var socket = new WebSocket('ws://' + window.location.host + '/habit_planter/home_garden');        
+        var socket = new WebSocket('ws://' + window.location.host + '/habit_planter/send_to');        
         socket.onmessage = function(receivedMessage) {
 				var received = JSON.parse(receivedMessage.data);
-                let h1 = document.getElementsByTagName('h1')[1];
-                console.log(received.name);
-                h1.innerHTML = "Hi, " + received.name;
+                let h1 = document.getElementsByTagName('h1')[0];
+                console.log(received.message);
+                h1.innerHTML = "Goal: " + received.message;
             }
        socket.onclose = function(e) {
        console.error('Chat socket closed unexpectedly' + e);

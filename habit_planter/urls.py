@@ -10,10 +10,11 @@ urlpatterns = [
     path('survey_focus', views.survey_focus, name='survey_focus'),
     path('survey_goal', views.survey_goal, name='survey_goal'),
     path('survey_steps', views.survey_steps, name='survey_steps'),
-    path('habit_tree_1', views.habit_tree_1, name='habit_tree_1'),
-    path('habit_tree_2', views.habit_tree_2, name='habit_tree_2'),
-    path('habit_tree_3', views.habit_tree_3, name='habit_tree_3'),
-    path('habit_tree_4', views.habit_tree_4, name='habit_tree_4'),
+    path('habit_tree', views.habit_tree, name='habit_tree'),
     path('butterfly_streak', views.butterfly_streak, name='butterfly_streak'),
-    path('butterfly_completion', views.butterfly_completion, name='butterfly_completion')
+    path('butterfly_completion', views.butterfly_completion, name='butterfly_completion'),
+    path('send_from', views.send_from, name = 'send_from'),
+    path('send_to', views.send_to, name = 'send_to'),
+    path('send_to2', views.send_to2, name = 'send_to2'),
+
 ]
