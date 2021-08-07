@@ -4,7 +4,7 @@ h{% load static %}
 <html>
 
 <head>
-    <title>Survey Name</title>
+    <title>Survey Steps</title>
     <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +16,36 @@ h{% load static %}
 
 <body>
     <br /><br />
-    <h1> Break down your goals into actionable steps by setting daily habits. </h1>
+    <div class="container">
+        <img class="background" src="{% static 'habit_planter/images/survey_focus_bg.png' %}">
+
+        <!-- progress bar -->
+        <div class="row">
+            <div class="survey-progress col-3"></div>
+            <div class="survey-progress col-3"></div>
+            <div class="survey-progress col-3"></div>
+            <div class="survey-progress col-3"></div>
+        </div>
+        
+        <h1 style="font-size: 70px;"> Break down your goals<br>into actionable steps<br>by planting daily habits.  </h1>
+
+        <!-- habit input boxes -->
+        <div class="habit-boxes">
+            <input class="form-control habit-input" type="text" placeholder="Habit #1">
+            <input class="form-control habit-input" type="text" placeholder="Habit #2">
+            <input class="form-control habit-input" type="text" placeholder="Habit #3">
+            <input class="form-control habit-input" type="text" placeholder="Habit #4">
+        </div>
+
+
+        <!-- navigation buttons -->
+        <a href="{% url 'survey_goal' %}">
+            <button class="btn back-btn">Back</button>
+        </a>
+        <a href="{% url 'home_garden' %}">
+            <button class="btn next-btn" type="submit" value="submit">Finish</button>
+        </a>
+    </div>
 
 </body>
 
