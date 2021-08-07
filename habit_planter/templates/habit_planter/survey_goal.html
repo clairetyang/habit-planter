@@ -15,8 +15,27 @@
 </head>
 
 <body>
-    <br /><br /><br /><br />
-    <h1> Set a Goal </h1>
+    <br /><br />
+    <div class="container">
+        <img class="background" src="{% static 'habit_planter/images/survey_goal_bg.png' %}">
+        <div class="row">
+            <div class="survey-progress col-3"></div>
+            <div class="survey-progress col-3"></div>
+            <div class="survey-progress col-3"></div>
+            <div class="col-3"></div>
+        </div>
+        <h1 style="left:33%;"> Set a Goal </h1>
+
+        
+
+        <a href="{% url 'survey_focus' %}">
+            <button class="btn back-btn">Back</button>
+        </a>
+
+        <a href="{% url 'survey_steps' %}">
+            <button class="btn next-btn" type="submit" value="submit">Next</button>
+        </a>
+    </div>
 </body>
 
 </html>
