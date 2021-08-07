@@ -178,30 +178,26 @@
 
 		// tries to save
 
-		/// view-source:http://paperjs.org/features/#svg-import-and-export
-		function downloadDataUri(options) {
-			if (!options.url)
-				options.url = "http://download-data-uri.appspot.com/";
-			$('<form method="post" action="' + options.url
-				+ '" style="display:none"><input type="hidden" name="filename" value="'
-				+ options.filename + '"/><input type="hidden" name="data" value="'
-				+ options.data + '"/></form>').appendTo('body').submit().remove();
-		}
+		// /// view-source:http://paperjs.org/features/#svg-import-and-export
 
 		function saveCanvas(){
 			// coloring page
 			var svg = paper.project.exportSVG({ asString: true });
-			downloadDataUri({
-				data: 'data:image/svg+xml;base64,' + btoa(svg),
-				filename: '/static/habit_planter/images/leaves_big.svg'
-			});
+			var blob = new Blob([ svg], {type: "application/svg+xml;charset=utf-8"});
+			saveAs(blob, "{% static 'habit_planter/images/leaves_big.svg' %}");
+
+			// console.log(svg);
+			// downloadDataUri({
+			// 	data: 'data:image/svg+xml;base64,' + btoa(svg),
+			// 	filename: 'leaves_big.svg'
+			// });
 
 		///view source svg import
 			// paper.project.exportSVG(mandala, "{% static 'habit_planter/images/leaves_big.svg' %}");
 			// var canvas = document.getElementById("myCanvas");
 			// console.log("What is this: ", mandala);
 			// // var canvasContext = document.querySelector("myCanvas").getContext("2d");
-			// var blob = new Blob([ mandala], {type: "application/svg+xml;charset=utf-8"});
+			 var blob = new Blob([ mandala], {type: "application/svg+xml;charset=utf-8"});
 			// // saveAs(new Blob([SVG_DATA_HERE], {type:"application/svg+xml"}), "name.svg")
 			// saveAs(blob, "{% static 'habit_planter/images/leaves_big.svg' %}");
 		}
