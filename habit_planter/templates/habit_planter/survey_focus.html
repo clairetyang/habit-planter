@@ -33,16 +33,16 @@
         <!-- needs selection function -->
         <div class="card-container">
             <div class="focus-row row">
-                <div class="col-5">Physical<br>Health</div>
-                <div class="col-5" style="padding-top: 12%;">Productivity</div>
+                <div class="col-5" onclick = "sendMessage('Physical Health')">Physical<br>Health</div>
+                <div class="col-5" onclick = "sendMessage('Productivity')" style="padding-top: 12%;">Productivity</div>
             </div>
             <div class="focus-row row">
-                <div class="col-5">Mental<br>Health</div>
-                <div class="col-5" style="padding-top: 12%;">Finances</div>
+                <div class="col-5" onclick = "sendMessage('Mental Health')">Mental<br>Health</div>
+                <div class="col-5" style="padding-top: 12%;" onclick = "sendMessage('Finances')">Finances</div>
             </div>
             <div class="focus-row row">
-                <div class="col-5">Social<br>Wellbeing</div>
-                <div class="col-5">Career/<br>Work</div>
+                <div class="col-5" onclick = "sendMessage('Social Wellbeing')">Social<br>Wellbeing</div>
+                <div class="col-5" onclick = "sendMessage('Career Work')">Career/<br>Work</div>
             </div>
         </div>
 
@@ -54,6 +54,16 @@
             <button class="btn next-btn" type="submit" value="submit">Next</button>
         </a>
     </div>
+    <script>
+        var socket = new WebSocket('ws://' + window.location.host + '/habit_planter/survey_focus');
+        function sendMessage(message){
+            console.log(message);
+            socket.send("{\"focus\" : " + JSON.stringify(message) + "}");
+            }  
+         socket.onclose = function(e) {
+        console.error('Chat socket closed unexpectedly' + e);
+    };
+    </script>
 
     
 

@@ -28,6 +28,10 @@
         </div>
 
         <h1> Set a Goal<br>to start your garden</h1>
+        <!-- CHANGE FRONTEND TO MAKE NICER -->
+        <div class = "row">
+            <h2 id = "focus"></h2>
+        </div>
 
         <div id="goal-label">Focus: </div>
         <!-- need to receive focus from focus page -->
@@ -46,6 +50,19 @@
             <button class="btn next-btn" type="submit" value="submit">Next</button>
         </a>
     </div>
+    <script>
+        var socket = new WebSocket('ws://' + window.location.host + '/habit_planter/survey_goal');        
+        socket.onmessage = function(receivedMessage) {
+                console.log("hello");
+				var received = JSON.parse(receivedMessage.data);
+                let h1 = document.getElementById('focus');
+                console.log(received.focus);
+                h1.innerHTML = "Focus: " + received.focus;
+            }
+        socket.onclose = function(e) {
+        console.error('Chat socket closed unexpectedly' + e);
+         };
+    </script>
 </body>
 
 </html>
