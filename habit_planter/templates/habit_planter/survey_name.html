@@ -29,25 +29,28 @@
 
         <h1> Hello! What is your <br> name? </h1>
 
-        <!-- may need to combine submit button with next button to send and parse text? -->
-        <input class="form-control name-input" type="text" placeholder="Name" id = "name">
+        <!-- user input -->
+        <input class="form-control" id="name-input" type="text" placeholder="Name">
 
-        <a href="{% url 'survey_focus' %}">
-            <button class="btn next-btn" type="submit" value="submit" onclick = sendMessage()>Next</button>
+        <!-- navigation buttons -->
+        <a href="#" id = "link2" onclick = "sendMessage()">
+            <button class="btn next-btn" type="submit" value="submit">Next</button>
         </a>
-        <script>
-            console.log('what hape');
-            var socket = new WebSocket('ws://' + window.location.host + '/habit_planter/survey_name');
-            function sendMessage(){
-                var message = document.getElementById("name").value;
-                console.log(message);
-                socket.send("{\"name\" : " + JSON.stringify(message) + "}");
-                }  
-             socket.onclose = function(e) {
-            console.error('Chat socket closed unexpectedly' + e);
-        };
-        </script>
     </div>
+    <script>
+        var url = window.location.href;
+        var queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        function sendMessage(message){
+            let namefocus = document.getElementById('name-input');
+            console.log(namefocus.value);
+            urlParams.append("goal", namefocus.value);
+            console.log(urlParams.toString());
+            totalUrl = "http://localhost:8000/habit_planter/"+'survey_focus?' +urlParams.toString();
+            console.log(totalUrl);
+            document.getElementById("link2").href = totalUrl;
+        }
+    </script>
 
 </body>
 

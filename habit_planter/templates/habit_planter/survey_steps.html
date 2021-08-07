@@ -31,10 +31,10 @@ h{% load static %}
 
         <!-- habit input boxes -->
         <div class="habit-boxes">
-            <input class="form-control habit-input" type="text" placeholder="Habit #1">
-            <input class="form-control habit-input" type="text" placeholder="Habit #2">
-            <input class="form-control habit-input" type="text" placeholder="Habit #3">
-            <input class="form-control habit-input" type="text" placeholder="Habit #4">
+            <input class="form-control habit-input" id = habit1 type="text" placeholder="Habit #1">
+            <input class="form-control habit-input" id = habit2  type="text" placeholder="Habit #2">
+            <input class="form-control habit-input" id = habit3  type="text" placeholder="Habit #3">
+            <input class="form-control habit-input" id = habit4  type="text" placeholder="Habit #4">
         </div>
 
 
@@ -42,10 +42,30 @@ h{% load static %}
         <a href="{% url 'survey_goal' %}">
             <button class="btn back-btn">Back</button>
         </a>
-        <a href="{% url 'home_garden' %}">
+        <a href="#" id = "link2" onclick = "sendMessage()">
             <button class="btn next-btn" type="submit" value="submit">Finish</button>
         </a>
     </div>
+    <script>
+        var url = window.location.href;
+        var queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+          function sendMessage(message){
+            let habit1 = document.getElementById('habit1');
+            let habit2 = document.getElementById('habit2');
+            let habit3 = document.getElementById('habit3');
+            let habit4 = document.getElementById('habit4');
+            urlParams.append("habit1", habit1.value);
+            urlParams.append("habit2", habit2.value);
+            urlParams.append("habit3", habit3.value);
+            urlParams.append("habit4", habit4.value);
+
+            console.log(urlParams.toString());
+            totalUrl = "http://localhost:8000/habit_planter/"+'home_garden?' +urlParams.toString();
+            console.log(totalUrl);
+            document.getElementById("link2").href = totalUrl;
+        }
+    </script>
 
 </body>
 

@@ -47,22 +47,34 @@
         </div>
 
         <!-- navigation buttons -->
-        <a href="{% url 'survey_name' %}">
+        <a href="{% url 'survey_name' %}" id = "link1">
             <button class="btn back-btn">Back</button>
         </a>
-        <a href="{% url 'survey_goal' %}">
+        <a href="#"id = "link2">
             <button class="btn next-btn" type="submit" value="submit">Next</button>
         </a>
     </div>
     <script>
-        var socket = new WebSocket('ws://' + window.location.host + '/habit_planter/survey_focus');
         function sendMessage(message){
-            console.log(message);
-            socket.send("{\"focus\" : " + JSON.stringify(message) + "}");
-            }  
-         socket.onclose = function(e) {
-        console.error('Chat socket closed unexpectedly' + e);
-    };
+            var url = window.location.href;
+            var queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            urlParams.append("focus", message);
+            console.log(urlParams.toString());
+            totalUrl = "http://localhost:8000/habit_planter/"+'survey_goal?' +urlParams.toString();
+            console.log(totalUrl);
+            document.getElementById("link2").href = totalUrl;
+
+        }
+
+        // var socket = new WebSocket('ws://' + window.location.host + '/habit_planter/survey_focus');
+        // function sendMessage(message){
+        //     console.log(message);
+        //     socket.send("{\"focus\" : " + JSON.stringify(message) + "}");
+        //     }  
+        //  socket.onclose = function(e) {
+        // console.error('Chat socket closed unexpectedly' + e);
+    // };
     </script>
 
     
