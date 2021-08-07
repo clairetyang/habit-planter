@@ -145,14 +145,19 @@
 			<input type="button" onclick="closeCompletePopup();" value="Close" />
 		</span>
 	</div>
-	<button onclick="location.href='/habit_planter/home_garden'" type="button">Finish Logging Progress</button>
-
+	<!-- "location.href='/habit_planter/home_garden'" -->
+	<!-- <a href="{% url 'home_garden' %}"> -->
+	<button onclick=saveCanvas() type="button">Finish Logging Progress</button>
+	<!-- </a> -->
 	<canvas id="myCanvas"></canvas>
 	<div id="color-palette"></div>
 
 
-
+	<script src = "{% static 'habit_planter/vendors/FileSaver.js-master/src/FileSaver.js' %}"></script>
 	<script type="text/javascript" canvas="canvas">
+	// import { saveAs } from 'file-saver';
+	// FileSaver saveAs(Blob,DOMString filename);
+
 		function closePopup() {
 			document.getElementById("myPopup").style.visibility = "hidden";
 		}
@@ -163,10 +168,6 @@
 		var weekCounter = document.getElementById("weekCounter");
 		var streakCounter = 0;
 
-		window.onload = function () {
-			var canvas = document.getElementById('myCanvas');
-			var lastColor = null;
-			console.log('streak: ', streakCounter);
 
 			// coloring page
 			var mandala = {
@@ -174,6 +175,23 @@
 				lastClicked: null,
 				filePath: '/static/habit_planter/images/leaves_big.svg'
 			};
+
+		// tries to save
+		function saveCanvas(){
+			// coloring page
+			var canvas = document.getElementById("myCanvas");
+			console.log("What is this: ", mandala);
+			// var canvasContext = document.querySelector("myCanvas").getContext("2d");
+			var blob = new Blob([ mandala], {type: "application/svg+xml;charset=utf-8"});
+			// saveAs(new Blob([SVG_DATA_HERE], {type:"application/svg+xml"}), "name.svg")
+			saveAs(blob, "{% static 'habit_planter/images/leaves_big.svg' %}");
+		}
+
+		window.onload = function () {
+			var canvas = document.getElementById('myCanvas');
+			var lastColor = null;
+			console.log('streak: ', streakCounter);
+
 
 			// color palette
 			var cp = {
@@ -205,6 +223,7 @@
 							streakPopup();
 						}
 					}
+					console.log("What is this: ", mandala);
 				}
 
 			}

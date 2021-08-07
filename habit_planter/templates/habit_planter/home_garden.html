@@ -15,7 +15,10 @@
 </head>
 <body>
 <br /><br /><br /><br /><br/>
+    <a href="{% url 'habit_tree_1' %}">
     <h1> Home</h1>
+    </a>
+    
     <h2>Garden</h2>
     <br /><br /><br /><br /><br/>
     <h1></h1>
@@ -30,16 +33,6 @@
         const habit2 = urlParams.get('habit2');
         const habit3 = urlParams.get('habit3');
         const habit4 = urlParams.get('habit4');
-    //     var socket = new WebSocket('ws://' + window.location.host + '/habit_planter/home_garden');        
-    //     socket.onmessage = function(receivedMessage) {
-	// 			var received = JSON.parse(receivedMessage.data);
-    //             let h1 = document.getElementsByTagName('h1')[1];
-    //             console.log(received.name);
-    //             h1.innerHTML = "Hi, " + received.name;
-    //         }
-    //    socket.onclose = function(e) {
-    //    console.error('Chat socket closed unexpectedly' + e);
-//    };
    </script>
 </body>
 
