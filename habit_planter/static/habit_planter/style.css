@@ -58,7 +58,8 @@ h2 {
     text-align: center;
 }
 
-.name-input {
+/* USER INPUT BOXES */
+#name-input {
     position: absolute;
     font-size: 50px;
     top: 33%;
@@ -68,7 +69,88 @@ h2 {
     border: 3px solid #41904E;
     border-radius: 20px;
 }
+#goal-input {
+    position: absolute;
+    font-size: 50px;
+    top: 33%;
+    left: 15%;
+    width: 70%;
+    border: 3px solid #41904E;
+    border-radius: 20px;
+}
+.habit-input {
+    position: relative;
+    font-size: 50px;
+    left: 15%;
+    width: 70%;
+    height: 120px;
+    border: 3px solid #41904E;
+    border-radius: 20px;
+    margin-bottom: 5%;
+}
 
+/* FOCUS BOXES */
+.card-container {
+    position: absolute;
+    top: 28%;
+    left: 8%;
+    width: 90%;
+    text-align: center;
+    max-width: none;
+    max-height: none;
+}
+.focus-row {
+    position: relative;
+    width: 80%;
+}
+.col-5 {
+    height: 270px;
+    padding-top: 10%;
+    margin: 25px;
+    width: 25%;
+    border-radius: 30px;
+    background-color: white;
+    border: 3px solid #56AC7D;
+    font-size: 35px;
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+}
+
+/* GOAL-SPECIFICS */
+#goal-label {
+    position: absolute;
+    font-size: 50px;
+    font-family: 'Quicksand', sans-serif;
+    top: 28%;
+    left: 15%;
+}
+#suggestions-label {
+    position: absolute;
+    font-size: 50px;
+    font-family: 'Quicksand', sans-serif;
+    top: 50%;
+    left: 15%;
+}
+#suggestions-box {
+    position: absolute;
+    height: 350px;
+    width: 70%;
+    left: 15%;
+    top: 56%;
+    background: #49AC65;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+}
+
+/* HABITS BOXES */
+.habit-boxes {
+    position: absolute;
+    top: 33%;
+    width: 100%
+}
+
+/* BACK AND NEXT BUTTONS */
 .back-btn {
     position: absolute;
     font-size: 38px;
@@ -97,31 +179,4 @@ h2 {
     background: #FECFB5;
     box-shadow: 0px 4px 4px rgba(117, 110, 110, 0.5);
     border-radius: 10px;
-}
-
-.card-container {
-    position: absolute;
-    top: 30%;
-    left: 7%;
-    width: 90%;
-    text-align: center;
-    max-width: none;
-    max-height: none;
-}
-.focus-row {
-    position: relative;
-    width: 80%;
-}
-.col-5 {
-    height: 270px;
-    padding-top: 10%;
-    margin: 25px;
-    width: 25%;
-    border-radius: 30px;
-    background-color: white;
-    border: 3px solid #56AC7D;
-    font-size: 35px;
-    text-align: center;
-    font-family: 'Quicksand', sans-serif;
-    font-weight: bold;
 }

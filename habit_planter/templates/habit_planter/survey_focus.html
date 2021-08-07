@@ -18,6 +18,8 @@
     <br /><br />
     <div class="container">
         <img class="background" src="{% static 'habit_planter/images/survey_focus_bg.png' %}">
+
+        <!-- progress bar -->
         <div class="row">
             <div class="survey-progress col-3"></div>
             <div class="survey-progress col-3"></div>
@@ -27,6 +29,8 @@
         
         <h1 style="left:20%;"> What would you<br>like to focus on? </h1>
 
+        <!-- cards -->
+        <!-- needs selection function -->
         <div class="card-container">
             <div class="focus-row row">
                 <div class="col-5">Physical<br>Health</div>
@@ -42,10 +46,10 @@
             </div>
         </div>
 
+        <!-- navigation buttons -->
         <a href="{% url 'survey_name' %}">
             <button class="btn back-btn">Back</button>
         </a>
-
         <a href="{% url 'survey_goal' %}">
             <button class="btn next-btn" type="submit" value="submit">Next</button>
         </a>

@@ -18,20 +18,30 @@
     <br /><br />
     <div class="container">
         <img class="background" src="{% static 'habit_planter/images/survey_goal_bg.png' %}">
+
+        <!-- progress bar -->
         <div class="row">
             <div class="survey-progress col-3"></div>
             <div class="survey-progress col-3"></div>
             <div class="survey-progress col-3"></div>
             <div class="col-3"></div>
         </div>
-        <h1 style="left:33%;"> Set a Goal </h1>
 
-        
+        <h1> Set a Goal<br>to start your garden</h1>
 
+        <div id="goal-label">Focus: </div>
+        <!-- need to receive focus from focus page -->
+        <textarea class="form-control" id="goal-input" rows="3"></textarea>
+
+        <div id="suggestions-label"> Suggestions </div>
+        <div id="suggestions-box">
+            <!-- needs to be changeable depending on the focus -->
+        </div>
+
+        <!-- navigation buttons -->
         <a href="{% url 'survey_focus' %}">
             <button class="btn back-btn">Back</button>
         </a>
-
         <a href="{% url 'survey_steps' %}">
             <button class="btn next-btn" type="submit" value="submit">Next</button>
         </a>

@@ -18,17 +18,21 @@
     <br /><br />
     <div class="container">
         <img class="background" src="{% static 'habit_planter/images/survey_intro_bg.png' %}">
+
+        <!-- progress bar -->
         <div class="row">
             <div class="survey-progress col-3"></div>
             <div class="col-3"></div>
             <div class="col-3"></div>
             <div class="col-3"></div>
         </div>
+
         <h1> Hello! What is your <br> name? </h1>
 
-        <!-- <input type="text" class="name-input"> -->
-        <!-- may need to combine submit button with next button to send and parse text? -->
-        <input class="form-control name-input" type="text" placeholder="Name">
+        <!-- user input -->
+        <input class="form-control" id="name-input" type="text" placeholder="Name">
+
+        <!-- navigation buttons -->
         <a href="{% url 'survey_focus' %}">
             <button class="btn next-btn" type="submit" value="submit">Next</button>
         </a>
