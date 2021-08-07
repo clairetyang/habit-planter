@@ -44,7 +44,7 @@
         function sendMessage(message){
             let namefocus = document.getElementById('name-input');
             console.log(namefocus.value);
-            urlParams.append("goal", namefocus.value);
+            urlParams.append("name", namefocus.value);
             console.log(urlParams.toString());
             totalUrl = "http://localhost:8000/habit_planter/"+'survey_focus?' +urlParams.toString();
             console.log(totalUrl);
