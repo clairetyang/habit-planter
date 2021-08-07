@@ -69,6 +69,21 @@ h2 {
     border-radius: 20px;
 }
 
+.back-btn {
+    position: absolute;
+    font-size: 38px;
+    font-family: 'Quicksand', sans-serif;
+    color: #803333;
+    text-align: center;
+    left: 11%;
+    bottom: 7%;
+    width: 190px;
+    height: 80px;
+    background: #FECFB5;
+    box-shadow: 0px 4px 4px rgba(117, 110, 110, 0.5);
+    border-radius: 10px;
+}
+
 .next-btn {
     position: absolute;
     font-size: 38px;
@@ -87,6 +102,7 @@ h2 {
 .card-container {
     position: absolute;
     top: 30%;
+    left: 5%;
     width: 100%;
     text-align: center;
     max-width: none;
@@ -97,33 +113,16 @@ h2 {
     width: 80%;
 }
 .col-5 {
-    height: 300px;
+    height: 270px;
     padding: 20px;
+    padding-top: 10%;
     margin: 20px;
     width: 25%;
     border-radius: 30px;
     background-color: white;
-    border: 2px solid #56AC7D;
-}
-
-/* .focus-cards {
-    position: absolute;
-    width: 90%;
-    top: 30%;
-    left: 5%;
-} */
-
-/* .card {
-    position: relative;
-    background-color: white;
-    margin-left: 3%;
-    float: left;
-    width: 28%;
-    margin-bottom: 100px;
-    height: 300px;
-    padding: 20px 20px 7px 20px;
-    border-radius: 30px;
-    margin-bottom: 60px;
-    font-size: 30px;
+    border: 3px solid #56AC7D;
+    font-size: 35px;
     text-align: center;
-} */
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+}

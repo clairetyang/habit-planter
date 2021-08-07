@@ -28,28 +28,22 @@
 
         <div class="card-container">
             <div class="focus-row row">
-                <div class="col-5"></div>
-                <div class="col-5"></div>
+                <div class="col-5">Physical<br>Health</div>
+                <div class="col-5" style="padding-top: 12%;">Productivity</div>
             </div>
             <div class="focus-row row">
-                <div class="col-5"></div>
-                <div class="col-5"></div>
+                <div class="col-5">Mental<br>Health</div>
+                <div class="col-5" style="padding-top: 12%;">Finances</div>
             </div>
             <div class="focus-row row">
-                <div class="col-5"></div>
-                <div class="col-5"></div>
+                <div class="col-5">Social<br>Wellbeing</div>
+                <div class="col-5">Career/<br>Work</div>
             </div>
         </div>
 
-        <!-- <div class="focus-cards">
-            <br />
-            <div class="card"> Physical<br>Health</div>
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
-        </div> -->
+        <a href="{% url 'survey_name' %}">
+            <button class="btn back-btn">Back</button>
+        </a>
 
         <a href="{% url 'survey_goal' %}">
             <button class="btn next-btn" type="submit" value="submit">Next</button>
