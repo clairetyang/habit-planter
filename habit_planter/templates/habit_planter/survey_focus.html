@@ -16,21 +16,47 @@
 
 <body>
     <br /><br />
-    <h1> What would you like to focus on? </h1>
-    <div>
-        <br />
-        <div class="card" style="margin-left:4.6%">
+    <div class="container">
+        <img class="background" src="{% static 'habit_planter/images/survey_focus_bg.png' %}">
+        <div class="row">
+            <div class="survey-progress col-3"></div>
+            <div class="survey-progress col-3"></div>
+            <div class="col-3"></div>
+            <div class="col-3"></div>
         </div>
-        <div class="card">
+        <h1 style="left:20%;"> What would you<br>like to focus on? </h1>
+
+        <div class="card-container">
+            <div class="focus-row row">
+                <div class="col-5"></div>
+                <div class="col-5"></div>
+            </div>
+            <div class="focus-row row">
+                <div class="col-5"></div>
+                <div class="col-5"></div>
+            </div>
+            <div class="focus-row row">
+                <div class="col-5"></div>
+                <div class="col-5"></div>
+            </div>
         </div>
-        <div class="card">
-        </div>
-        <div class="card" style="margin-left:4.6%">
-        </div>
-        <div class="card">
-        </div>
-        <div class="card">
-        </div>
+
+        <!-- <div class="focus-cards">
+            <br />
+            <div class="card"> Physical<br>Health</div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+        </div> -->
+
+        <a href="{% url 'survey_goal' %}">
+            <button class="btn next-btn" type="submit" value="submit">Next</button>
+        </a>
+    </div>
+
+    
 
 </body>
 

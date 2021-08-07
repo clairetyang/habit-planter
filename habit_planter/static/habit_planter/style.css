@@ -84,13 +84,43 @@ h2 {
     border-radius: 10px;
 }
 
+.card-container {
+    position: absolute;
+    top: 30%;
+    width: 100%;
+    text-align: center;
+    max-width: none;
+    max-height: none;
+}
+.focus-row {
+    position: relative;
+    width: 80%;
+}
+.col-5 {
+    height: 300px;
+    padding: 20px;
+    margin: 20px;
+    width: 25%;
+    border-radius: 30px;
+    background-color: white;
+    border: 2px solid #56AC7D;
+}
+
+/* .focus-cards {
+    position: absolute;
+    width: 90%;
+    top: 30%;
+    left: 5%;
+} */
+
 /* .card {
+    position: relative;
     background-color: white;
     margin-left: 3%;
     float: left;
     width: 28%;
     margin-bottom: 100px;
-    height: 430px;
+    height: 300px;
     padding: 20px 20px 7px 20px;
     border-radius: 30px;
     margin-bottom: 60px;
