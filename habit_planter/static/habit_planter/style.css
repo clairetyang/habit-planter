@@ -102,8 +102,8 @@ h2 {
 .card-container {
     position: absolute;
     top: 30%;
-    left: 5%;
-    width: 100%;
+    left: 7%;
+    width: 90%;
     text-align: center;
     max-width: none;
     max-height: none;
@@ -114,9 +114,8 @@ h2 {
 }
 .col-5 {
     height: 270px;
-    padding: 20px;
     padding-top: 10%;
-    margin: 20px;
+    margin: 25px;
     width: 25%;
     border-radius: 30px;
     background-color: white;
