@@ -21,7 +21,7 @@
     <a href="#" id = "link2" onclick = "sendMessage()">
         <button class="btn next-btn" type="submit" value="submit">Habit 1</button>
     </a>
-    
+
     <h1 id= "name"></h1>
     
     <div class="home-info">
@@ -69,19 +69,23 @@
 
         const habit1id = urlParams.get('habit1');
         let habit1 = document.getElementById('habit1');
-        habit1.innerHTML = "Habit 1: " + habit1id;
+        // habit1.innerHTML = "Habit 1: " + habit1id;
+        habit1.innerHTML = habit1id;
 
         const habit2id = urlParams.get('habit2');
         let habit2 = document.getElementById('habit2');
-        habit2.innerHTML = "Habit 2: " + habit2id;
+        // habit2.innerHTML = "Habit 2: " + habit2id;
+        habit2.innerHTML = habit2id;
         
         const habit3id = urlParams.get('habit3');
         let habit3 = document.getElementById('habit3');
-        habit3.innerHTML = "Habit 3: " + habit3id;
+        // habit3.innerHTML = "Habit 3: " + habit3id;
+        habit3.innerHTML = habit3id;
 
         const habit4id = urlParams.get('habit4');
         let habit4 = document.getElementById('habit4');
-        habit4.innerHTML = "Habit 4: " + habit4id;
+        // habit4.innerHTML = "Habit 4: " + habit4id;
+        habit4.innerHTML = habit4id;
 
         function sendMessage(){
             // var counter = urlParams.get('habit1counter');
