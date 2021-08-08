@@ -13,28 +13,45 @@
     <link rel="stylesheet" type="text/css" href="{% static 'habit_planter/vendors/bootstrap/css/bootstrap.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'habit_planter/style.css' %}" />
 </head>
+
 <body>
-<br /><br /><br /><br /><br/>
-
-    <a href="{% url 'habit_tree_1' %}">
-    <h1> Home</h1>
-    </a>
-
-    <h2>Garden</h2>
+<div class="container">
+    <img class="background" src="{% static 'habit_planter/images/home_garden_bg.png' %}">
 
     <a href="#" id = "link2" onclick = "sendMessage()">
         <button class="btn next-btn" type="submit" value="submit">Habit 1</button>
     </a>
-
-    <!-- ALL INFO HERE SORRY IT LOOKS BAD -->
+    
     <h1 id= "name"></h1>
-    <h2 id= "goal"></h2>
-    <h3 id= "habit1"></h2>
-    <h3 id= "habit2"></h2>
-    <h3 id= "habit3"></h2>
-    <h3 id= "habit4"></h2>
-    <br /><br /><br /><br /><br/>
-    <h1></h1>
+    
+    <div class="home-info">
+        <h2 id= "goal"></h2>
+        <h2 id= "checklist" style="font-weight: bold;"><u> Today's Checklist </u></h2>
+
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="habit1check">
+            <label class="form-check-label" for="habit1check" id= "habit1"> </label>
+        </div>
+
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="habit2check">
+            <label class="form-check-label" for="habit2check" id= "habit2"> </label>
+        </div>
+            
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="habit3check">
+            <label class="form-check-label" for="habit3check" id= "habit3"> </label>
+        </div>
+            
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="habit4check">
+            <label class="form-check-label" for="habit4check" id= "habit4"> </label>
+        </div>
+    </div>
+</div>
+    
+
+
     <script>
         var url = window.location.href;
         var queryString = window.location.search;
@@ -42,7 +59,7 @@
         
         const nameid = urlParams.get('name');
         let name = document.getElementById('name');
-        name.innerHTML = "Hi, " + nameid;
+        name.innerHTML = "Good Morning, "+ nameid;
         
         const foucs = urlParams.get('focus');
        

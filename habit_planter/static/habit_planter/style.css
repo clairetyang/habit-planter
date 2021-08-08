@@ -21,6 +21,42 @@ body {
     height: 100%;
 }
 
+h1 {
+    position: absolute;
+    top: 13%;
+    left: 15%;
+    font-family: 'Alice', sans-serif;
+    font-size: 80px;
+}
+
+h2 {
+    /* position: absolute; */
+    font-family: 'Quicksand', sans-serif;
+    font-size: 60px;
+    text-align: center;
+}
+
+/* HOME GARDEN FORMATTING */
+.home-info {
+    position: absolute;
+    top: 22%;
+    left: 25%
+}
+#goal {
+    margin-bottom: 100px;
+}
+.form-check-label {
+    font-size: 60px;
+    padding-left: 40px;
+    margin-top: 30px;
+}
+.form-check-input {
+    top:70px;
+    transform: scale(3);
+    border: 1px solid #49AC65;
+}
+
+
 /* SURVEY PROGRESS BAR */
 .row {
     position: absolute;
@@ -40,22 +76,6 @@ body {
 }
 .survey-progress {
     background-color: #56AC7D;
-}
-
-
-/* QUESTION / INSTRUCTIONS */
-h1 {
-    position: absolute;
-    top: 13%;
-    left: 15%;
-    font-family: 'Alice', sans-serif;
-    font-size: 80px;
-}
-
-h2 {
-    font-family: 'Quicksand', sans-serif;
-    font-size: 40px;
-    text-align: center;
 }
 
 /* USER INPUT BOXES */
