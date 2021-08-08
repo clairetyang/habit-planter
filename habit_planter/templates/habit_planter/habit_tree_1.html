@@ -12,6 +12,7 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Alice&family=Quicksand&display=swap" rel="stylesheet">
 	<!-- jquery -->
+	<script type="text/javascript" src="{% static 'habit_planter/vendors/require.js' %}"></script>
 	<script type="text/javascript" src="{% static 'habit_planter/vendors/jquery/jquery-3.3.1.min.js' %}"></script>
 	<script type="text/javascript" src="{% static 'habit_planter/vendors/paper/paper-full.min.js' %}"></script>
 	<link rel="stylesheet" type="text/css" href="{% static 'habit_planter/vendors/bootstrap/css/bootstrap.css' %}" />
@@ -178,13 +179,17 @@
 
 		// tries to save
 
-		// /// view-source:http://paperjs.org/features/#svg-import-and-export
-
+		// /// view-source:http://paperjs.org/features/#svg-import-and-expor 
 		function saveCanvas(){
 			// coloring page
 			var svg = paper.project.exportSVG({ asString: true });
-			var blob = new Blob([ svg], {type: "application/svg+xml;charset=utf-8"});
-			saveAs(blob, "{% static 'habit_planter/images/leaves_big.svg' %}");
+			// var blob = new Blob([ svg], {type: "application/svg+xml;charset=utf-8"});
+			// filePath: '/static/habit_planter/images/leaves_big.svg'
+			const fs = require('fs')
+			// const path = '/static/habit_planter/images/leaves_big.svg'
+			fs.writeFile("leaves_big.svg", svg);
+			// }
+			// saveAs(blob, "leaves_big.svg");
 
 			// console.log(svg);
 			// downloadDataUri({
@@ -197,7 +202,7 @@
 			// var canvas = document.getElementById("myCanvas");
 			// console.log("What is this: ", mandala);
 			// // var canvasContext = document.querySelector("myCanvas").getContext("2d");
-			 var blob = new Blob([ mandala], {type: "application/svg+xml;charset=utf-8"});
+			//  var blob = new Blob([ mandala], {type: "application/svg+xml;charset=utf-8"});
 			// // saveAs(new Blob([SVG_DATA_HERE], {type:"application/svg+xml"}), "name.svg")
 			// saveAs(blob, "{% static 'habit_planter/images/leaves_big.svg' %}");
 		}
