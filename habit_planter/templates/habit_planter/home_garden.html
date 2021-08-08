@@ -15,27 +15,67 @@
 </head>
 <body>
 <br /><br /><br /><br /><br/>
+
     <a href="{% url 'habit_tree_1' %}">
     <h1> Home</h1>
     </a>
 
     <h2>Garden</h2>
 
-    <h2 id= "name"></h2>
+    <a href="#" id = "link2" onclick = "sendMessage()">
+        <button class="btn next-btn" type="submit" value="submit">Habit 1</button>
+    </a>
+
+    <!-- ALL INFO HERE SORRY IT LOOKS BAD -->
+    <h1 id= "name"></h1>
+    <h2 id= "goal"></h2>
+    <h3 id= "habit1"></h2>
+    <h3 id= "habit2"></h2>
+    <h3 id= "habit3"></h2>
+    <h3 id= "habit4"></h2>
     <br /><br /><br /><br /><br/>
     <h1></h1>
     <script>
         var url = window.location.href;
         var queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
-        const name = urlParams.get('name');
+        
+        const nameid = urlParams.get('name');
+        let name = document.getElementById('name');
+        name.innerHTML = "Hi, " + nameid;
+        
         const foucs = urlParams.get('focus');
-        const goal = urlParams.get('goal');
-        const habit1 = urlParams.get('habit1');
-        const habit2 = urlParams.get('habit2');
-        const habit3 = urlParams.get('habit3');
-        const habit4 = urlParams.get('habit4');
+       
+        const goalid = urlParams.get('goal');
+        let goal = document.getElementById('goal');
+        goal.innerHTML = "Goal: " + goalid;
 
+        const habit1id = urlParams.get('habit1');
+        let habit1 = document.getElementById('habit1');
+        habit1.innerHTML = "Habit 1: " + habit1id;
+
+        const habit2id = urlParams.get('habit2');
+        let habit2 = document.getElementById('habit2');
+        habit2.innerHTML = "Habit 2: " + habit2id;
+        
+        const habit3id = urlParams.get('habit3');
+        let habit3 = document.getElementById('habit3');
+        habit3.innerHTML = "Habit 3: " + habit3id;
+
+        const habit4id = urlParams.get('habit4');
+        let habit4 = document.getElementById('habit4');
+        habit4.innerHTML = "Habit 4: " + habit4id;
+
+        function sendMessage(){
+            // var counter = urlParams.get('habit1counter');
+            // if (counter){
+            //     counter = parseInt(counter, 10);
+            //     console.log(counter);
+            //     urlParams.append("habit1counter", counter);
+            // }
+            totalUrl = "http://localhost:8000/habit_planter/"+'habit_tree_1?' +urlParams.toString();
+            document.getElementById("link2").href = totalUrl;
+        }
    </script>
 </body>
 

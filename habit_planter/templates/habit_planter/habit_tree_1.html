@@ -12,6 +12,7 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Alice&family=Quicksand&display=swap" rel="stylesheet">
 	<!-- jquery -->
+	<script type="text/javascript" src="{% static 'habit_planter/vendors/require.js' %}"></script>
 	<script type="text/javascript" src="{% static 'habit_planter/vendors/jquery/jquery-3.3.1.min.js' %}"></script>
 	<script type="text/javascript" src="{% static 'habit_planter/vendors/paper/paper-full.min.js' %}"></script>
 	<link rel="stylesheet" type="text/css" href="{% static 'habit_planter/vendors/bootstrap/css/bootstrap.css' %}" />
@@ -124,7 +125,7 @@
 	<h1>Goal: Run a 6 minute mile</h1>
 	<h2>Habit: Drink 8 cups of water</h2>
 	<p>
-	<h2>Streak: <span id="counter">0</span> Days</h2>
+	<h2 id = "dayordays">Streak: <span id="counter">0</span> Days</h2>
 	</p>
 	<div class="popup">
 		<span class="popuptext1" id="myPopup">
@@ -146,9 +147,9 @@
 		</span>
 	</div>
 	<!-- "location.href='/habit_planter/home_garden'" -->
-	<!-- <a href="{% url 'home_garden' %}"> -->
+	<a href="#" id = "link2">
 	<button onclick=saveCanvas() type="button">Finish Logging Progress</button>
-	<!-- </a> -->
+	</a>
 	<canvas id="myCanvas"></canvas>
 	<div id="color-palette"></div>
 
@@ -164,9 +165,20 @@
 		function closeCompletePopup() {
 			document.getElementById("myCompletePopup").style.visibility = "hidden";
 		}
-		var counter = document.getElementById("counter");
-		var weekCounter = document.getElementById("weekCounter");
+		var url = window.location.href;
+        var queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
 		var streakCounter = 0;
+		var counter = document.getElementById("counter");
+
+		if (urlParams.get("habit1counter")){
+			streakCounterdiffname = urlParams.get('habit1counter');
+			var counterdifName = parseInt(streakCounterdiffname, 10);
+			counter.innerHTML = streakCounterdiffname;
+			streakCounter += counterdifName;
+		}
+
+		var weekCounter = document.getElementById("weekCounter");
 
 
 			// coloring page
@@ -178,14 +190,23 @@
 
 		// tries to save
 
-		// /// view-source:http://paperjs.org/features/#svg-import-and-export
-
+		// /// view-source:http://paperjs.org/features/#svg-import-and-expor 
 		function saveCanvas(){
 			// coloring page
 			var svg = paper.project.exportSVG({ asString: true });
-			var blob = new Blob([ svg], {type: "application/svg+xml;charset=utf-8"});
-			saveAs(blob, "{% static 'habit_planter/images/leaves_big.svg' %}");
-
+			svg = svg.replace('<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="980" height="1742"><defs><clipPath id="clip-1"><rect x="0" y="0" width="877" height="721" fill="none" stroke="none" stroke-linecap="butt"/></clipPath></defs><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="none" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g clip-path="url(#clip-1)">','<svg width="877" height="721" viewBox="0 0 877 721" fill="none" xmlns="http://www.w3.org/2000/svg">');
+			console.log(svg);
+			svg = svg.replace('</g></g>', '');
+			var blob = new Blob([svg], {type: "application/svg+xml;charset=utf-8"});
+			saveAs(blob, "leaves_big.svg");
+			if (streakCounter<=1){
+            	urlParams.append("habit1counter", streakCounter);
+			}
+			else{
+				urlParams.set("habit1counter", streakCounter);
+			}
+			totalUrl = "http://localhost:8000/habit_planter/"+'home_garden?' +urlParams.toString();
+			document.getElementById("link2").href = totalUrl;
 			// console.log(svg);
 			// downloadDataUri({
 			// 	data: 'data:image/svg+xml;base64,' + btoa(svg),
@@ -197,7 +218,7 @@
 			// var canvas = document.getElementById("myCanvas");
 			// console.log("What is this: ", mandala);
 			// // var canvasContext = document.querySelector("myCanvas").getContext("2d");
-			 var blob = new Blob([ mandala], {type: "application/svg+xml;charset=utf-8"});
+			//  var blob = new Blob([ mandala], {type: "application/svg+xml;charset=utf-8"});
 			// // saveAs(new Blob([SVG_DATA_HERE], {type:"application/svg+xml"}), "name.svg")
 			// saveAs(blob, "{% static 'habit_planter/images/leaves_big.svg' %}");
 		}
@@ -305,9 +326,9 @@
 				getColorsCreatePalette();
 
 				paper.project.importSVG(mandala.filePath, function (item) {
-					console.log(item);
 					//print("hello");
 					mandala.item = item._children["design-freepik"];
+					console.log(item);
 					paper.project.insertLayer(0, mandala.item);
 					console.log(paper.project.getItems(mandala));
 
