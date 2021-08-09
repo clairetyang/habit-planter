@@ -122,8 +122,8 @@
 </head>
 
 <body style="text-align:center">
-	<h1>Goal: Run a 6 minute mile</h1>
-	<h2>Habit: Drink 8 cups of water</h2>
+	<h1 id = "goal-label"></h1>
+	<h2 id = "habit1"></h2>
 	<p>
 	<h2 id = "dayordays">Streak: <span id="counter">0</span> Days</h2>
 	</p>
@@ -344,10 +344,20 @@
 
 			// Set up the mandala interactivity.
 			init(true);
+		
+			var url = window.location.href;
+			var queryString = window.location.search;
+			const urlParams = new URLSearchParams(queryString);
+			const goal = urlParams.get('goal');
+			let goalfocus = document.getElementById('goal-label');
+			goalfocus.innerHTML = "Goal: " + goal;
 
+			const habit = urlParams.get('habit1');
+			let habitname = document.getElementById('habit1');
+			habitname.innerHTML = "Habit: " + habit;
+        }
+    </script>
 
-		}
-	</script>
 </body>
 
 </html>
