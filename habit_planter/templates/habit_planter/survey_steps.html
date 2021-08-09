@@ -1,4 +1,4 @@
-h{% load static %}
+{% load static %}
 
 <!DOCTYPE html>
 <html>
@@ -29,9 +29,7 @@ h{% load static %}
         
         <h1 style="font-size: 70px;"> Break down your goals<br>into actionable steps<br>by planting daily habits.  </h1>
 
-        <div class = "row">
-            <h2 id = "goal"></h2>
-        </div>
+        <h2 id = "goal-label">Goal: </h2>
         <!-- habit input boxes -->
         <div class="habit-boxes">
             <input class="form-control habit-input" id = habit1 type="text" placeholder="Habit #1">
@@ -54,7 +52,7 @@ h{% load static %}
         var queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
         const goal = urlParams.get('goal');
-		let goalfocus = document.getElementById('goal');
+		let goalfocus = document.getElementById('goal-label');
 		goalfocus.innerHTML = "Goal: " + goal;
           function sendMessage(message){
             let habit1 = document.getElementById('habit1');

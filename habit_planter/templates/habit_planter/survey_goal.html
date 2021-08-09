@@ -28,13 +28,8 @@
         </div>
 
         <h1> Set a Goal<br>to start your garden</h1>
-        <!-- CHANGE FRONTEND TO MAKE NICER -->
-        <div class = "row">
-            <h2 id = "focus"></h2>
-        </div>
 
-        <div id="goal-label">Focus: </div>
-        <!-- need to receive focus from focus page -->
+        <div id="focus-label">Focus: </div>
         <textarea class="form-control" id="goal-input" rows="3"></textarea>
 
         <div id="suggestions-label"> Suggestions </div>
@@ -55,7 +50,7 @@
         var queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
         const focus = urlParams.get('focus');
-        let goalfocus = document.getElementById('goal-label');
+        let goalfocus = document.getElementById('focus-label');
         goalfocus.innerHTML = "Focus: " + focus;
 
         function sendMessage(message){

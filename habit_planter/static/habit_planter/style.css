@@ -143,7 +143,7 @@ h2 {
 }
 
 /* GOAL-SPECIFICS */
-#goal-label {
+#focus-label {
     position: absolute;
     font-size: 50px;
     font-family: 'Quicksand', sans-serif;
@@ -171,8 +171,17 @@ h2 {
 /* HABITS BOXES */
 .habit-boxes {
     position: absolute;
-    top: 33%;
+    top: 40%;
     width: 100%
+}
+#goal-label {
+    position: absolute;
+    font-size: 50px;
+    font-family: 'Quicksand', sans-serif;
+    top: 30%;
+    left: 15%;
+    width: 75%;
+    word-wrap: break-word;
 }
 
 /* BACK AND NEXT BUTTONS */
