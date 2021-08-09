@@ -142,6 +142,13 @@ h2 {
     font-weight: bold;
 }
 
+/* FOCUS SELECTION */
+.focus-selected {
+    background-color: #49AC65;
+    border: none;
+    color: white;
+}
+
 /* GOAL-SPECIFICS */
 #focus-label {
     position: absolute;

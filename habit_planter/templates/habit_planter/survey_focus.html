@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alice&family=Quicksand&display=swap" rel="stylesheet">
 
+    <script type="text/javascript" src="{% static 'habit_planter/vendors/jquery/jquery-3.3.1.min.js' %}"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'habit_planter/vendors/bootstrap/css/bootstrap.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'habit_planter/style.css' %}" />
 </head>
@@ -33,7 +34,7 @@
         <!-- needs selection function -->
         <div class="card-container">
             <div class="focus-row row">
-                <div class="col-5" onclick = "sendMessage('Physical Health')">Physical<br>Health</div>
+                <div class="col-5" onclick = "sendMessage('Physical Health')" >Physical<br>Health</div>
                 <div class="col-5" onclick = "sendMessage('Productivity')" style="padding-top: 12%;">Productivity</div>
             </div>
             <div class="focus-row row">
@@ -66,6 +67,16 @@
             document.getElementById("link2").href = totalUrl;
 
         }
+        $(function(){
+            $(".col-5").click(function(){
+                if ($(this).hasClass("focus-selected")) {
+                    $(this).removeClass("focus-selected");
+                } else {
+                    $(this).addClass("focus-selected");
+                }
+            });
+        });
+
     </script>
 
     
