@@ -9,83 +9,153 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alice&family=Quicksand&display=swap" rel="stylesheet">
-    
+
     <link rel="stylesheet" type="text/css" href="{% static 'habit_planter/vendors/bootstrap/css/bootstrap.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'habit_planter/style.css' %}" />
+    <style type="text/css">
+        .alpaca {
+            width: 100%;
+            margin-left: 60%;
+
+        }
+
+        /* Popup container - can be anything you want */
+        .popup {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            right: 300px;
+        }
+
+        .popup .popuptext1 {
+            visibility: hidden;
+            background-color: white;
+            position: absolute;
+            /* bottom: 305%; */
+            top: 0px;
+            left: 500px;
+            width: 400px;
+            height: 300px;
+            padding: 40px 40px 40px 40px;
+            border-radius: 30px;
+            font-size: 30px;
+            text-align: center;
+            box-shadow: 0px 0px 15px 5px #245E1B;
+        }
+    </style>
+
 </head>
 
 <body>
-<div class="container">
-    <img class="background" src="{% static 'habit_planter/images/home_garden_bg.png' %}">
+    <div class="container">
 
-    <a href="{% url 'habit_tree_1' %}" onclick = "sendMessage()">
-        <button class="btn next-btn" type="submit" value="submit">Habit 1</button>
-    </a>
+        <a href="{% url 'habit_tree_1' %}" onclick="sendMessage()">
+            <button class="btn next-btn" type="submit" value="submit">Habit 1</button>
+        </a>
 
-    <h1 id= "name"></h1>
-    
-    <div class="home-info">
-        <h2 id= "goal"></h2>
-        <h2 id= "checklist" style="font-weight: bold;"><u> Task's Checklist </u></h2>
+        <h1 id="name"></h1>
 
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="habit1check">
-            <a href="#" id = "habit1tree">
-                <label class="form-check-label" for="habit1check" id= "habit1" onclick = "setInfo('habit1check')"> </label>
-            </a>
-        </div>
+        <div class="home-info">
+            <h2 id="goal"></h2>
+            <h2 id="checklist" style="font-weight: bold;"><u> Task's Checklist </u></h2>
 
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="habit2check">
-            <a href="#" id = "habit2tree">
-                <label class="form-check-label" for="habit2check" id= "habit2" onclick = "setInfo('habit2check')"> </label>
-            </a>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="habit1check">
+                <a href="#" id="habit1tree">
+                    <label class="form-check-label" for="habit1check" id="habit1" onclick="setInfo('habit1check')">
+                    </label>
+                </a>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="habit2check">
+                <a href="#" id="habit2tree">
+                    <label class="form-check-label" for="habit2check" id="habit2" onclick="setInfo('habit2check')">
+                    </label>
+                </a>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="habit3check">
+                <a href="#" id="habit3tree">
+                    <label class="form-check-label" for="habit3check" id="habit3" onclick="setInfo('habit3check')">
+                    </label>
+                </a>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="habit4check">
+                <a href="#" id="habit4tree">
+                    <label class="form-check-label" for="habit4check" id="habit4" onclick="setInfo('habit4check')">
+                    </label>
+                </a>
+            </div>
+            <br><br><br><br>
+
+            <div class="popup" onclick="popupFunction()">
+                <br />
+                <h2 style="font-size: 40px; margin-left: 40%;"> Tap me to learn more!</h2>
+
+                <br />
+                <img class="alpaca" style="margin-right: 5%;" src='/static/habit_planter/images/alpaca.png'>
+                <br />
+
+                <span class="popuptext1" id="myPopup">
+                    <h2 style="font-size: 40px; right: 10%;">
+                        Welcome to Artistree!
+                        <br />Click a label to see that tree!
+                        <a href="/habit_planter/info">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor"
+                                class="bi bi-info-square" viewBox="0 0 16 16">
+                                <path
+                                    d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                                <path
+                                    d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                            </svg>
+                        </a>
+                    </h2>
+                </span>
+            </div>
+
         </div>
-            
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="habit3check">
-            <a href="#" id = "habit3tree">
-                <label class="form-check-label" for="habit3check" id= "habit3" onclick = "setInfo('habit3check')"> </label>
-            </a>
-        </div>
-            
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="habit4check">
-            <a href="#" id = "habit4tree">
-                <label class="form-check-label" for="habit4check" id= "habit4" onclick = "setInfo('habit4check')"> </label>
-            </a>
-        </div>
-        <br><br><br><br>
-        <h2>Click a label to see that tree!</h2>
     </div>
-</div>
-    
 
 
-    <script>
+
+    <script type="text/javascript">
+        function popupFunction() {
+            document.getElementById("myPopup").style.visibility = "visible";
+            var popup = document.getElementById("myPopup");
+            popup.classList.toggle("show");
+        }
+
         window.onload = function () {
-            if (localStorage.getItem('habit1check')){
+            if (localStorage.getItem('habit1check')) {
                 var check1 = document.getElementById("habit1check");
-                check1.setAttribute('checked',true);
+                check1.setAttribute('checked', true);
             }
-            if (localStorage.getItem('habit2check')){
+            if (localStorage.getItem('habit2check')) {
                 var check2 = document.getElementById("habit2check");
-                check2.setAttribute('checked',true);
+                check2.setAttribute('checked', true);
             }
-            if (localStorage.getItem('habit3check')){
+            if (localStorage.getItem('habit3check')) {
                 var check3 = document.getElementById("habit3check");
-                check3.setAttribute('checked',true);
+                check3.setAttribute('checked', true);
             }
-            if (localStorage.getItem('habit4check')){
+            if (localStorage.getItem('habit4check')) {
                 var check4 = document.getElementById("habit4check");
-                check4.setAttribute('checked',true);
+                check4.setAttribute('checked', true);
             }
         }
-        function setInfo(message){
+        function setInfo(message) {
             localStorage.setItem(message, true)
-            idstring = message.substring(0,6) + "tree";
+            idstring = message.substring(0, 6) + "tree";
             numvalue = idstring.charAt(5);
-            totalUrl = "http://localhost:8000/habit_planter/"+'habit_tree_' + numvalue+'?' +urlParams.toString();
+            totalUrl = "http://localhost:8000/habit_planter/" + 'habit_tree_' + numvalue + '?' + urlParams.toString();
             document.getElementById(idstring).href = totalUrl;
             // console.log("idstring: " + idstring);
             // console.log("link: " + document.getElementById(idstring).href);
@@ -94,15 +164,15 @@
         var url = window.location.href;
         var queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
-        
+
         const nameid = localStorage.getItem("name");
         let name = document.getElementById('name');
-        name.innerHTML = "Good Morning, "+ nameid;
-        
+        name.innerHTML = "Good Morning, " + nameid;
+
         const focus = localStorage.getItem('focus');
         const focusList = localStorage.getItem("focusList");
 
-       
+
         const goalid = urlParams.get('goal');
         let goal = document.getElementById('goal');
         goal.innerHTML = "Goal: " + goalid;
@@ -116,7 +186,7 @@
         let habit2 = document.getElementById('habit2');
         // habit2.innerHTML = "Habit 2: " + habit2id;
         habit2.innerHTML = habit2id;
-        
+
         const habit3id = localStorage.getItem('habit3');
         let habit3 = document.getElementById('habit3');
         // habit3.innerHTML = "Habit 3: " + habit3id;
@@ -127,17 +197,17 @@
         // habit4.innerHTML = "Habit 4: " + habit4id;
         habit4.innerHTML = habit4id;
 
-        function sendMessage(){
+        function sendMessage() {
             // var counter = urlParams.get('habit1counter');
             // if (counter){
             //     counter = parseInt(counter, 10);
             //     console.log(counter);
             //     urlParams.append("habit1counter", counter);
             // }
-            totalUrl = "http://localhost:8000/habit_planter/"+'habit_tree_1?' +urlParams.toString();
+            totalUrl = "http://localhost:8000/habit_planter/" + 'habit_tree_1?' + urlParams.toString();
             document.getElementById("link2").href = totalUrl;
         }
-   </script>
+    </script>
 </body>
 
 </html>
