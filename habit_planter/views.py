@@ -52,3 +52,9 @@ def send_to(request):
 
 def send_to2(request):
     return render(request, 'habit_planter/sendTo2.html')
+
+def info(request):
+    return render(request, 'habit_planter/info.html')
+
+def congratulations(request):
+    return render(request, 'habit_planter/congratulations.html')

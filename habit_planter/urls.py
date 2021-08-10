@@ -20,6 +20,7 @@ urlpatterns = [
     path('habit_tree_2', views.habit_tree_2, name = 'habit_tree_2'),
     path('habit_tree_3', views.habit_tree_3, name = 'habit_tree_3'),
     path('habit_tree_4', views.habit_tree_4, name = 'habit_tree_4'),
-
-
+    path('info', views.info, name = 'info'),
+    path('congratulations', views.congratulations, name = 'congratulations'),
+    
 ]
