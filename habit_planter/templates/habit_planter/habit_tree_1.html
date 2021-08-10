@@ -172,13 +172,15 @@
         var queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
 		var streakCounter = 0;
+		localStorage.setItem("", "value");
 		var counter = document.getElementById("counter");
 
-		if (urlParams.get("habit1counter")){
-			streakCounterdiffname = urlParams.get('habit1counter');
+		if (localStorage.getItem("streakCounter")){
+			streakCounterdiffname = localStorage.getItem("streakCounter");
 			var counterdifName = parseInt(streakCounterdiffname, 10);
 			counter.innerHTML = streakCounterdiffname;
 			streakCounter += counterdifName;
+			localStorage.setItem("streakCounter", streakCounter)
 		}
 
 		var weekCounter = document.getElementById("weekCounter");
@@ -201,17 +203,32 @@
 			svg = svg.substring(indexOfStart);
 			svg = '<svg width="877" height="721" viewBox="0 0 877 721" fill="none" xmlns="http://www.w3.org/2000/svg">' +svg;
 			svg = svg.replace('</g></g>', '');
-			localStorage.setItem("leaves_big",  svg);
-			if (streakCounter<=1){
-            	urlParams.append("habit1counter", streakCounter);
-			}
-			else{
-				urlParams.set("habit1counter", streakCounter);
-			}
-			svg = svg.replace('</g></g>', '');
-			totalUrl = "http://localhost:8000/habit_planter/"+'home_garden?' +urlParams.toString();
-			document.getElementById("link2").href = totalUrl;
-		
+			localStorage.setItem("leaves_big", svg);
+			
+			localStorage.setItem("streakCounter", streakCounter)
+			// if (streakCounter<=1){
+            // 	urlParams.append("habit1counter", streakCounter);
+			// }
+			// else{
+			// 	urlParams.set("habit1counter", streakCounter);
+			// }
+			totalUrl = "http://localhost:8000/habit_planter/home_garden?" + urlParams.toString();
+			document.getElementById("link2").href = totalUrl
+			
+			// console.log(svg);
+			// downloadDataUri({
+			// 	data: 'data:image/svg+xml;base64,' + btoa(svg),
+			// 	filename: 'leaves_big.svg'
+			// });
+
+		///view source svg import
+			// paper.project.exportSVG(mandala, "{% static 'habit_planter/images/leaves_big.svg' %}");
+			// var canvas = document.getElementById("myCanvas");
+			// console.log("What is this: ", mandala);
+			// // var canvasContext = document.querySelector("myCanvas").getContext("2d");
+			//  var blob = new Blob([ mandala], {type: "application/svg+xml;charset=utf-8"});
+			// // saveAs(new Blob([SVG_DATA_HERE], {type:"application/svg+xml"}), "name.svg")
+			// saveAs(blob, "{% static 'habit_planter/images/leaves_big.svg' %}");
 		}
 		window.onload = function () {
 			var canvas = document.getElementById('myCanvas');
@@ -305,12 +322,13 @@
 			function init(custom) {
 				paper.setup(canvas);
 				getColorsCreatePalette();
-				
-				svg  = localStorage.getItem("leaves_big");
-				if (!svg){
-					svg = mandala.filePath;
+
+				svg = localStorage.getItem("leaves_big");
+				if (!svg) {
+					svg = mandala.filePath
 				}
-				console.log(svg);
+				
+				//svg = localStorage.setItem("leaves_big");
 				paper.project.importSVG(svg, function (item) {
 					//print("hello");
 					mandala.item = item._children["design-freepik"];
