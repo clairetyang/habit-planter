@@ -153,6 +153,9 @@
 	<a href="#" id = "link2">
 	<button onclick=saveCanvas() type="button">Finish Logging Progress</button>
 	</a>
+	<!-- <a href="#" id = "link3">
+		<button onclick=reset() type="button">Reset</button>
+		</a> -->
 	<canvas id="myCanvas"></canvas>
 	<div id="color-palette"></div>
 
@@ -162,6 +165,10 @@
 	// import { saveAs } from 'file-saver';
 	// FileSaver saveAs(Blob,DOMString filename);
 
+		// function reset(){
+		// 	localStorage.removeItem("leaves_big_habit1");
+		// 	localStorage.removeItem("streakCounter_habit1");
+		// }
 		function closePopup() {
 			document.getElementById("myPopup").style.visibility = "hidden";
 		}
@@ -170,17 +177,14 @@
 		}
 		var url = window.location.href;
         var queryString = window.location.search;
-        const urlParams = new URLSearchParams(queryString);
 		var streakCounter = 0;
-		localStorage.setItem("", "value");
 		var counter = document.getElementById("counter");
-
-		if (localStorage.getItem("streakCounter")){
-			streakCounterdiffname = localStorage.getItem("streakCounter");
+		var streakCounterdiffname = localStorage.getItem("streakCounter_habit1");
+		if (streakCounterdiffname){
 			var counterdifName = parseInt(streakCounterdiffname, 10);
 			counter.innerHTML = streakCounterdiffname;
 			streakCounter += counterdifName;
-			localStorage.setItem("streakCounter", streakCounter)
+			localStorage.setItem("streakCounter_habit1", streakCounter)
 		}
 
 		var weekCounter = document.getElementById("weekCounter");
@@ -203,16 +207,16 @@
 			svg = svg.substring(indexOfStart);
 			svg = '<svg width="877" height="721" viewBox="0 0 877 721" fill="none" xmlns="http://www.w3.org/2000/svg">' +svg;
 			svg = svg.replace('</g></g>', '');
-			localStorage.setItem("leaves_big", svg);
+			localStorage.setItem("leaves_big_habit1", svg);
 			
-			localStorage.setItem("streakCounter", streakCounter)
+			localStorage.setItem("streakCounter_habit1", streakCounter)
 			// if (streakCounter<=1){
             // 	urlParams.append("habit1counter", streakCounter);
 			// }
 			// else{
 			// 	urlParams.set("habit1counter", streakCounter);
 			// }
-			totalUrl = "http://localhost:8000/habit_planter/home_garden?" + urlParams.toString();
+			totalUrl = "http://localhost:8000/habit_planter/home_garden?"
 			document.getElementById("link2").href = totalUrl
 			
 			// console.log(svg);
@@ -323,7 +327,7 @@
 				paper.setup(canvas);
 				getColorsCreatePalette();
 
-				svg = localStorage.getItem("leaves_big");
+				svg = localStorage.getItem("leaves_big_habit1");
 				if (!svg) {
 					svg = mandala.filePath
 				}
@@ -349,16 +353,11 @@
 			// Set up the mandala interactivity.
 			init(true);
 		
-			var url = window.location.href;
-			var queryString = window.location.search;
-			const urlParams = new URLSearchParams(queryString);
-			const goal = urlParams.get('goal');
 			let goalfocus = document.getElementById('goal1-label');
-			goalfocus.innerHTML = "Goal: " + goal;
+			goalfocus.innerHTML = "Goal: " + localStorage.getItem("goal");
 
-			const habit = urlParams.get('habit1');
 			let habitname = document.getElementById('habit1');
-			habitname.innerHTML = "Habit: " + habit;
+			habitname.innerHTML = "Habit: " + localStorage.getItem("habit1");
         }
     </script>
 

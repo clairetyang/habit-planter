@@ -152,10 +152,12 @@ h2 {
 /* GOAL-SPECIFICS */
 #focus-label {
     position: absolute;
-    font-size: 50px;
+    font-size: 30px;
     font-family: 'Quicksand', sans-serif;
     top: 28%;
-    left: 15%;
+    left: 13%;
+    /* word-wrap: break-word; */
+    width: 80%;
 }
 #suggestions-label {
     position: absolute;
@@ -174,6 +176,16 @@ h2 {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
 }
+ul{
+    list-style-type: disc;
+    text-align: left;
+    font-size: 30px;
+    margin: 30px;
+    line-height: 70px;
+    font-family: 'Quicksand';
+    font-weight: bold;
+    color: #EFFFF0;
+}
 
 /* HABITS BOXES */
 .habit-boxes {
@@ -185,7 +197,7 @@ h2 {
     position: absolute;
     font-size: 50px;
     font-family: 'Quicksand', sans-serif;
-    top: 10%;
+    top: 25%;
     left: 15%;
     width: 75%;
     word-wrap: break-word;
