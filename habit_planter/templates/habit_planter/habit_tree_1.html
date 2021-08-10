@@ -20,6 +20,16 @@
 
 
 	<style type="text/css">
+		#goal1-label {
+			top: 5%;
+		}
+		
+		#grass {
+			position: absolute;
+			bottom:0;
+			right:0;
+			
+		}
 		#color-palette {
 			background-color: none;
 			display: flex;
@@ -27,7 +37,6 @@
 			position: absolute;
 			bottom: 10%;
 			left: 20%;
-
 		}
 
 		.swatch {
@@ -128,7 +137,7 @@
 	<h1 id = "goal1-label"></h1>
 	<h2 id = "habit1"></h2>
 	<p>
-	<h2 id = "dayordays">Streak: <span id="counter">0</span> Days</h2>
+	<h2 id = "dayordays">Counter: <span id="counter">0</span> Days</h2>
 	</p>
 	<div class="popup">
 		<span class="popuptext1" id="myPopup">
@@ -157,8 +166,8 @@
 		<button onclick=reset() type="button">Reset</button>
 		</a> -->
 	<canvas id="myCanvas"></canvas>
+	<img id="grass" style="width:100%;" src="{% static 'habit_planter/images/grass.png' %}">
 	<div id="color-palette"></div>
-
 
 	<script src = "{% static 'habit_planter/vendors/FileSaver.js-master/src/FileSaver.js' %}"></script>
 	<script type="text/javascript" canvas="canvas">
