@@ -125,7 +125,7 @@
 </head>
 
 <body style="text-align:center">
-	<h1 id = "goal-label"></h1>
+	<h1 id = "goal1-label"></h1>
 	<h2 id = "habit1"></h2>
 	<p>
 	<h2 id = "dayordays">Streak: <span id="counter">0</span> Days</h2>
@@ -150,9 +150,9 @@
 		</span>
 	</div>
 	<!-- "location.href='/habit_planter/home_garden'" -->
-	<!-- <a href="#" id = "link2"> -->
+	<a href="#" id = "link2">
 	<button onclick=saveCanvas() type="button">Finish Logging Progress</button>
-	<!-- </a> -->
+	</a>
 	<canvas id="myCanvas"></canvas>
 	<div id="color-palette"></div>
 
@@ -182,7 +182,7 @@
 		}
 
 		var weekCounter = document.getElementById("weekCounter");
-
+		console.log(new Date().toString());
 
 			// coloring page
 			var mandala = {
@@ -201,30 +201,17 @@
 			svg = svg.substring(indexOfStart);
 			svg = '<svg width="877" height="721" viewBox="0 0 877 721" fill="none" xmlns="http://www.w3.org/2000/svg">' +svg;
 			svg = svg.replace('</g></g>', '');
-			var blob = new Blob([svg], {type: "application/svg+xml;charset=utf-8"});
-			saveAs(blob, "leaves_big.svg");
+			localStorage.setItem("leaves_big",  svg);
 			if (streakCounter<=1){
             	urlParams.append("habit1counter", streakCounter);
 			}
 			else{
 				urlParams.set("habit1counter", streakCounter);
 			}
+			svg = svg.replace('</g></g>', '');
 			totalUrl = "http://localhost:8000/habit_planter/"+'home_garden?' +urlParams.toString();
 			document.getElementById("link2").href = totalUrl;
-			// console.log(svg);
-			// downloadDataUri({
-			// 	data: 'data:image/svg+xml;base64,' + btoa(svg),
-			// 	filename: 'leaves_big.svg'
-			// });
-
-		///view source svg import
-			// paper.project.exportSVG(mandala, "{% static 'habit_planter/images/leaves_big.svg' %}");
-			// var canvas = document.getElementById("myCanvas");
-			// console.log("What is this: ", mandala);
-			// // var canvasContext = document.querySelector("myCanvas").getContext("2d");
-			//  var blob = new Blob([ mandala], {type: "application/svg+xml;charset=utf-8"});
-			// // saveAs(new Blob([SVG_DATA_HERE], {type:"application/svg+xml"}), "name.svg")
-			// saveAs(blob, "{% static 'habit_planter/images/leaves_big.svg' %}");
+		
 		}
 		window.onload = function () {
 			var canvas = document.getElementById('myCanvas');
@@ -311,15 +298,20 @@
 					
 				// 	createColorPalette(cp.options);
 				// });
-				createColorPalette(["#ED9716", "#E50707", "#D04691", "#2C7520", "#E1E445", "#58C800"]);
+				createColorPalette(["#ED9716", "#E50707", "#D04691", "#2C7520", "#E1E445", "#58C800", "#FFFFFF"]);
 
 			}
 
 			function init(custom) {
 				paper.setup(canvas);
 				getColorsCreatePalette();
-
-				paper.project.importSVG(mandala.filePath, function (item) {
+				
+				svg  = localStorage.getItem("leaves_big");
+				if (!svg){
+					svg = mandala.filePath;
+				}
+				console.log(svg);
+				paper.project.importSVG(svg, function (item) {
 					//print("hello");
 					mandala.item = item._children["design-freepik"];
 					console.log(item);
@@ -343,7 +335,7 @@
 			var queryString = window.location.search;
 			const urlParams = new URLSearchParams(queryString);
 			const goal = urlParams.get('goal');
-			let goalfocus = document.getElementById('goal-label');
+			let goalfocus = document.getElementById('goal1-label');
 			goalfocus.innerHTML = "Goal: " + goal;
 
 			const habit = urlParams.get('habit1');
