@@ -41,26 +41,54 @@
         <a href="{% url 'survey_focus' %}">
             <button class="btn back-btn">Back</button>
         </a>
-        <a href="#"id = "link2" onclick = sendMessage()>
-            <button class="btn next-btn" type="submit" value="submit">Next</button>
-        </a>
+        <a href="{% url 'survey_steps' %}"> -->
+            <button class="btn next-btn" onclick = sendMessage()>Next</button>
+         </a>
     </div>
     <script>
-        var url = window.location.href;
-        var queryString = window.location.search;
-        const urlParams = new URLSearchParams(queryString);
-        const focus = urlParams.get('focus');
-        let goalfocus = document.getElementById('focus-label');
-        goalfocus.innerHTML = "Focus: " + focus;
+        let focusList = ""
+        if (localStorage.getItem('Technical Skills')) {
+            focusList = focusList.concat('Technical Skills')
+        }
+        if (localStorage.getItem('Sales & Commissions')) {
+            if (focusList != "") {
+                focusList = focusList.concat(', ')
+            }
+            focusList = focusList.concat('Sales & Commissions')
+        }
+        if (localStorage.getItem('Social Media')) {
+            if (focusList != "") {
+                focusList = focusList.concat(', ')
+            }
+            focusList = focusList.concat('Social Media')
+        }
+        if (localStorage.getItem('Experiment')) {
+            if (focusList != "") {
+                focusList = focusList.concat(', ')
+            }
+            focusList = focusList.concat('Experiment')
+        }
+        if (localStorage.getItem('Challenges')) {
+            if (focusList != "") {
+                focusList = focusList.concat(', ')
+            }
+            focusList = focusList.concat('Challenges')
+        }
+        if (localStorage.getItem('Other')) {
+            if (focusList != "") {
+                focusList = focusList.concat(', ')
+            }
+            focusList = focusList.concat('Other')
+        }
 
-        function sendMessage(message){
+        let goalfocus = document.getElementById('focus-label');
+        goalfocus.innerHTML = "Focus: " + focusList;
+
+        function sendMessage(){
             let goalfocus = document.getElementById('goal-input');
-            console.log(goalfocus.value);
-            urlParams.append("goal", goalfocus.value);
-            console.log(urlParams.toString());
-            totalUrl = "http://localhost:8000/habit_planter/"+'survey_steps?' +urlParams.toString();
-            console.log(totalUrl);
-            document.getElementById("link2").href = totalUrl;
+            localStorage.setItem("goal", goalfocus.value)
+            console.log(goalfocus.value)
+           
         }
     </script>
 </body>

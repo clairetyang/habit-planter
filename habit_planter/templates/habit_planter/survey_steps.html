@@ -48,12 +48,11 @@
         </a>
     </div>
     <script>
-        var url = window.location.href;
-        var queryString = window.location.search;
-        const urlParams = new URLSearchParams(queryString);
-        const goal = urlParams.get('goal');
+      
+        var goal = localStorage.getItem("goal")
 		let goalfocus = document.getElementById('goal-label');
 		goalfocus.innerHTML = "Goal: " + goal;
+         
           function sendMessage(message){
             let habit1 = document.getElementById('habit1');
             let habit2 = document.getElementById('habit2');

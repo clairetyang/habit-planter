@@ -34,16 +34,16 @@
         <!-- needs selection function -->
         <div class="card-container">
             <div class="focus-row row">
-                <div class="col-5" onclick = "sendMessage('Physical Health')" >Physical<br>Health</div>
-                <div class="col-5" onclick = "sendMessage('Productivity')" style="padding-top: 12%;">Productivity</div>
+                <div class="col-5" onclick = "sendMessage('Technical Skills')" >Technical<br>Skills</div>
+                <div class="col-5" onclick = "sendMessage('Sales & Commissions')">Sales &<br>Commissions</div>
             </div>
             <div class="focus-row row">
-                <div class="col-5" onclick = "sendMessage('Mental Health')">Mental<br>Health</div>
-                <div class="col-5" style="padding-top: 12%;" onclick = "sendMessage('Finances')">Finances</div>
+                <div class="col-5" onclick = "sendMessage('Social Media')">Social<br>Media</div>
+                <div class="col-5" onclick = "sendMessage('Experiment')">Experiment</div>
             </div>
             <div class="focus-row row">
-                <div class="col-5" onclick = "sendMessage('Social Wellbeing')">Social<br>Wellbeing</div>
-                <div class="col-5" onclick = "sendMessage('Career Work')">Career/<br>Work</div>
+                <div class="col-5" onclick = "sendMessage('Challenges')">Challenges</div>
+                <div class="col-5" onclick = "sendMessage('Other')">Other</div>
             </div>
         </div>
 
@@ -51,22 +51,17 @@
         <a href="{% url 'survey_name' %}" id = "link1">
             <button class="btn back-btn">Back</button>
         </a>
-        <a href="#"id = "link2">
-            <button class="btn next-btn" type="submit" value="submit">Next</button>
+        <a href="{% url 'survey_goal' %}" id = "link2">
+            <button class="btn next-btn">Next</button>
         </a>
     </div>
     <script>
         function sendMessage(message){
-            var url = window.location.href;
-            var queryString = window.location.search;
-            const urlParams = new URLSearchParams(queryString);
-            urlParams.append("focus", message);
-            console.log(urlParams.toString());
-            totalUrl = "http://localhost:8000/habit_planter/"+'survey_goal?' +urlParams.toString();
-            console.log(totalUrl);
-            document.getElementById("link2").href = totalUrl;
-
+        
+			localStorage.setItem(message, true);
         }
+
+    
         $(function(){
             $(".col-5").click(function(){
                 if ($(this).hasClass("focus-selected")) {
