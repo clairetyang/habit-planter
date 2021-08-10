@@ -106,8 +106,8 @@
 
                 <span class="popuptext1" id="myPopup">
                     <h2 style="font-size: 40px; right: 10%;">
-                        Welcome to Artistree!
                         <br />Click a label to see that tree!
+                        <br/>
                         <a href="/habit_planter/info">
                             <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor"
                                 class="bi bi-info-square" viewBox="0 0 16 16">
@@ -130,7 +130,6 @@
             var popup = document.getElementById("myPopup");
             popup.classList.toggle("show");
         }
-
         window.onload = function () {
             var streak1 = parseInt(localStorage.getItem("streakCounter_habit1"),10);
             var streak2 = parseInt(localStorage.getItem("streakCounter_habit2"), 10);
