@@ -1,0 +1,101 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Congratulations</title>
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alice&family=Quicksand&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'habit_planter/vendors/bootstrap/css/bootstrap.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'habit_planter/style.css' %}" />
+    <style>
+        html,
+        body {
+            background-image: 'habit_planter/images/home_garden_bg.png';
+            /* <img class="background" src="{% static 'habit_planter/images/home_garden_bg.png' %}"> */
+            width: 100%;
+            height: 100%;
+            color: white;
+            color: #245E1B;
+        }
+
+        h1 {
+            position: relative;
+            font-size: 80px;
+            top: 80px;
+            left: 0px;
+            text-align: center;
+        }
+
+        h2 {
+            /* position: absolute; */
+            position: relative;
+            font-family: 'Quicksand', sans-serif;
+            top:73px;
+            font-size: 70px;
+            text-align: center;
+        }
+
+        .info {
+            background-color: white;
+            position: absolute;
+            /* bottom: 305%; */
+            top: 280px;
+            left: 90px;
+            width: 800px;
+            height: 1280px;
+            padding: 40px 40px 40px 40px;
+            border-radius: 30px;
+            font-size: 42px;
+            text-align: left;
+            box-shadow: 0px 0px 15px 5px #245E1B;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <div class="container">
+        <!-- <img class="background" src="{% static 'habit_planter/images/survey_intro_bg.png' %}"> -->
+
+        <h2>artistree</h2>
+        <h1> Congratulations </h1>
+        <h2 class="info">
+            Clicking on each task under the checklist leads you to a tree representing your progress for each task.
+            <br />
+            Everytime you complete a task, check in by coloring in a leaf by tapping on the color and then a leaf.
+            <br />
+            The counter represents the number of days you have completed the task.
+            <br />
+            For every week you’ve checked in, you’ll receive a butterfly notification congratulating you on your hard
+            work.
+            <br />
+            Coloring in all the leaves indicates that you’ve successfully completed the task for 28 days. This indicates
+            that you are familiar with the task and have gained a new skill to aid you in your future art journey.
+            <br />
+            You’ll be rewarded with an alpaca for completing the tree and for making great progress towards your overall
+            goal.
+        </h2>
+        <!-- navigation buttons -->
+        <a href="{% url 'survey_focus' %}" onclick="sendMessage()">
+            <button class="btn next-btn" type="submit" value="submit" style="bottom: 60px;">Back</button>
+        </a>
+    </div>
+    <script>
+        var url = window.location.href;
+        var queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        function sendMessage(message) {
+            let namefocus = document.getElementById('name-input');
+            localStorage.setItem("name", namefocus.value)
+        }
+    </script>
+
+</body>
+
+</html>
