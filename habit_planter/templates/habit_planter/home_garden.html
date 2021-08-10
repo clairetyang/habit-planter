@@ -18,7 +18,7 @@
 <div class="container">
     <img class="background" src="{% static 'habit_planter/images/home_garden_bg.png' %}">
 
-    <a href="#" id = "link2" onclick = "sendMessage()">
+    <a href="{% url 'habit_tree_1' %}" onclick = "sendMessage()">
         <button class="btn next-btn" type="submit" value="submit">Habit 1</button>
     </a>
 
@@ -26,36 +26,74 @@
     
     <div class="home-info">
         <h2 id= "goal"></h2>
-        <h2 id= "checklist" style="font-weight: bold;"><u> Today's Checklist </u></h2>
+        <h2 id= "checklist" style="font-weight: bold;"><u> Task's Checklist </u></h2>
 
         <div class="form-check">
             <input class="form-check-input" type="checkbox" value="" id="habit1check">
-            <label class="form-check-label" for="habit1check" id= "habit1"> </label>
+            <a href="#" id = "habit1tree">
+                <label class="form-check-label" for="habit1check" id= "habit1" onclick = "setInfo('habit1check')"> </label>
+            </a>
         </div>
 
         <div class="form-check">
             <input class="form-check-input" type="checkbox" value="" id="habit2check">
-            <label class="form-check-label" for="habit2check" id= "habit2"> </label>
+            <a href="#" id = "habit2tree">
+                <label class="form-check-label" for="habit2check" id= "habit2" onclick = "setInfo('habit2check')"> </label>
+            </a>
         </div>
             
         <div class="form-check">
             <input class="form-check-input" type="checkbox" value="" id="habit3check">
-            <label class="form-check-label" for="habit3check" id= "habit3"> </label>
+            <a href="#" id = "habit3tree">
+                <label class="form-check-label" for="habit3check" id= "habit3" onclick = "setInfo('habit3check')"> </label>
+            </a>
         </div>
             
         <div class="form-check">
             <input class="form-check-input" type="checkbox" value="" id="habit4check">
-            <label class="form-check-label" for="habit4check" id= "habit4"> </label>
+            <a href="#" id = "habit4tree">
+                <label class="form-check-label" for="habit4check" id= "habit4" onclick = "setInfo('habit4check')"> </label>
+            </a>
         </div>
+        <br><br><br><br>
+        <h2>Click a label to see that tree!</h2>
     </div>
 </div>
     
 
 
     <script>
-        // var url = window.location.href;
-        // var queryString = window.location.search;
-        // const urlParams = new URLSearchParams(queryString);
+        window.onload = function () {
+            if (localStorage.getItem('habit1check')){
+                var check1 = document.getElementById("habit1check");
+                check1.setAttribute('checked',true);
+            }
+            if (localStorage.getItem('habit2check')){
+                var check2 = document.getElementById("habit2check");
+                check2.setAttribute('checked',true);
+            }
+            if (localStorage.getItem('habit3check')){
+                var check3 = document.getElementById("habit3check");
+                check3.setAttribute('checked',true);
+            }
+            if (localStorage.getItem('habit4check')){
+                var check4 = document.getElementById("habit4check");
+                check4.setAttribute('checked',true);
+            }
+        }
+        function setInfo(message){
+            localStorage.setItem(message, true)
+            idstring = message.substring(0,6) + "tree";
+            numvalue = idstring.charAt(5);
+            totalUrl = "http://localhost:8000/habit_planter/"+'habit_tree_' + numvalue+'?' +urlParams.toString();
+            document.getElementById(idstring).href = totalUrl;
+            // console.log("idstring: " + idstring);
+            // console.log("link: " + document.getElementById(idstring).href);
+            window.location.replace(totalUrl);
+        }
+        var url = window.location.href;
+        var queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
         
         const nameid = localStorage.getItem("name");
         let name = document.getElementById('name');
