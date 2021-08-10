@@ -53,36 +53,38 @@
 
 
     <script>
-        var url = window.location.href;
-        var queryString = window.location.search;
-        const urlParams = new URLSearchParams(queryString);
+        // var url = window.location.href;
+        // var queryString = window.location.search;
+        // const urlParams = new URLSearchParams(queryString);
         
-        const nameid = urlParams.get('name');
+        const nameid = localStorage.getItem("name");
         let name = document.getElementById('name');
         name.innerHTML = "Good Morning, "+ nameid;
         
-        const foucs = urlParams.get('focus');
+        const focus = localStorage.getItem('focus');
+        const focusList = localStorage.getItem("focusList");
+
        
         const goalid = urlParams.get('goal');
         let goal = document.getElementById('goal');
         goal.innerHTML = "Goal: " + goalid;
 
-        const habit1id = urlParams.get('habit1');
+        const habit1id = localStorage.getItem('habit1');
         let habit1 = document.getElementById('habit1');
         // habit1.innerHTML = "Habit 1: " + habit1id;
         habit1.innerHTML = habit1id;
 
-        const habit2id = urlParams.get('habit2');
+        const habit2id = localStorage.getItem('habit2');
         let habit2 = document.getElementById('habit2');
         // habit2.innerHTML = "Habit 2: " + habit2id;
         habit2.innerHTML = habit2id;
         
-        const habit3id = urlParams.get('habit3');
+        const habit3id = localStorage.getItem('habit3');
         let habit3 = document.getElementById('habit3');
         // habit3.innerHTML = "Habit 3: " + habit3id;
         habit3.innerHTML = habit3id;
 
-        const habit4id = urlParams.get('habit4');
+        const habit4id = localStorage.getItem('habit4');
         let habit4 = document.getElementById('habit4');
         // habit4.innerHTML = "Habit 4: " + habit4id;
         habit4.innerHTML = habit4id;

@@ -33,7 +33,7 @@
         <input class="form-control" id="name-input" type="text" placeholder="Name">
 
         <!-- navigation buttons -->
-        <a href="#" id = "link2" onclick = "sendMessage()">
+        <a href = "{% url 'survey_focus' %}" onclick = "sendMessage()">
             <button class="btn next-btn" type="submit" value="submit">Next</button>
         </a>
     </div>
@@ -43,12 +43,7 @@
         const urlParams = new URLSearchParams(queryString);
         function sendMessage(message){
             let namefocus = document.getElementById('name-input');
-            console.log(namefocus.value);
-            urlParams.append("name", namefocus.value);
-            console.log(urlParams.toString());
-            totalUrl = "http://localhost:8000/habit_planter/"+'survey_focus?' +urlParams.toString();
-            console.log(totalUrl);
-            document.getElementById("link2").href = totalUrl;
+            localStorage.setItem("name", namefocus.value)
         }
     </script>
 

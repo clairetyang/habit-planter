@@ -81,6 +81,8 @@
             focusList = focusList.concat('Other')
         }
 
+        localStorage.setItem("focusList", focusList);
+
         let goalfocus = document.getElementById('focus-label');
         goalfocus.innerHTML = "Focus: " + focusList;
 
