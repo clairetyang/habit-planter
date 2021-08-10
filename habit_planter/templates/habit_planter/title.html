@@ -16,9 +16,30 @@
 
 
 <body>
-<br /><br /><br /><br /><br/>
-    <h1> Habit Planter </h1>
+    <div class="container">
+        <img class="background" src="{% static 'habit_planter/images/title_bg.png' %}">
+        <h1 style="font-family:'Quicksand';"> artistree </h1>
 
+        <a href="{% url 'survey_name' %}">
+            <h2> start your journey > </h2>
+        </a>
+    </div>
 </body>
+
+<style>
+    h1 {
+        top: 20%;
+        left: 27%;
+        font-size:120px;
+    }
+    h2 {
+        position:absolute;
+        font-size:60px;
+        top: 40%;
+        left: 22%;
+        color: #1C6F1F;
+    }
+
+</style>
 
 </html>
