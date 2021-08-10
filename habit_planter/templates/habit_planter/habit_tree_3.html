@@ -26,7 +26,7 @@
 			flex-wrap: wrap;
 			position: absolute;
 			bottom: 10%;
-			left: 3%;
+			left: 20%;
 
 		}
 
@@ -40,12 +40,15 @@
 		}
 
 		#myCanvas {
+			background-image: url('/static/habit_planter/images/trunk.png');
+			background-repeat: no-repeat;
 			width: 100%;
 			height: 100%;
-
+			margin-left: 5%;
+			margin-top: 20%;
 		}
 
-		/* Popup container - can be anything you want */
+	/* Popup container - can be anything you want */
 		.popup {
 			position: relative;
 			display: inline-block;
@@ -122,21 +125,21 @@
 </head>
 
 <body style="text-align:center">
-	<h1 id = "goal-label"></h1>
-	<h2 id = "habit3"></h2>
+	<h1 id = "goal1-label"></h1>
+	<h2 id = "habit1"></h2>
 	<p>
 	<h2 id = "dayordays">Streak: <span id="counter">0</span> Days</h2>
 	</p>
 	<div class="popup">
 		<span class="popuptext1" id="myPopup">
 			<img class="butterfly" src='/static/habit_planter/images/butterfly.png'>
-			<h2>Congratulations on your <br />⭐<span id="weekCounter">0</span>-week streak⭐️!
+			<h2 style="font-size: 40px;">Congratulations on your <br />⭐<span id="weekCounter">0</span>-week streak⭐️!
 				<br />To celebrate, we’ve added a butterfly to your garden!
 			</h2>
 			<input type="button" onclick="closePopup();" value="Close" />
 		</span>
 		<span class="popuptext2" id="myCompletePopup">
-			<h2>Congratulations on forming your habit, you’re unbe-<b>leaf</b>-avable!
+			<h2 style="font-size: 40px;">Congratulations on forming your habit, you’re unbe-<b>leaf</b>-avable!
 				<br />We hope you continue your EBIC self-growth journey.
 				<br />Here’s an <b>alpaca</b> to celebrate : D
 				<br/>
@@ -150,6 +153,9 @@
 	<a href="#" id = "link2">
 	<button onclick=saveCanvas() type="button">Finish Logging Progress</button>
 	</a>
+	<!-- <a href="#" id = "link3">
+		<button onclick=reset() type="button">Reset</button>
+		</a> -->
 	<canvas id="myCanvas"></canvas>
 	<div id="color-palette"></div>
 
@@ -159,6 +165,10 @@
 	// import { saveAs } from 'file-saver';
 	// FileSaver saveAs(Blob,DOMString filename);
 
+		// function reset(){
+		// 	localStorage.removeItem("leaves_big_habit3");
+		// 	localStorage.removeItem("streakCounter_habit3");
+		// }
 		function closePopup() {
 			document.getElementById("myPopup").style.visibility = "hidden";
 		}
@@ -169,17 +179,18 @@
         var queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
 		var streakCounter = 0;
+		localStorage.setItem("", "value");
 		var counter = document.getElementById("counter");
-
-		if (urlParams.get("habit1counter")){
-			streakCounterdiffname = urlParams.get('habit1counter');
+		var streakCounterdiffname = localStorage.getItem("streakCounter_habit3");
+		if (streakCounterdiffname){
 			var counterdifName = parseInt(streakCounterdiffname, 10);
 			counter.innerHTML = streakCounterdiffname;
 			streakCounter += counterdifName;
+			localStorage.setItem("streakCounter_habit3", streakCounter)
 		}
 
 		var weekCounter = document.getElementById("weekCounter");
-
+		console.log(new Date().toString());
 
 			// coloring page
 			var mandala = {
@@ -194,19 +205,22 @@
 		function saveCanvas(){
 			// coloring page
 			var svg = paper.project.exportSVG({ asString: true });
-			svg = svg.replace('<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="980" height="1742"><defs><clipPath id="clip-1"><rect x="0" y="0" width="877" height="721" fill="none" stroke="none" stroke-linecap="butt"/></clipPath></defs><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="none" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g clip-path="url(#clip-1)">','<svg width="877" height="721" viewBox="0 0 877 721" fill="none" xmlns="http://www.w3.org/2000/svg">');
-			console.log(svg);
+			indexOfStart = svg.indexOf('<g id="design-freepik">');
+			svg = svg.substring(indexOfStart);
+			svg = '<svg width="877" height="721" viewBox="0 0 877 721" fill="none" xmlns="http://www.w3.org/2000/svg">' +svg;
 			svg = svg.replace('</g></g>', '');
-			var blob = new Blob([svg], {type: "application/svg+xml;charset=utf-8"});
-			saveAs(blob, "leaves_big.svg");
-			if (streakCounter<=1){
-            	urlParams.append("habit1counter", streakCounter);
-			}
-			else{
-				urlParams.set("habit1counter", streakCounter);
-			}
-			totalUrl = "http://localhost:8000/habit_planter/"+'home_garden?' +urlParams.toString();
-			document.getElementById("link2").href = totalUrl;
+			localStorage.setItem("leaves_big_habit3", svg);
+			
+			localStorage.setItem("streakCounter_habit3", streakCounter)
+			// if (streakCounter<=1){
+            // 	urlParams.append("habit1counter", streakCounter);
+			// }
+			// else{
+			// 	urlParams.set("habit1counter", streakCounter);
+			// }
+			totalUrl = "http://localhost:8000/habit_planter/home_garden?" + urlParams.toString();
+			document.getElementById("link2").href = totalUrl
+			
 			// console.log(svg);
 			// downloadDataUri({
 			// 	data: 'data:image/svg+xml;base64,' + btoa(svg),
@@ -230,7 +244,7 @@
 
 			// color palette
 			var cp = {
-				history: ["#000000"], // black selected by default
+				history: ["#245E1B"], // green selected by default
 				options: [],
 				$container: $('#color-palette')
 			}
@@ -292,40 +306,36 @@
 					});
 					cp.$container.append($swatch);
 				}
-				// add white to color palette
-				var $swatch = $("<div>").css("background-color", "white")
-					.addClass("swatch");
-				$swatch.click(function () {
-					// add color to the color palette history
-					cp.history.push($(this).css("background-color"));
-					$(this).css('border', '2px solid black');
-					if (lastColor != null) {
-						$(lastColor).css('border', 'none');
-					}
-					lastColor = this;
-				});
-
 				cp.$container.append($swatch);
 			}
 
 
 			// loads a set of colors from a json to create a color palette
 			function getColorsCreatePalette() {
-				cp.$container.html(" ");
-				$.getJSON('/static/habit_planter/vendors/material/material-colors.json', function (colors) {
-					var keys = Object.keys(colors);
-					for (var i = keys.length - 1; i >= 0; i--) {
-						cp.options.push(colors[keys[i]][500]);
-					}
-					createColorPalette(cp.options);
-				});
+				// cp.$container.html(" ");
+				// $.getJSON('/static/habit_planter/vendors/material/material-colors.json', function (colors) {
+				// 	var keys = Object.keys(colors);
+				// 	for (var i = keys.length - 1; i >= 0; i--) {
+				// 		cp.options.push(colors[keys[i]][500]);
+				// 	}
+					
+				// 	createColorPalette(cp.options);
+				// });
+				createColorPalette(["#ED9716", "#E50707", "#D04691", "#2C7520", "#E1E445", "#58C800", "#FFFFFF"]);
+
 			}
 
 			function init(custom) {
 				paper.setup(canvas);
 				getColorsCreatePalette();
 
-				paper.project.importSVG(mandala.filePath, function (item) {
+				svg = localStorage.getItem("leaves_big_habit3");
+				if (!svg) {
+					svg = mandala.filePath
+				}
+				
+				//svg = localStorage.setItem("leaves_big");
+				paper.project.importSVG(svg, function (item) {
 					//print("hello");
 					mandala.item = item._children["design-freepik"];
 					console.log(item);
@@ -344,20 +354,15 @@
 
 			// Set up the mandala interactivity.
 			init(true);
+		
+			let goalfocus = document.getElementById('goal1-label');
+			goalfocus.innerHTML = "Goal: " + localStorage.getItem("goal");
 
-			var url = window.location.href;
-			var queryString = window.location.search;
-			const urlParams = new URLSearchParams(queryString);
-			const goal = urlParams.get('goal');
-			let goalfocus = document.getElementById('goal-label');
-			goalfocus.innerHTML = "Goal: " + goal;
+			let habitname = document.getElementById('habit1');
+			habitname.innerHTML = "Habit: " + localStorage.getItem("habit3");
+        }
+    </script>
 
-			const habit = urlParams.get('habit3');
-			let habitname = document.getElementById('habit3');
-			habitname.innerHTML = "Habit: " + habit;
-        
-		}
-	</script>
 </body>
 
 </html>
