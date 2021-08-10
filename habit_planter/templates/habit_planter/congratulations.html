@@ -26,7 +26,7 @@
         h1 {
             position: relative;
             font-size: 80px;
-            top: 80px;
+            top: 160px;
             left: 0px;
             text-align: center;
         }
@@ -35,23 +35,23 @@
             /* position: absolute; */
             position: relative;
             font-family: 'Quicksand', sans-serif;
-            top:73px;
+            top: 140px;
             font-size: 70px;
             text-align: center;
         }
 
-        .info {
+        .congrats {
             background-color: white;
             position: absolute;
             /* bottom: 305%; */
-            top: 280px;
+            top: 360px;
             left: 90px;
             width: 800px;
-            height: 1280px;
+            height: 700px;
             padding: 40px 40px 40px 40px;
             border-radius: 30px;
-            font-size: 42px;
-            text-align: left;
+            font-size: 50px;
+            text-align: center;
             box-shadow: 0px 0px 15px 5px #245E1B;
         }
     </style>
@@ -64,26 +64,21 @@
         <!-- <img class="background" src="{% static 'habit_planter/images/survey_intro_bg.png' %}"> -->
 
         <h2>artistree</h2>
-        <h1> Congratulations </h1>
-        <h2 class="info">
-            Clicking on each task under the checklist leads you to a tree representing your progress for each task.
-            <br />
-            Everytime you complete a task, check in by coloring in a leaf by tapping on the color and then a leaf.
-            <br />
-            The counter represents the number of days you have completed the task.
-            <br />
-            For every week you’ve checked in, you’ll receive a butterfly notification congratulating you on your hard
-            work.
-            <br />
-            Coloring in all the leaves indicates that you’ve successfully completed the task for 28 days. This indicates
-            that you are familiar with the task and have gained a new skill to aid you in your future art journey.
-            <br />
-            You’ll be rewarded with an alpaca for completing the tree and for making great progress towards your overall
-            goal.
+        <h1> Congratulations!</h1>
+        <h2 class="congrats">
+            Congratulations on completing 🌲🌳 all 4 trees! 🌳🌲
+            <br/>
+            <img class="alpaca" src='/static/habit_planter/images/alpaca.png'>
+            <br/>
+            Through repetition and commitment, you sucessfully integrated 4 new skills/habits into your life to allow you to reach your goal.
+            <br/>
+            ⭐ You're awesome! ⭐
+            <br/>
+
         </h2>
         <!-- navigation buttons -->
-        <a href="{% url 'survey_focus' %}" onclick="sendMessage()">
-            <button class="btn next-btn" type="submit" value="submit" style="bottom: 60px;">Back</button>
+        <a href="{% url 'title' %}" onclick="sendMessage()">
+            <button class="btn next-btn" type="submit" value="submit" style="left: 20%; top: 1170px; width: 600px; height: 120px; font-size: 50px;">Start an new journey</button>
         </a>
     </div>
     <script>
