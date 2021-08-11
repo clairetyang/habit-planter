@@ -20,61 +20,23 @@
 
 
 	<style type="text/css">
-		/* #goal1-label {
+		#goal1-label {
 			top: 5%;
-			display: block;
 		}
-		#habit1{
-			display: block;
-		}
-		#dayordays{
-			display: block;
-		} */
-		.myrow{
-			height: 20%;
-			width: 100%;
-			/* background-color:red; */
-		}
-		.col1{
-			width: 130%;
-		}
-		.col1 h1{
-			width: 130%;
-			left: -10%;
-		}
-		.col2{
-			margin-top: 20%;
-		}
-		.col3{
-			margin-top: 30%;
-		}
+		
 		#grass {
-			display: flex;
-			flex-wrap: wrap;
 			position: absolute;
-			bottom:-20%;
+			bottom:0;
 			right:0;
-			z-index: 0;
-			left:0%;
 			
-		}
-		#flp{
-			font-size: 3vh;
-			background-color: none;
-			display: flex;
-			flex-wrap: wrap;
-			position: absolute;
-			bottom: -15%;
-			left: 27%;
-			padding: 0.5em;
 		}
 		#color-palette {
 			background-color: none;
 			display: flex;
 			flex-wrap: wrap;
 			position: absolute;
-			bottom: -5%;
-			left: 27%;
+			bottom: 10%;
+			left: 20%;
 		}
 
 		.swatch {
@@ -89,12 +51,10 @@
 		#myCanvas {
 			background-image: url('/static/habit_planter/images/trunk.png');
 			background-repeat: no-repeat;
-			position: relative;
 			width: 100%;
 			height: 100%;
-			margin-left: 12%;
-			margin-top: 68%;
-			z-index: 1;
+			margin-left: 5%;
+			margin-top: 20%;
 		}
 
 	/* Popup container - can be anything you want */
@@ -174,27 +134,11 @@
 </head>
 
 <body style="text-align:center">
-	<div class = "container-fluid">
-		<div class = "row myrow">
-			<div class = "col col1">
-				<h1 id = "goal1-label"></h1>
-			</div>
-		</div>
-		<div class = "row myrow">
-			<div class = "col col2">
-				<h2 id = "habit1"></h2>
-			</div>
-		</div>
-		<div class = "row myrow">
-			<div class = "col col3">
-				<h2 id = "dayordays">Counter: <span id="counter">0</span> Days</h2>
-			</div>
-		</div>
-	</div>
-	<!-- <h2 id = "habit1"></h2>
+	<h1 id = "goal1-label"></h1>
+	<h2 id = "habit1"></h2>
 	<p>
 	<h2 id = "dayordays">Counter: <span id="counter">0</span> Days</h2>
-	</p> -->
+	</p>
 	<div class="popup">
 		<span class="popuptext1" id="myPopup">
 			<img class="butterfly" src='/static/habit_planter/images/butterfly.png'>
@@ -214,16 +158,16 @@
 			<input type="button" onclick="closeCompletePopup();" value="Close" />
 		</span>
 	</div>
+	<!-- "location.href='/habit_planter/home_garden'" -->
+	<a href="#" id = "link2">
+	<button onclick=saveCanvas() type="button">Finish Logging Progress</button>
+	</a>
+	<!-- <a href="#" id = "link3">
+		<button onclick=reset() type="button">Reset</button>
+		</a> -->
 	<canvas id="myCanvas"></canvas>
-	<img id="grass" style="width:120%;" src="{% static 'habit_planter/images/grass.png' %}">
+	<img id="grass" style="width:100%;" src="{% static 'habit_planter/images/grass.png' %}">
 	<div id="color-palette"></div>
-		<!-- "location.href='/habit_planter/home_garden'" -->
-		<a href="#" id = "link2">
-			<button onclick=saveCanvas() type="button" id = "flp">Finish Logging Progress</button>
-			</a>
-			<!-- <a href="#" id = "link3">
-				<button onclick=reset() type="button">Reset</button>
-				</a> -->
 
 	<script src = "{% static 'habit_planter/vendors/FileSaver.js-master/src/FileSaver.js' %}"></script>
 	<script type="text/javascript" canvas="canvas">
@@ -273,11 +217,31 @@
 			svg = '<svg width="877" height="721" viewBox="0 0 877 721" fill="none" xmlns="http://www.w3.org/2000/svg">' +svg;
 			svg = svg.replace('</g></g>', '');
 			localStorage.setItem("leaves_big_habit1", svg);
+			
 			localStorage.setItem("streakCounter_habit1", streakCounter)
+			// if (streakCounter<=1){
+            // 	urlParams.append("habit1counter", streakCounter);
+			// }
+			// else{
+			// 	urlParams.set("habit1counter", streakCounter);
+			// }
 			totalUrl = "http://localhost:8000/habit_planter/home_garden?"
 			document.getElementById("link2").href = totalUrl
 			
+			// console.log(svg);
+			// downloadDataUri({
+			// 	data: 'data:image/svg+xml;base64,' + btoa(svg),
+			// 	filename: 'leaves_big.svg'
+			// });
 
+		///view source svg import
+			// paper.project.exportSVG(mandala, "{% static 'habit_planter/images/leaves_big.svg' %}");
+			// var canvas = document.getElementById("myCanvas");
+			// console.log("What is this: ", mandala);
+			// // var canvasContext = document.querySelector("myCanvas").getContext("2d");
+			//  var blob = new Blob([ mandala], {type: "application/svg+xml;charset=utf-8"});
+			// // saveAs(new Blob([SVG_DATA_HERE], {type:"application/svg+xml"}), "name.svg")
+			// saveAs(blob, "{% static 'habit_planter/images/leaves_big.svg' %}");
 		}
 		window.onload = function () {
 			var canvas = document.getElementById('myCanvas');
@@ -364,7 +328,7 @@
 					
 				// 	createColorPalette(cp.options);
 				// });
-				createColorPalette(["#ED9716", "#E50707", "#D04691", "#2C7520", "#E1E445", "#58C800"]);
+				createColorPalette(["#ED9716", "#E50707", "#D04691", "#2C7520", "#E1E445", "#58C800", "#FFFFFF"]);
 
 			}
 
