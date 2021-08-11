@@ -16,7 +16,6 @@
         .alpaca {
             width: 100%;
             margin-left: 60%;
-
         }
 
         /* Popup container - can be anything you want */
@@ -46,6 +45,23 @@
             text-align: center;
             box-shadow: 0px 0px 15px 5px #245E1B;
         }
+
+        .tasklist {
+            font-size: 50px;
+            text-align: left;
+            height: 600px;
+        }
+        li {
+            font-family: 'Quicksand';
+            font-weight: normal;
+            margin-top: 30px;
+            word-wrap: break-word;
+            color: #207313;
+        }
+        li:hover {
+            font-weight: bold;
+            text-decoration: underline;
+        }
     </style>
 
 </head>
@@ -56,9 +72,23 @@
 
         <div class="home-info">
             <h2 id="goal"></h2>
-            <h2 id="checklist" style="font-weight: bold;"><u> Task's Checklist </u></h2>
+            <h2 id="checklist" style="font-weight: bold;"><u> Task List </u></h2>
+            <ol class="tasklist" type="1">
+                <a href="#" id="habit1tree">
+                    <li id="habit1" onclick="setInfo('habit1check')"></li>
+                </a>
+                <a href="#" id="habit2tree">
+                    <li id="habit2" onclick="setInfo('habit2check')"></li>
+                </a>
+                <a href="#" id="habit3tree">
+                    <li id="habit3" onclick="setInfo('habit3check')"></li>
+                </a>
+                <a href="#" id="habit4tree">
+                    <li id="habit4" onclick="setInfo('habit4check')"></li>
+                </a>
+            </ol>
 
-            <div class="form-check">
+            <!-- <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="habit1check">
                 <a href="#" id="habit1tree">
                     <label class="form-check-label" for="habit1check" id="habit1" onclick="setInfo('habit1check')">
@@ -88,8 +118,7 @@
                     <label class="form-check-label" for="habit4check" id="habit4" onclick="setInfo('habit4check')">
                     </label>
                 </a>
-            </div>
-            <br><br><br><br>
+            </div> -->
 
             <div class="popup" onclick="popupFunction()">
                 <br />
