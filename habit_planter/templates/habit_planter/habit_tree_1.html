@@ -75,6 +75,20 @@
 			margin-left: 5%;
 			/* margin-top: 20%; */
 		}
+		#finish-btn {
+			position:absolute;
+			bottom: -2%;
+			right: 12%;
+			font-size: 50px;
+			font-family: 'Quicksand', sans-serif;
+			color: #803333;
+			text-align: center;
+			width: 680px;
+			height: 100px;
+			background: #FECFB5;
+			box-shadow: 0px 4px 4px rgba(117, 110, 110, 0.5);
+			border-radius: 10px;
+		}
 
 	/* Popup container - can be anything you want */
 		.popup {
@@ -181,7 +195,7 @@
 	<img id="grass" src="{% static 'habit_planter/images/grass.png' %}">
 	<div id="color-palette"></div>
 	<a href="#" id = "link2">
-		<button onclick=saveCanvas() type="button" id = "flp">Finish Logging Progress</button>
+		<button id="finish-btn" onclick=saveCanvas() type="button" id = "flp">Finish Logging Progress</button>
 		</a>
 
 	<script src = "{% static 'habit_planter/vendors/FileSaver.js-master/src/FileSaver.js' %}"></script>
