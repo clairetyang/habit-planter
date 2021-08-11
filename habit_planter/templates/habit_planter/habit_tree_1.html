@@ -22,12 +22,26 @@
 	<style type="text/css">
 		#goal1-label {
 			top: 5%;
+			width: 100%;
+			left: -1%;
+			margin-left: 3%;
 		}
+		#habit1 {
+			position: relative;
+			margin-top: 20%;
+			margin-left: 3%;
+		}
+		#dayordays {
+			/* margin-top: 4%; */
+		}
+		
 		
 		#grass {
 			position: absolute;
-			bottom:0;
-			right:0;
+			bottom:-10%;
+			right:-5%;
+			background-color: red;
+			width: 120%;
 			
 		}
 		#color-palette {
@@ -35,7 +49,7 @@
 			display: flex;
 			flex-wrap: wrap;
 			position: absolute;
-			bottom: 10%;
+			bottom: 5%;
 			left: 20%;
 		}
 
@@ -54,7 +68,7 @@
 			width: 100%;
 			height: 100%;
 			margin-left: 5%;
-			margin-top: 20%;
+			/* margin-top: 20%; */
 		}
 
 	/* Popup container - can be anything you want */
@@ -134,7 +148,7 @@
 </head>
 
 <body style="text-align:center">
-	<h1 id = "goal1-label"></h1>
+	<h1 id = "goal1-label"></h1><br><br><br><br>
 	<h2 id = "habit1"></h2>
 	<p>
 	<h2 id = "dayordays">Counter: <span id="counter">0</span> Days</h2>
@@ -166,7 +180,7 @@
 		<button onclick=reset() type="button">Reset</button>
 		</a> -->
 	<canvas id="myCanvas"></canvas>
-	<img id="grass" style="width:100%;" src="{% static 'habit_planter/images/grass.png' %}">
+	<img id="grass" src="{% static 'habit_planter/images/grass.png' %}">
 	<div id="color-palette"></div>
 
 	<script src = "{% static 'habit_planter/vendors/FileSaver.js-master/src/FileSaver.js' %}"></script>
