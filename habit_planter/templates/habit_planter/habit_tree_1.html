@@ -30,12 +30,8 @@
 			position: relative;
 			margin-top: 20%;
 			margin-left: 3%;
-		}
-		#dayordays {
-			/* margin-top: 4%; */
-		}
-		
-		
+		}	
+
 		#grass {
 			position: absolute;
 			bottom:-10%;
@@ -44,15 +40,24 @@
 			width: 120%;
 			
 		}
+		#flp{
+			background-color: none;
+			display: flex;
+			flex-wrap: wrap;
+			position: absolute;
+			bottom: -1%;
+			left: 23%;
+			font-size: 3vh;
+			padding: 0.5em;
+		}
 		#color-palette {
 			background-color: none;
 			display: flex;
 			flex-wrap: wrap;
 			position: absolute;
-			bottom: 5%;
-			left: 20%;
+			bottom: 7%;
+			left: 18%;
 		}
-
 		.swatch {
 			width: 90px;
 			height: 80px;
@@ -172,16 +177,12 @@
 			<input type="button" onclick="closeCompletePopup();" value="Close" />
 		</span>
 	</div>
-	<!-- "location.href='/habit_planter/home_garden'" -->
-	<a href="#" id = "link2">
-	<button onclick=saveCanvas() type="button">Finish Logging Progress</button>
-	</a>
-	<!-- <a href="#" id = "link3">
-		<button onclick=reset() type="button">Reset</button>
-		</a> -->
 	<canvas id="myCanvas"></canvas>
 	<img id="grass" src="{% static 'habit_planter/images/grass.png' %}">
 	<div id="color-palette"></div>
+	<a href="#" id = "link2">
+		<button onclick=saveCanvas() type="button" id = "flp">Finish Logging Progress</button>
+		</a>
 
 	<script src = "{% static 'habit_planter/vendors/FileSaver.js-master/src/FileSaver.js' %}"></script>
 	<script type="text/javascript" canvas="canvas">
