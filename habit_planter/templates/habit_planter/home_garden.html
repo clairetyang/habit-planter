@@ -17,7 +17,25 @@
             width: 100%;
             margin-left: 120%;
         }
-
+        h1 {
+			position: absolute;
+			top: 10%;
+			margin-left: -2.5%;
+			font-family: 'Alice', sans-serif;
+			font-size: 80px;
+		}
+        #goaldif2{
+            width: 120%;
+			margin-left: -2%;
+            margin-top: -10%;
+            padding-bottom: 10%;
+            text-align: left;
+        }
+        .info{
+            position:absolute;
+            bottom: -40%;
+            right: -10%;
+        }
         /* Popup container - can be anything you want */
         .popup {
             position: relative;
@@ -51,7 +69,18 @@
             margin-left: 100%;
             
         }
+        #description{
+            font-size: 45px;
+            width: 120%;
+            text-align: left;
+            padding-top: 5%;
+            padding-bottom: 5%;
 
+        }
+        .container{
+            height: 110%;
+            width: 110%;
+        }
         .tasklist {
             font-size: 50px;
             text-align: left;
@@ -76,11 +105,13 @@
 
 <body>
     <div class="container">
-        <h1 id="name"></h1>
+        <img class="background" src="{% static 'habit_planter/images/home.png' %}">
+        <h1 id="nameddif"></h1>
 
         <div class="home-info">
-            <h2 id="goal"></h2>
+            <h2 id="goaldif2"></h2>
             <h2 id="checklist" style="font-weight: bold;"><u> Task List </u></h2>
+            <h2 id="description" >Tap a task to navigate to the tree.</h2>
             <ol class="tasklist" type="1">
                 <a href="#" id="habit1tree">
                     <li id="habit1" onclick="setInfo('habit1check')"></li>
@@ -127,8 +158,20 @@
                     </label>
                 </a>
             </div> -->
+            <div class = "info">
+                <a href="/habit_planter/info">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor"
+                        class="bi bi-info-square" viewBox="0 0 16 16">
+                        <path
+                            d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                        <path
+                            d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                    </svg>
+                </a>
+            </div>
 
-            <div class="popup" onclick="popupFunction()">
+
+            <!-- <div class="popup" onclick="popupFunction()">
                 <br />
                 <h2 id="learn-more"> Tap me to learn more!</h2>
 
@@ -136,8 +179,10 @@
                 <img class="alpaca" style="margin-right: 5%;" src='/static/habit_planter/images/alpaca.png'>
                 <br />
 
-                <span class="popuptext1" id="myPopup">
-                    <h2 style="font-size: 40px; right: 10%;">
+ -->
+
+                <!-- <span class="popuptext1" id="myPopup"> -->
+                    <!-- <h2 style="font-size: 40px; right: 10%;">
                         <br />Click a label to see that tree!
                         <br />
                         <a href="/habit_planter/info">
@@ -150,7 +195,7 @@
                             </svg>
                         </a>
                     </h2>
-                </span>
+                </span> -->
             </div>
 
         </div>
@@ -215,14 +260,14 @@
         const urlParams = new URLSearchParams(queryString);
 
         const nameid = localStorage.getItem("name");
-        let name = document.getElementById('name');
-        name.innerHTML = "Good Morning, " + nameid;
+        let name = document.getElementById('nameddif');
+        name.innerHTML = "Hello, " + nameid;
 
         const focus = localStorage.getItem('focus');
         const focusList = localStorage.getItem("focusList");
 
         const goalid = localStorage.getItem('goal');
-        let goal = document.getElementById('goal');
+        let goal = document.getElementById('goaldif2');
         goal.innerHTML = "Goal: " + goalid;
 
         const habit1id = localStorage.getItem('habit1');
