@@ -20,16 +20,44 @@
 
 
 	<style type="text/css">
+		#goal1-label {
+			top: 5%;
+			width: 100%;
+			left: -1%;
+			margin-left: 3%;
+		}
+		#habit4 {
+			position: relative;
+			margin-top: 20%;
+			margin-left: 3%;
+		}	
+
+		#grass {
+			position: absolute;
+			bottom:-10%;
+			right:-5%;
+			background-color: red;
+			width: 120%;
+			
+		}
+		#flp{
+			background-color: none;
+			display: flex;
+			flex-wrap: wrap;
+			position: absolute;
+			bottom: -1%;
+			left: 23%;
+			font-size: 3vh;
+			padding: 0.5em;
+		}
 		#color-palette {
 			background-color: none;
 			display: flex;
 			flex-wrap: wrap;
 			position: absolute;
-			bottom: 10%;
-			left: 20%;
-
+			bottom: 7%;
+			left: 18%;
 		}
-
 		.swatch {
 			width: 90px;
 			height: 80px;
@@ -45,7 +73,21 @@
 			width: 100%;
 			height: 100%;
 			margin-left: 5%;
-			margin-top: 20%;
+			/* margin-top: 20%; */
+		}
+		#finish-btn {
+			position:absolute;
+			bottom: -2%;
+			right: 12%;
+			font-size: 50px;
+			font-family: 'Quicksand', sans-serif;
+			color: #803333;
+			text-align: center;
+			width: 680px;
+			height: 100px;
+			background: #FECFB5;
+			box-shadow: 0px 4px 4px rgba(117, 110, 110, 0.5);
+			border-radius: 10px;
 		}
 
 	/* Popup container - can be anything you want */
@@ -125,10 +167,10 @@
 </head>
 
 <body style="text-align:center">
-	<h1 id = "goal1-label"></h1>
-	<h2 id = "habit1"></h2>
+	<h1 id = "goal1-label"></h1><br><br><br><br>
+	<h2 id = "habit4"></h2>
 	<p>
-	<h2 id = "dayordays">Streak: <span id="counter">0</span> Days</h2>
+	<h2 id = "dayordays">Counter: <span id="counter">0</span> Days</h2>
 	</p>
 	<div class="popup">
 		<span class="popuptext1" id="myPopup">
@@ -149,25 +191,18 @@
 			<input type="button" onclick="closeCompletePopup();" value="Close" />
 		</span>
 	</div>
-	<!-- "location.href='/habit_planter/home_garden'" -->
-	<a href="#" id = "link2">
-	<button onclick=saveCanvas() type="button">Finish Logging Progress</button>
-	</a>
-	<!-- <a href="#" id = "link3">
-		<button onclick=reset() type="button">Reset</button>
-		</a> -->
 	<canvas id="myCanvas"></canvas>
+	<img id="grass" src="{% static 'habit_planter/images/grass.png' %}">
 	<div id="color-palette"></div>
-
+	<a href="#" id = "link2">
+		<button id="finish-btn" onclick=saveCanvas() type="button" id = "flp">Finish Logging Progress</button>
+		</a>
 
 	<script src = "{% static 'habit_planter/vendors/FileSaver.js-master/src/FileSaver.js' %}"></script>
 	<script type="text/javascript" canvas="canvas">
 	// import { saveAs } from 'file-saver';
 	// FileSaver saveAs(Blob,DOMString filename);
-		// function reset(){
-		// 	localStorage.removeItem("leaves_big_habit4");
-		// 	localStorage.removeItem("streakCounter_habit4");
-		// }
+
 		function closePopup() {
 			document.getElementById("myPopup").style.visibility = "hidden";
 		}
@@ -176,9 +211,7 @@
 		}
 		var url = window.location.href;
         var queryString = window.location.search;
-        const urlParams = new URLSearchParams(queryString);
 		var streakCounter = 0;
-		localStorage.setItem("", "value");
 		var counter = document.getElementById("counter");
 		var streakCounterdiffname = localStorage.getItem("streakCounter_habit4");
 		if (streakCounterdiffname){
@@ -211,13 +244,8 @@
 			localStorage.setItem("leaves_big_habit4", svg);
 			
 			localStorage.setItem("streakCounter_habit4", streakCounter)
-			// if (streakCounter<=1){
-            // 	urlParams.append("habit1counter", streakCounter);
-			// }
-			// else{
-			// 	urlParams.set("habit1counter", streakCounter);
-			// }
-			totalUrl = "http://localhost:8000/habit_planter/home_garden?" + urlParams.toString();
+			
+			totalUrl = "http://localhost:8000/habit_planter/home_garden?"
 			document.getElementById("link2").href = totalUrl
 			
 			// console.log(svg);
@@ -357,7 +385,7 @@
 			let goalfocus = document.getElementById('goal1-label');
 			goalfocus.innerHTML = "Goal: " + localStorage.getItem("goal");
 
-			let habitname = document.getElementById('habit1');
+			let habitname = document.getElementById('habit4');
 			habitname.innerHTML = "Habit: " + localStorage.getItem("habit4");
         }
     </script>
