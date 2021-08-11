@@ -51,6 +51,7 @@
             text-align: left;
             height: 600px;
         }
+
         li {
             font-family: 'Quicksand';
             font-weight: normal;
@@ -58,6 +59,7 @@
             word-wrap: break-word;
             color: #207313;
         }
+
         li:hover {
             font-weight: bold;
             text-decoration: underline;
@@ -131,7 +133,7 @@
                 <span class="popuptext1" id="myPopup">
                     <h2 style="font-size: 40px; right: 10%;">
                         <br />Click a label to see that tree!
-                        <br/>
+                        <br />
                         <a href="/habit_planter/info">
                             <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor"
                                 class="bi bi-info-square" viewBox="0 0 16 16">
@@ -149,13 +151,22 @@
     </div>
 
     <script type="text/javascript">
+        // localStorage.removeItem("leaves_big_habit1");
+        // localStorage.removeItem("streakCounter_habit1");
+        // localStorage.removeItem("leaves_big_habit2");
+        // localStorage.removeItem("streakCounter_habit2");
+        // localStorage.removeItem("leaves_big_habit3");
+        // localStorage.removeItem("streakCounter_habit3");
+        // localStorage.removeItem("leaves_big_habit4");
+        // localStorage.removeItem("streakCounter_habit4");
+
         function popupFunction() {
             document.getElementById("myPopup").style.visibility = "visible";
             var popup = document.getElementById("myPopup");
             popup.classList.toggle("show");
         }
         window.onload = function () {
-            var streak1 = parseInt(localStorage.getItem("streakCounter_habit1"),10);
+            var streak1 = parseInt(localStorage.getItem("streakCounter_habit1"), 10);
             var streak2 = parseInt(localStorage.getItem("streakCounter_habit2"), 10);
             var streak3 = parseInt(localStorage.getItem("streakCounter_habit3"), 10);
             var streak4 = parseInt(localStorage.getItem("streakCounter_habit4"), 10);
@@ -163,10 +174,10 @@
             console.log("2: " + streak2);
             console.log("3: " + streak3);
             console.log("4: " + streak4);
-            if (streak1 > 27 && streak2 > 27 && streak3 > 27 && streak4 > 27){
+            if (streak1 > 27 && streak2 > 27 && streak3 > 27 && streak4 > 27) {
                 window.location.replace("http://localhost:8000/habit_planter/congratulations");
             }
-            if (localStorage.getItem('habit1check')){
+            if (localStorage.getItem('habit1check')) {
                 var check1 = document.getElementById("habit1check");
                 check1.setAttribute('checked', true);
             }
