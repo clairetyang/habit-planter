@@ -19,15 +19,16 @@
         }
         h1 {
 			position: absolute;
-			top: 10%;
+			margin-top: -10%;
 			margin-left: -2.5%;
 			font-family: 'Alice', sans-serif;
 			font-size: 80px;
 		}
         #goaldif2{
+            position:relative;
             width: 120%;
 			margin-left: -2%;
-            margin-top: -10%;
+            margin-top: -20%;
             padding-bottom: 10%;
             text-align: left;
         }
@@ -35,6 +36,8 @@
             position:absolute;
             bottom: -40%;
             right: -10%;
+            color: green !important;
+            -webkit-filter: hue-rotate(-90deg);
         }
         /* Popup container - can be anything you want */
         .popup {
@@ -99,6 +102,25 @@
             font-weight: bold;
             text-decoration: underline;
         }
+        #suggestions-box {
+            position: relative;
+            background: #49AC65;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 20px;
+            width: 110%;
+            margin-left: -18%;
+            height: 40%;
+            padding: 1em;
+            margin-top:3em;
+            margin-bottom: 3em;
+        }
+        .habit-text{
+            position: relative;
+            color: #FFFFFF;
+            font-family: "Quicksand";
+            font-size: 48px;
+        }
+
     </style>
 
 </head>
@@ -112,7 +134,7 @@
             <h2 id="goaldif2"></h2>
             <h2 id="checklist" style="font-weight: bold;"><u> Task List </u></h2>
             <h2 id="description" >Tap a task to navigate to the tree.</h2>
-            <ol class="tasklist" type="1">
+            <!-- <ol class="tasklist" type="1">
                 <a href="#" id="habit1tree">
                     <li id="habit1" onclick="setInfo('habit1check')"></li>
                 </a>
@@ -125,40 +147,30 @@
                 <a href="#" id="habit4tree">
                     <li id="habit4" onclick="setInfo('habit4check')"></li>
                 </a>
-            </ol>
+            </ol> -->
 
-            <!-- <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="habit1check">
-                <a href="#" id="habit1tree">
-                    <label class="form-check-label" for="habit1check" id="habit1" onclick="setInfo('habit1check')">
-                    </label>
-                </a>
-            </div>
-
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="habit2check">
-                <a href="#" id="habit2tree">
-                    <label class="form-check-label" for="habit2check" id="habit2" onclick="setInfo('habit2check')">
-                    </label>
-                </a>
-            </div>
-
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="habit3check">
-                <a href="#" id="habit3tree">
-                    <label class="form-check-label" for="habit3check" id="habit3" onclick="setInfo('habit3check')">
-                    </label>
-                </a>
-            </div>
-
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="habit4check">
-                <a href="#" id="habit4tree">
-                    <label class="form-check-label" for="habit4check" id="habit4" onclick="setInfo('habit4check')">
-                    </label>
-                </a>
-            </div> -->
-            <div class = "info">
+            <a href="#" id = "habit1tree" onclick="setInfo('habit1check')">
+                <div class = "container" id = "suggestions-box">
+                    <div id="habit1" class="habit-text" > </div>
+                </div>
+             </a>
+             <a href="#" id = "habit2tree" onclick="setInfo('habit2check')">
+                <div class = "container" id = "suggestions-box">
+                    <div id="habit2" class="habit-text" > </div>
+                </div>
+             </a>
+             <a href="#" id = "habit3tree" onclick="setInfo('habit3check')">
+                <div class = "container" id = "suggestions-box">
+                    <div id="habit3" class="habit-text" > </div>
+                </div>
+             </a>
+             <a href="#" id = "habit4tree" onclick="setInfo('habit4check')">
+                <div class = "container" id = "suggestions-box">
+                    <div id="habit4" class="habit-text" > </div>
+                </div>
+             </a>
+            
+            <div class = "info" >
                 <a href="/habit_planter/info">
                     <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor"
                         class="bi bi-info-square" viewBox="0 0 16 16">
@@ -228,22 +240,22 @@
             if (streak1 > 27 && streak2 > 27 && streak3 > 27 && streak4 > 27) {
                 window.location.replace("http://localhost:8000/habit_planter/congratulations");
             }
-            if (localStorage.getItem('habit1check')) {
-                var check1 = document.getElementById("habit1check");
-                check1.setAttribute('checked', true);
-            }
-            if (localStorage.getItem('habit2check')) {
-                var check2 = document.getElementById("habit2check");
-                check2.setAttribute('checked', true);
-            }
-            if (localStorage.getItem('habit3check')) {
-                var check3 = document.getElementById("habit3check");
-                check3.setAttribute('checked', true);
-            }
-            if (localStorage.getItem('habit4check')) {
-                var check4 = document.getElementById("habit4check");
-                check4.setAttribute('checked', true);
-            }
+            // if (localStorage.getItem('habit1check')) {
+            //     var check1 = document.getElementById("habit1check");
+            //     check1.setAttribute('checked', true);
+            // }
+            // if (localStorage.getItem('habit2check')) {
+            //     var check2 = document.getElementById("habit2check");
+            //     check2.setAttribute('checked', true);
+            // }
+            // if (localStorage.getItem('habit3check')) {
+            //     var check3 = document.getElementById("habit3check");
+            //     check3.setAttribute('checked', true);
+            // }
+            // if (localStorage.getItem('habit4check')) {
+            //     var check4 = document.getElementById("habit4check");
+            //     check4.setAttribute('checked', true);
+            // }
         }
         function setInfo(message) {
             localStorage.setItem(message, true)
