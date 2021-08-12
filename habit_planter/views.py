@@ -38,6 +38,18 @@ def habit_tree_3(request):
 def habit_tree_4(request):
     return render(request, 'habit_planter/habit_tree_4.html')
 
+def habit_tree_5(request):
+    return render(request, 'habit_planter/habit_tree_5.html')
+
+def habit_tree_6(request):
+    return render(request, 'habit_planter/habit_tree_6.html')
+
+def habit_tree_7(request):
+    return render(request, 'habit_planter/habit_tree_7.html')
+
+def habit_tree_8(request):
+    return render(request, 'habit_planter/habit_tree_8.html')
+
 def butterfly_streak(request):
     return render(request, 'habit_planter/butterfly_streak.html')
 
@@ -56,8 +68,8 @@ def send_to2(request):
 def info(request):
     return render(request, 'habit_planter/info.html')
 
-def settings(request):
-    return render(request, 'habit_planter/settings.html')
+def menu(request):
+    return render(request, 'habit_planter/menu.html')
 
 def congratulations(request):
     return render(request, 'habit_planter/congratulations.html')
