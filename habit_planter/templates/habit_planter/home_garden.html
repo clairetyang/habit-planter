@@ -130,6 +130,7 @@
             padding: 1em;
             margin-top: 3em;
             margin-bottom: 3em;
+            overflow-y: scroll;
         }
 
         .habit-text {
@@ -138,6 +139,7 @@
             font-family: "Quicksand";
             font-size: 48px;
         }
+
     </style>
 
 </head>
@@ -166,26 +168,48 @@
                 </a>
             </ol> -->
 
-            <a href="#" id="habit1tree" onclick="setInfo('habit1check')">
-                <div class="container" id="suggestions-box">
-                    <div id="habit1" class="habit-text"> </div>
-                </div>
-            </a>
-            <a href="#" id="habit2tree" onclick="setInfo('habit2check')">
-                <div class="container" id="suggestions-box">
-                    <div id="habit2" class="habit-text"> </div>
-                </div>
-            </a>
-            <a href="#" id="habit3tree" onclick="setInfo('habit3check')">
-                <div class="container" id="suggestions-box">
-                    <div id="habit3" class="habit-text"> </div>
-                </div>
-            </a>
-            <a href="#" id="habit4tree" onclick="setInfo('habit4check')">
-                <div class="container" id="suggestions-box">
-                    <div id="habit4" class="habit-text"> </div>
-                </div>
-            </a>
+            <div id = "taskList">
+                <a href="#" id="habit1tree" onclick="setInfo('habit1check')">
+                    <div class="container" id="suggestions-box">
+                        <div id="habit1" class="habit-text"> </div>
+                    </div>
+                </a>
+                <a href="#" id="habit2tree" onclick="setInfo('habit2check')">
+                    <div class="container" id="suggestions-box">
+                        <div id="habit2" class="habit-text"> </div>
+                    </div>
+                </a>
+                <a href="#" id="habit3tree" onclick="setInfo('habit3check')">
+                    <div class="container" id="suggestions-box">
+                        <div id="habit3" class="habit-text"> </div>
+                    </div>
+                </a>
+                <a href="#" id="habit4tree" onclick="setInfo('habit4check')">
+                    <div class="container" id="suggestions-box">
+                        <div id="habit4" class="habit-text"> </div>
+                    </div>
+                </a>
+                <a href="#" id="habit5tree" onclick="setInfo('habit5check')">
+                    <div class="container" id="suggestions-box">
+                        <div id="habit5" class="habit-text"> </div>
+                    </div>
+                </a>
+                <a href="#" id="habit6tree" onclick="setInfo('habit6check')">
+                    <div class="container" id="suggestions-box">
+                        <div id="habit6" class="habit-text"> </div>
+                    </div>
+                </a>
+                <a href="#" id="habit7tree" onclick="setInfo('habit7check')">
+                    <div class="container" id="suggestions-box">
+                        <div id="habit7" class="habit-text"> </div>
+                    </div>
+                </a>
+                <a href="#" id="habit8tree" onclick="setInfo('habit8check')">
+                    <div class="container" id="suggestions-box">
+                        <div id="habit8" class="habit-text"> </div>
+                    </div>
+                </a>
+            </div>
             <div class="settings">
                 <a href="/habit_planter/settings">
                     <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-gear"
@@ -261,11 +285,19 @@
             var streak2 = parseInt(localStorage.getItem("streakCounter_habit2"), 10);
             var streak3 = parseInt(localStorage.getItem("streakCounter_habit3"), 10);
             var streak4 = parseInt(localStorage.getItem("streakCounter_habit4"), 10);
+            var streak5 = parseInt(localStorage.getItem("streakCounter_habit5"), 10);
+            var streak6 = parseInt(localStorage.getItem("streakCounter_habit6"), 10);
+            var streak7 = parseInt(localStorage.getItem("streakCounter_habit7"), 10);
+            var streak8 = parseInt(localStorage.getItem("streakCounter_habit8"), 10);
             console.log("1: " + streak1);
             console.log("2: " + streak2);
             console.log("3: " + streak3);
             console.log("4: " + streak4);
-            if (streak1 > 27 && streak2 > 27 && streak3 > 27 && streak4 > 27) {
+            console.log("5: " + streak5);
+            console.log("6: " + streak6);
+            console.log("7: " + streak7);
+            console.log("8: " + streak8);
+            if (streak1 > 27 && streak2 > 27 && streak3 > 27 && streak4 > 27 && streak5 > 27 && streak6 > 27 && streak7 > 27 && streak8 > 27) {
                 window.location.replace("http://localhost:8000/habit_planter/congratulations");
             }
             // if (localStorage.getItem('habit1check')) {
@@ -324,11 +356,42 @@
         let habit3 = document.getElementById('habit3');
         // habit3.innerHTML = "Habit 3: " + habit3id;
         habit3.innerHTML = habit3id;
+        console.log(habit3id);
 
         const habit4id = localStorage.getItem('habit4');
-        let habit4 = document.getElementById('habit4');
-        // habit4.innerHTML = "Habit 4: " + habit4id;
-        habit4.innerHTML = habit4id;
+        if (habit4id) {
+            let habit4 = document.getElementById('habit4');
+            habit4.innerHTML = habit4id;
+            console.log(habit4id);
+        }
+
+        const habit5id = localStorage.getItem('habit5');
+        if (habit5id) {
+            let habit5 = document.getElementById('habit5');
+            habit5.innerHTML = habit5id;
+            console.log(habit5id);
+        }
+
+        const habit6id = localStorage.getItem('habit6');
+        if (habit6id) {
+            let habit6 = document.getElementById('habit6');
+            habit6.innerHTML = habit6id;
+            console.log(habit6id);
+        }
+
+        const habit7id = localStorage.getItem('habit7');
+        if (habit7id) {
+            let habit7 = document.getElementById('habit7');
+            habit7.innerHTML = habit7id;
+            console.log(habit7id);
+        }
+
+        const habit8id = localStorage.getItem('habit8');
+        if (habit8id) {
+            let habit8 = document.getElementById('habit8');
+            habit8.innerHTML = habit8id;
+            console.log(habit8id);
+        }
 
         // function sendMessage() {
         //     // var counter = urlParams.get('habit1counter');

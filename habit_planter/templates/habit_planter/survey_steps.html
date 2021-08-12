@@ -31,8 +31,8 @@
 
         <h2 id = "goal-label">Goal: </h2>
         <!-- habit input boxes -->
-        <div class="habit-boxes one">
-            <button class="form-control habit-input" id = "addhabit" onclick = "addHabit()" >+ Add Habit</button>
+        <div class="habit-boxes">
+            <button class="form-control habit-input" id = "addhabit" onclick = addHabit() >+ Add Habit</button>
             <input class="form-control habit-input" id = "habit1" type="text" placeholder="Habit #1">
             <input class="form-control habit-input" id = "habit2"  type="text" placeholder="Habit #2">
             <input class="form-control habit-input" id = "habit3" type="text" placeholder="Habit #3">
@@ -65,6 +65,7 @@
 
             var currID = "habit" + habitCounter;
             document.getElementById(currID).style.visibility = "visible";
+        }
        
             // var base_string = "<div class='habit-boxes one'> <input class='form-control habit-input' id = 'habit1' type='text' placeholder='Habit #1'>"
             // + "<input class='form-control habit-input' id = 'habit2' type='text' placeholder='Habit #2'><input class='form-control habit-input' id = 'habit3' type='text' placeholder='Habit #3'></div>";
@@ -92,7 +93,7 @@
        
             // document.getElementsByClassName("habit-boxes").innerHTML = document.getElementsByClassName("habit-boxes").innerHTML.pop() + "<button> NEW </button> </div>"
             // "<input class='form-control habit-input' id = 'habit' + habitCounter  type='text' placeholder='Habit #' +  habitCounter>";
-        }
+        
 
 
         var goal = localStorage.getItem("goal")
@@ -104,11 +105,19 @@
             let habit2 = document.getElementById('habit2');
             let habit3 = document.getElementById('habit3');
             let habit4 = document.getElementById('habit4');
+            let habit5 = document.getElementById('habit5');
+            let habit6 = document.getElementById('habit6');
+            let habit7 = document.getElementById('habit7');
+            let habit8 = document.getElementById('habit8');
     
             localStorage.setItem("habit1", habit1.value);
             localStorage.setItem("habit2", habit2.value);
             localStorage.setItem("habit3", habit3.value);
             localStorage.setItem("habit4", habit4.value);
+            localStorage.setItem("habit5", habit1.value);
+            localStorage.setItem("habit6", habit2.value);
+            localStorage.setItem("habit7", habit3.value);
+            localStorage.setItem("habit8", habit4.value);
 
             // console.log(urlParams.toString());
             // totalUrl = "http://localhost:8000/habit_planter/"+'home_garden?' +urlParams.toString();

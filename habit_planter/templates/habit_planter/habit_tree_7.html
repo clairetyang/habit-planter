@@ -36,7 +36,7 @@
 			font-family: 'Quicksand';
 			font-size: 53px;
 		}
-		#habit2 {
+		#habit7 {
 			position: relative;
 			margin-left: 4%;
 			margin-top: 2em;
@@ -154,7 +154,6 @@
 			-webkit-animation: fadeIn .2s;
 			animation: fadeIn .2s;
 		}
-
 		.butterfly {
 			text-align:right;
 		}
@@ -193,7 +192,6 @@
 			transform: rotateY(0deg);
 			transition: 0.5s;
 		}
-
 		@-webkit-keyframes fadeIn {
 			from {
 				opacity: 0;
@@ -213,7 +211,6 @@
 				opacity: 1;
 			}
 		}
-
 	</style>
 </head>
 
@@ -224,7 +221,7 @@
 	<img id="alpaca2" src='/static/habit_planter/images/alpaca.png'  style = "visibility:hidden">
 
 	<h1 id = "goal1-label"></h1>
-	<h2 id = "habit2"></h2>
+	<h2 id = "habit7"></h2>
 	<p>
 	<h2 id = "dayordays">Counter: <span id="counter">0</span> Days</h2>
 	</p>
@@ -259,7 +256,11 @@
 	// import { saveAs } from 'file-saver';
 	// FileSaver saveAs(Blob,DOMString filename);
 
-	function closePopup() {
+		// function reset(){
+		// 	localStorage.removeItem("leaves_big_habit1");
+		// 	localStorage.removeItem("streakCounter_habit1");
+		// }
+		function closePopup() {
 			document.getElementById("myPopup").style.visibility = "hidden";
 			but1 = document.getElementById("butterfly2");
 			but2 = document.getElementById("butterfly3");
@@ -287,12 +288,12 @@
         var queryString = window.location.search;
 		var streakCounter = 0;
 		var counter = document.getElementById("counter");
-		var streakCounterdiffname = localStorage.getItem("streakCounter_habit2");
+		var streakCounterdiffname = localStorage.getItem("streakCounter_habit7");
 		if (streakCounterdiffname){
 			var counterdifName = parseInt(streakCounterdiffname, 10);
 			counter.innerHTML = streakCounterdiffname;
 			streakCounter += counterdifName;
-			localStorage.setItem("streakCounter_habit2", streakCounter)
+			localStorage.setItem("streakCounter_habit7", streakCounter)
 		}
 
 		var weekCounter = document.getElementById("weekCounter");
@@ -315,10 +316,15 @@
 			svg = svg.substring(indexOfStart);
 			svg = '<svg width="877" height="721" viewBox="0 0 877 721" fill="none" xmlns="http://www.w3.org/2000/svg">' +svg;
 			svg = svg.replace('</g></g>', '');
-			localStorage.setItem("leaves_big_habit2", svg);
+			localStorage.setItem("leaves_big_habit7", svg);
 			
-			localStorage.setItem("streakCounter_habit2", streakCounter)
-			
+			localStorage.setItem("streakCounter_habit7", streakCounter)
+			// if (streakCounter<=1){
+            // 	urlParams.append("habit1counter", streakCounter);
+			// }
+			// else{
+			// 	urlParams.set("habit1counter", streakCounter);
+			// }
 			// totalUrl = "http://localhost:8000/habit_planter/home_garden?"
 			// document.getElementById("link2").href = totalUrl
 			
@@ -430,7 +436,7 @@
 				paper.setup(canvas);
 				getColorsCreatePalette();
 
-				svg = localStorage.getItem("leaves_big_habit2");
+				svg = localStorage.getItem("leaves_big_7");
 				if (!svg) {
 					svg = mandala.filePath
 				}
@@ -459,8 +465,8 @@
 			let goalfocus = document.getElementById('goal1-label');
 			goalfocus.innerHTML = "Goal: " + localStorage.getItem("goal");
 
-			let habitname = document.getElementById('habit2');
-			habitname.innerHTML = "Habit 2: " + localStorage.getItem("habit2");
+			let habitname = document.getElementById('habit7');
+			habitname.innerHTML = "Habit 7: " + localStorage.getItem("habit7");
 
 			if (localStorage.getItem("butterfly2")){
 				document.getElementById('butterfly2').style.visibility = "visible";
