@@ -159,7 +159,7 @@
 			text-align:right;
 		}
 		
-		#butterfly2 {
+		#butterfly2-2 {
 			position: absolute;
 			top: 53%;
 			z-index: 1;
@@ -168,7 +168,7 @@
 			transition: 0.5s;
 		}
 
-		#butterfly3 {
+		#butterfly3-2 {
 			display: "none";
 			position: absolute;
 			top: 61.5%;
@@ -177,14 +177,14 @@
 			transform: rotateY(180deg);
 			transition: 0.5s;
 		}
-		#butterfly4 {
+		#butterfly4-2 {
 			position: absolute;
 			z-index: 1;
 			top: 40%;
 			transform: rotateY(30deg);
 			transition: 0.5s;
 		}
-		#alpaca2 {
+		#alpaca2-2 {
 			position: absolute;
 			top: 73%;
 			right: 10%;
@@ -218,10 +218,10 @@
 </head>
 
 <body style="text-align:center">
-	<img id="butterfly2" src='/static/habit_planter/images/butterfly.png' style = "visibility:hidden">
-	<img id="butterfly3" src='/static/habit_planter/images/butterfly.png' style = "visibility:hidden">
-	<img id="butterfly4" src='/static/habit_planter/images/butterfly.png' style = "visibility:hidden">
-	<img id="alpaca2" src='/static/habit_planter/images/alpaca.png'  style = "visibility:hidden">
+	<img id="butterfly2-2" src='/static/habit_planter/images/butterfly.png' style = "visibility:hidden">
+	<img id="butterfly3-2" src='/static/habit_planter/images/butterfly.png' style = "visibility:hidden">
+	<img id="butterfly4-2" src='/static/habit_planter/images/butterfly.png' style = "visibility:hidden">
+	<img id="alpaca2-2" src='/static/habit_planter/images/alpaca.png'  style = "visibility:hidden">
 
 	<h1 id = "goal1-label"></h1>
 	<h2 id = "habit2"></h2>
@@ -261,27 +261,27 @@
 
 	function closePopup() {
 			document.getElementById("myPopup").style.visibility = "hidden";
-			but1 = document.getElementById("butterfly2");
-			but2 = document.getElementById("butterfly3");
-			but3 = document.getElementById("butterfly4");
+			but1 = document.getElementById("butterfly2-2");
+			but2 = document.getElementById("butterfly3-2");
+			but3 = document.getElementById("butterfly4-2");
 			if (but1.style.visibility == "hidden"){
 				but1.style.visibility = "visible";
-				localStorage.setItem("butterfly2", "visible");
+				localStorage.setItem("butterfly2-2", "visible");
 			}
 			else if (but2.style.visibility == "hidden"){
 				but2.style.visibility = "visible";
-				localStorage.setItem("butterfly3", "visible");
+				localStorage.setItem("butterfly3-2", "visible");
 			}
 			else if (but3.style.visibility == "hidden"){
 				but3.style.visibility = "visible";
-				localStorage.setItem("butterfly4", "visible");
+				localStorage.setItem("butterfly4-2", "visible");
 			}
 		}
 		function closeCompletePopup() {
 			document.getElementById("myCompletePopup").style.visibility = "hidden";
-			alp1 = document.getElementById("alpaca2");
+			alp1 = document.getElementById("alpaca2-2");
 			alp1.style.visibility = "visible";
-			localStorage.setItem("alpaca2", "visible");
+			localStorage.setItem("alpaca2-2", "visible");
 		}
 		var url = window.location.href;
         var queryString = window.location.search;
@@ -462,17 +462,17 @@
 			let habitname = document.getElementById('habit2');
 			habitname.innerHTML = "Habit 2: " + localStorage.getItem("habit2");
 
-			if (localStorage.getItem("butterfly2")){
-				document.getElementById('butterfly2').style.visibility = "visible";
+			if (localStorage.getItem("butterfly2-2")){
+				document.getElementById('butterfly2-2').style.visibility = "visible";
 			}
-			if (localStorage.getItem("butterfly3")){
-				document.getElementById('butterfly3').style.visibility = "visible";
+			if (localStorage.getItem("butterfly3-2")){
+				document.getElementById('butterfly3-2').style.visibility = "visible";
 			}
-			if (localStorage.getItem("butterfly4")){
-				document.getElementById('butterfly4').style.visibility = "visible";
+			if (localStorage.getItem("butterfly4-2")){
+				document.getElementById('butterfly4-2').style.visibility = "visible";
 			}
-			if (localStorage.getItem("alpaca2")){
-				document.getElementById('alpaca2').style.visibility = "visible";
+			if (localStorage.getItem("alpaca2-2")){
+				document.getElementById('alpaca2-2').style.visibility = "visible";
 			}
         }
     </script>
