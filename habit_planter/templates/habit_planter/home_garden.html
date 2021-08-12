@@ -35,9 +35,9 @@
             text-align: left;
         }
 
-        .settings {
+        .menu {
             position: absolute;
-            bottom: -60%;
+            bottom: -175px;
             left: -10%;
             color: green !important;
             -webkit-filter: hue-rotate(-90deg);
@@ -119,26 +119,53 @@
             text-decoration: underline;
         }
 
-        #suggestions-box {
-            position: relative;
-            background: #49AC65;
-            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-            border-radius: 20px;
-            width: 110%;
-            margin-left: -18%;
-            height: 40%;
-            padding: 1em;
-            margin-top: 3em;
-            margin-bottom: 3em;
-            overflow-y: scroll;
-        }
-
+        
         .habit-text {
             position: relative;
             color: #FFFFFF;
             font-family: "Quicksand";
             font-size: 48px;
         }
+
+        .habitListContainer {
+            position: relative;
+            overflow-y: scroll;
+            height: 1000px;
+           
+            
+        }
+            
+        /* #habit4tree, #habit5tree, #habit6tree, #habit7tree, #habit8tree {
+            visibility: hidden;
+        } */
+        /* #suggestions-box {
+            position: relative;
+            background: #49AC65;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 20px !important;
+
+            width: 110%;
+            margin-left: -18%;
+            height: 40%;
+            padding: 1em;
+            margin-top: 3em;
+            margin-bottom: 3em; 
+        } */
+
+        #taskGreenBox {
+            position: relative;
+            background: #49AC65;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 20px !important;
+
+            width: 100%;
+            height: 40%;
+            padding: 1em;
+            margin-top: 3em;
+            margin-bottom: 3em; 
+            word-wrap: break-word;
+        }
+
 
     </style>
 
@@ -168,61 +195,70 @@
                 </a>
             </ol> -->
 
-            <div id = "taskList">
-                <a href="#" id="habit1tree" onclick="setInfo('habit1check')">
-                    <div class="container" id="suggestions-box">
-                        <div id="habit1" class="habit-text"> </div>
-                    </div>
-                </a>
+            <div class = "habitListContainer">
+                <div class = "a-container">
+                    <a href="#" class="" id="habit1tree" onclick="setInfo('habit1check')">
+                        <div class="container" id="taskGreenBox" style = "border-radius: 20px; ">
+                            <div id="habit1" class="habit-text"> </div>
+                        </div>
+                    </a>
+               
+                
                 <a href="#" id="habit2tree" onclick="setInfo('habit2check')">
-                    <div class="container" id="suggestions-box">
+                    <div class="container" id="taskGreenBox">
                         <div id="habit2" class="habit-text"> </div>
                     </div>
                 </a>
+                
                 <a href="#" id="habit3tree" onclick="setInfo('habit3check')">
-                    <div class="container" id="suggestions-box">
+                    <div class="container" id="taskGreenBox">
                         <div id="habit3" class="habit-text"> </div>
                     </div>
                 </a>
-                <a href="#" id="habit4tree" onclick="setInfo('habit4check')">
-                    <div class="container" id="suggestions-box">
+                <a href="#" id="habit4tree" onclick="setInfo('habit4check')" style = "visibility: hidden;">
+                    <div class="container" id="taskGreenBox"  >
                         <div id="habit4" class="habit-text"> </div>
                     </div>
                 </a>
-                <a href="#" id="habit5tree" onclick="setInfo('habit5check')">
-                    <div class="container" id="suggestions-box">
+                <a href="#" id="habit5tree" onclick="setInfo('habit5check')" style = "visibility: hidden;">
+                    <div class="container" id="taskGreenBox">
                         <div id="habit5" class="habit-text"> </div>
                     </div>
                 </a>
-                <a href="#" id="habit6tree" onclick="setInfo('habit6check')">
-                    <div class="container" id="suggestions-box">
+                <a href="#" id="habit6tree" onclick="setInfo('habit6check')" style = "visibility: hidden;">
+                    <div class="container" id="taskGreenBox">
                         <div id="habit6" class="habit-text"> </div>
                     </div>
                 </a>
-                <a href="#" id="habit7tree" onclick="setInfo('habit7check')">
-                    <div class="container" id="suggestions-box">
+                <a href="#" id="habit7tree" onclick="setInfo('habit7check')" style = "visibility: hidden;">
+                    <div class="container" id="taskGreenBox">
                         <div id="habit7" class="habit-text"> </div>
                     </div>
                 </a>
-                <a href="#" id="habit8tree" onclick="setInfo('habit8check')">
-                    <div class="container" id="suggestions-box">
+                <a href="#" id="habit8tree" onclick="setInfo('habit8check')" style = "visibility: hidden;">
+                    <div class="container" id="taskGreenBox">
                         <div id="habit8" class="habit-text"> </div>
                     </div>
                 </a>
             </div>
-            <div class="settings">
-                <a href="/habit_planter/settings">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-gear"
+            </div>
+
+            <div class="menu">
+                <a href="{% url 'menu' %}">
+                    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-gear"
                     viewBox="0 0 16 16">
                     <path
                         d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z" />
                     <path
                         d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z" />
-                </svg>
+                </svg> -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                  </svg>
                 </a>
             </div>
         </div>
-        <div class="info">
+        <!-- <div class="info">
             <a href="/habit_planter/info">
                 <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor"
                     class="bi bi-info-square" viewBox="0 0 16 16">
@@ -232,7 +268,7 @@
                         d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
                 </svg>
             </a>
-        </div>
+        </div> -->
 
 
         <!-- <div class="popup" onclick="popupFunction()">
@@ -299,6 +335,10 @@
             if (streak1 > 27 && streak2 > 27 && streak3 > 27 && streak4 > 27 && streak5 > 27 && streak6 > 27 && streak7 > 27 && streak8 > 27) {
                 window.location.replace("http://localhost:8000/habit_planter/congratulations");
             }
+
+            
+            // document.getElementById("habit4tree").style.visibility = "visible";
+            
             // if (localStorage.getItem('habit1check')) {
             //     var check1 = document.getElementById("habit1check");
             //     check1.setAttribute('checked', true);
@@ -326,6 +366,7 @@
             // console.log("link: " + document.getElementById(idstring).href);
             window.location.replace(totalUrl);
         }
+
         var url = window.location.href;
         var queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
@@ -358,38 +399,38 @@
         console.log(habit3id);
 
         const habit4id = localStorage.getItem('habit4');
+        let habit4 = document.getElementById('habit4'); 
         if (habit4id) {
-            let habit4 = document.getElementById('habit4');
+            document.getElementById("habit4tree").style.visibility = "visible";
             habit4.innerHTML = habit4id;
-            console.log(habit4id);
         }
 
         const habit5id = localStorage.getItem('habit5');
+        let habit5 = document.getElementById('habit5'); 
         if (habit5id) {
-            let habit5 = document.getElementById('habit5');
+            document.getElementById("habit5tree").style.visibility = "visible";
             habit5.innerHTML = habit5id;
-            console.log(habit5id);
         }
 
         const habit6id = localStorage.getItem('habit6');
+        let habit6 = document.getElementById('habit6'); 
         if (habit6id) {
-            let habit6 = document.getElementById('habit6');
-            habit6.innerHTML = habit6id;
-            console.log(habit6id);
+            document.getElementById("habit6tree").style.visibility = "visible";
+            habit4.innerHTML = habit4id;
         }
 
         const habit7id = localStorage.getItem('habit7');
+        let habit7 = document.getElementById('habit7'); 
         if (habit7id) {
-            let habit7 = document.getElementById('habit7');
+            document.getElementById("habit7tree").style.visibility = "visible";
             habit7.innerHTML = habit7id;
-            console.log(habit7id);
         }
 
         const habit8id = localStorage.getItem('habit8');
+        let habit8 = document.getElementById('habit8'); 
         if (habit8id) {
-            let habit8 = document.getElementById('habit8');
+            document.getElementById("habit8tree").style.visibility = "visible";
             habit8.innerHTML = habit8id;
-            console.log(habit8id);
         }
 
         // function sendMessage() {

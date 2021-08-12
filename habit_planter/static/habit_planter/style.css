@@ -197,10 +197,6 @@ ul{
     overflow-y: scroll;
 }
 
-#habit4, #habit5, #habit6, #habit7, #habit8 {
-    visibility: hidden;
-}
-
 #addhabit {
     background: #49AC65;
     color: white;

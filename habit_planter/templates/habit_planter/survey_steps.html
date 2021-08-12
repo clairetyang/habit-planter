@@ -12,6 +12,12 @@
 
     <link rel="stylesheet" type="text/css" href="{% static 'habit_planter/vendors/bootstrap/css/bootstrap.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'habit_planter/style.css' %}" />
+
+    <style>
+        #habit4, #habit5, #habit6, #habit7, #habit8 {
+            visibility: hidden;
+        }
+    </style>
 </head>
 
 <body>
@@ -114,10 +120,10 @@
             localStorage.setItem("habit2", habit2.value);
             localStorage.setItem("habit3", habit3.value);
             localStorage.setItem("habit4", habit4.value);
-            localStorage.setItem("habit5", habit1.value);
-            localStorage.setItem("habit6", habit2.value);
-            localStorage.setItem("habit7", habit3.value);
-            localStorage.setItem("habit8", habit4.value);
+            localStorage.setItem("habit5", habit5.value);
+            localStorage.setItem("habit6", habit6.value);
+            localStorage.setItem("habit7", habit7.value);
+            localStorage.setItem("habit8", habit8.value);
 
             // console.log(urlParams.toString());
             // totalUrl = "http://localhost:8000/habit_planter/"+'home_garden?' +urlParams.toString();
