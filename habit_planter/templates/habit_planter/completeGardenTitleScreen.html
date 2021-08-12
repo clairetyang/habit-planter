@@ -4,7 +4,7 @@
 <html>
 
 <head>
-    <title>Settings</title>
+    <title>Completed Gardens</title>
     <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -64,8 +64,7 @@
     <div class="container">
         <!-- <img class="background" src="{% static 'habit_planter/images/survey_intro_bg.png' %}"> -->
 
-        <h2>artistree</h2>
-        <h2 style="font-size: 100px;"> settings</h2>
+        <h2>Completed Gardens</h2>
         <!-- <h2 class="congrats">
             Would you like to start a new journey?
             <br/>
@@ -73,29 +72,14 @@
         </h2> -->
         <!-- navigation buttons -->
         <img class="alpaca" src='/static/habit_planter/images/alpaca.png'>
-        <a href="{% url 'survey_name' %}" onclick="sendMessage()">
-            <button class="btn next-btn" type="submit" value="submit" style="left: 20%; top: 30%; width: 600px; height: 120px; font-size: 50px;">
-                Edit Profile
+        <a href="{% url 'completedgardens' %}">
+            <button class="btn next-btn" type="submit" value="submit" style="left: 20%; top: 30%; width: 800px; height: 180px; margin-left: -10%; font-size: 50px; ">
+                Goal: Open a sucessful Etsy shop
             </button>
         </a>
-        <a href="{% url 'title' %}" onclick="sendMessage()">
-            <button class="btn next-btn" type="submit" value="submit" style="left: 20%; top: 40%; width: 600px; height: 120px; font-size: 50px;">
-                Start a new journey
-            </button>
-        </a>
-        <a href="{% url 'info' %}" onclick="sendMessage()">
-            <button class="btn next-btn" type="submit" value="submit" style="left: 20%; top: 50%; width: 600px; height: 120px; font-size: 50px;">
-                Information
-            </button>
-        </a>
-        <a href="{% url 'completedgardenstitle' %}" onclick="sendMessage()">
-            <button class="btn next-btn" type="submit" value="submit" style="left: 20%; top: 60%; width: 600px; height: 120px; font-size: 50px;">
-                Completed Gardens
-            </button>
-        </a>
+    
         
-        
-        <a href="{% url 'home_garden' %}" onclick="sendMessage()">
+        <a href="{% url 'settings' %}" onclick="sendMessage()">
             <button class="btn next-btn" type="submit" value="submit" style="bottom: 60px;">Back</button>
         </a>
         

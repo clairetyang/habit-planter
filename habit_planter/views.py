@@ -64,3 +64,6 @@ def congratulations(request):
 
 def completedgardens(request):
     return render(request, 'habit_planter/completedGardens.html')
+
+def completedgardenstitle(request):
+    return render(request, 'habit_planter/completeGardenTitleScreen.html')
