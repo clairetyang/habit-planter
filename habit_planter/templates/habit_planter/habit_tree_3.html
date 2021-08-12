@@ -155,6 +155,45 @@
 			animation: fadeIn .2s;
 		}
 
+		.butterfly {
+			text-align:right;
+		}
+		
+		#butterfly2 {
+			position: absolute;
+			top: 53%;
+			z-index: 1;
+			left: 64%;
+			transform: rotateY(0deg);
+			transition: 0.5s;
+		}
+
+		#butterfly3 {
+			display: "none";
+			position: absolute;
+			top: 61.5%;
+			left: 35%;
+			z-index: 1;
+			transform: rotateY(180deg);
+			transition: 0.5s;
+		}
+		#butterfly4 {
+			position: absolute;
+			z-index: 1;
+			top: 40%;
+			transform: rotateY(30deg);
+			transition: 0.5s;
+		}
+		#alpaca2 {
+			position: absolute;
+			top: 73%;
+			right: 10%;
+			z-index: 1;
+			width: 30%;
+			transform: rotateY(0deg);
+			transition: 0.5s;
+		}
+
 		@-webkit-keyframes fadeIn {
 			from {
 				opacity: 0;
@@ -175,13 +214,15 @@
 			}
 		}
 
-		.butterfly {
-			text-align:right;
-		}
 	</style>
 </head>
 
 <body style="text-align:center">
+	<img id="butterfly2" src='/static/habit_planter/images/butterfly.png' style = "visibility:hidden">
+	<img id="butterfly3" src='/static/habit_planter/images/butterfly.png' style = "visibility:hidden">
+	<img id="butterfly4" src='/static/habit_planter/images/butterfly.png' style = "visibility:hidden">
+	<img id="alpaca2" src='/static/habit_planter/images/alpaca.png'  style = "visibility:hidden">
+
 	<h1 id = "goal1-label"></h1>
 	<h2 id = "habit3"></h2>
 	<p>
@@ -209,7 +250,7 @@
 	<canvas id="myCanvas"></canvas>
 	<img id="grass" src="{% static 'habit_planter/images/grass.png' %}">
 	<div id="color-palette"></div>
-	<a href="#" id = "link2">
+	<a href="{% url 'home_garden' %}" id = "link2">
 		<button id="finish-btn" onclick=saveCanvas() type="button" id = "flp">Finish Logging Progress</button>
 		</a>
 
@@ -218,11 +259,29 @@
 	// import { saveAs } from 'file-saver';
 	// FileSaver saveAs(Blob,DOMString filename);
 
-		function closePopup() {
+	function closePopup() {
 			document.getElementById("myPopup").style.visibility = "hidden";
+			but1 = document.getElementById("butterfly2");
+			but2 = document.getElementById("butterfly3");
+			but3 = document.getElementById("butterfly4");
+			if (but1.style.visibility == "hidden"){
+				but1.style.visibility = "visible";
+				localStorage.setItem("butterfly2", "visible");
+			}
+			else if (but2.style.visibility == "hidden"){
+				but2.style.visibility = "visible";
+				localStorage.setItem("butterfly3", "visible");
+			}
+			else if (but3.style.visibility == "hidden"){
+				but3.style.visibility = "visible";
+				localStorage.setItem("butterfly4", "visible");
+			}
 		}
 		function closeCompletePopup() {
 			document.getElementById("myCompletePopup").style.visibility = "hidden";
+			alp1 = document.getElementById("alpaca2");
+			alp1.style.visibility = "visible";
+			localStorage.setItem("alpaca2", "visible");
 		}
 		var url = window.location.href;
         var queryString = window.location.search;
@@ -260,8 +319,8 @@
 			
 			localStorage.setItem("streakCounter_habit3", streakCounter)
 			
-			totalUrl = "http://localhost:8000/habit_planter/home_garden?"
-			document.getElementById("link2").href = totalUrl
+			// totalUrl = "http://localhost:8000/habit_planter/home_garden?"
+			// document.getElementById("link2").href = totalUrl
 			
 			// console.log(svg);
 			// downloadDataUri({
@@ -401,7 +460,21 @@
 			goalfocus.innerHTML = "Goal: " + localStorage.getItem("goal");
 
 			let habitname = document.getElementById('habit3');
-			habitname.innerHTML = "Habit: " + localStorage.getItem("habit3");
+			habitname.innerHTML = "Habit 3: " + localStorage.getItem("habit3");
+
+			if (localStorage.getItem("butterfly2")){
+				document.getElementById('butterfly2').style.visibility = "visible";
+			}
+			if (localStorage.getItem("butterfly3")){
+				document.getElementById('butterfly3').style.visibility = "visible";
+			}
+			if (localStorage.getItem("butterfly4")){
+				document.getElementById('butterfly4').style.visibility = "visible";
+			}
+			if (localStorage.getItem("alpaca2")){
+				document.getElementById('alpaca2').style.visibility = "visible";
+			}
+        
         }
     </script>
 

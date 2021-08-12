@@ -247,7 +247,7 @@
 	<canvas id="myCanvas"></canvas>
 	<img id="grass" src="{% static 'habit_planter/images/grass.png' %}">
 	<div id="color-palette"></div>
-	<a href="#" id = "link2">
+	<a href="{% url 'home_garden' %}" id = "link2">
 		<button id="finish-btn" onclick=saveCanvas() type="button" id = "flp">Finish Logging Progress</button>
 		</a>
 
@@ -325,8 +325,8 @@
 			// else{
 			// 	urlParams.set("habit1counter", streakCounter);
 			// }
-			totalUrl = "http://localhost:8000/habit_planter/home_garden?"
-			document.getElementById("link2").href = totalUrl
+			// totalUrl = "http://localhost:8000/habit_planter/home_garden?"
+			// document.getElementById("link2").href = totalUrl
 			
 			// console.log(svg);
 			// downloadDataUri({
@@ -466,11 +466,16 @@
 			goalfocus.innerHTML = "Goal: " + localStorage.getItem("goal");
 
 			let habitname = document.getElementById('habit1');
+<<<<<<< HEAD
 			habitname.innerHTML = "Habit: " + localStorage.getItem("habit1");
 			// localStorage.removeItem("butterfly2");
 			// localStorage.removeItem("butterfly3");
 			// localStorage.removeItem("butterfly4");
 			// localStorage.removeItem("alpaca2");
+=======
+			habitname.innerHTML = "Habit 1: " + localStorage.getItem("habit1");
+
+>>>>>>> e0c9d079bd51cbc05619f4841d16423926616c48
 			if (localStorage.getItem("butterfly2")){
 				document.getElementById('butterfly2').style.visibility = "visible";
 			}
