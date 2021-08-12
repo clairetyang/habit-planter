@@ -61,3 +61,6 @@ def settings(request):
 
 def congratulations(request):
     return render(request, 'habit_planter/congratulations.html')
+
+def completedgardens(request):
+    return render(request, 'habit_planter/completedGardens.html')
