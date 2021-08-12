@@ -31,13 +31,19 @@
 
         <h2 id = "goal-label">Goal: </h2>
         <!-- habit input boxes -->
-        <div class="habit-boxes">
-            <input class="form-control habit-input" id = habit1 type="text" placeholder="Habit #1">
-            <input class="form-control habit-input" id = habit2  type="text" placeholder="Habit #2">
-            <input class="form-control habit-input" id = habit3  type="text" placeholder="Habit #3">
-            <input class="form-control habit-input" id = habit4  type="text" placeholder="Habit #4">
+        <div class="habit-boxes one">
+            <button class="form-control habit-input" id = "addhabit" onclick = "addHabit()" >+ Add Habit</button>
+            <input class="form-control habit-input" id = "habit1" type="text" placeholder="Habit #1">
+            <input class="form-control habit-input" id = "habit2"  type="text" placeholder="Habit #2">
+            <input class="form-control habit-input" id = "habit3" type="text" placeholder="Habit #3">
+            <input class="form-control habit-input" id = "habit4" type="text" placeholder="Habit #4">
+            <input class="form-control habit-input" id = "habit5"  type="text" placeholder="Habit #5">
+            <input class="form-control habit-input" id = "habit6" type="text" placeholder="Habit #6">
+            <input class="form-control habit-input" id = "habit7" type="text" placeholder="Habit #7">
+            <input class="form-control habit-input" id = "habit8"  type="text" placeholder="Habit #8">
+            
+  
         </div>
-
 
         <!-- navigation buttons -->
         <a href="{% url 'survey_goal' %}">
@@ -49,6 +55,46 @@
     </div>
     <script>
       
+        var habitCounter = 3
+        localStorage.setItem("habitCounter", habitCounter);
+
+        function addHabit() {
+
+            habitCounter = parseInt(localStorage.getItem("habitCounter")) + 1;
+            localStorage.setItem("habitCounter", habitCounter);
+
+            var currID = "habit" + habitCounter;
+            document.getElementById(currID).style.visibility = "visible";
+       
+            // var base_string = "<div class='habit-boxes one'> <input class='form-control habit-input' id = 'habit1' type='text' placeholder='Habit #1'>"
+            // + "<input class='form-control habit-input' id = 'habit2' type='text' placeholder='Habit #2'><input class='form-control habit-input' id = 'habit3' type='text' placeholder='Habit #3'></div>";
+
+
+            // el = document.getElementsByClassName("habit-boxes");
+            // var nodes = el.childNodes;
+            // var base_val = '';
+
+            // for(var i = 0; i < nodes.length; i++) {                        
+            // switch(nodes[i].nodeName) {
+            //     case '#text'    : text = text + nodes[i].nodeValue;   break;
+            //     case 'BR'       : text = text + '\n';      break;
+            // }
+            // }
+            
+            // console.log(base_val);
+            // let habitnum = "habit" + habitCounter;
+            
+            //console.log(innerString);
+            // document.getElementsByClassName("habit-boxes").innerHTML.pop();
+
+            // console.log(document.getElementsByClassName("habit-boxes").innerHTML);
+            // console.log(innerString);
+       
+            // document.getElementsByClassName("habit-boxes").innerHTML = document.getElementsByClassName("habit-boxes").innerHTML.pop() + "<button> NEW </button> </div>"
+            // "<input class='form-control habit-input' id = 'habit' + habitCounter  type='text' placeholder='Habit #' +  habitCounter>";
+        }
+
+
         var goal = localStorage.getItem("goal")
 		let goalfocus = document.getElementById('goal-label');
 		goalfocus.innerHTML = "Goal: " + goal;

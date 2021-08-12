@@ -191,8 +191,15 @@ ul{
 .habit-boxes {
     position: absolute;
     top: 40%;
-    width: 100%
+    width: 100%;
+    height: 50%;
+    overflow-y: scroll;
 }
+
+#habit4, #habit5, #habit6, #habit7, #habit8 {
+    visibility: hidden;
+}
+
 #goal-label {
     position: absolute;
     font-size: 50px;
