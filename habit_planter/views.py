@@ -73,3 +73,9 @@ def menu(request):
 
 def congratulations(request):
     return render(request, 'habit_planter/congratulations.html')
+
+def completedgardens(request):
+    return render(request, 'habit_planter/completedGardens.html')
+
+def completedgardenstitle(request):
+    return render(request, 'habit_planter/completeGardenTitleScreen.html')
