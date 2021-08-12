@@ -56,5 +56,8 @@ def send_to2(request):
 def info(request):
     return render(request, 'habit_planter/info.html')
 
+def settings(request):
+    return render(request, 'habit_planter/settings.html')
+
 def congratulations(request):
     return render(request, 'habit_planter/congratulations.html')

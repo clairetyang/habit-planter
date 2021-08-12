@@ -21,6 +21,7 @@ urlpatterns = [
     path('habit_tree_3', views.habit_tree_3, name = 'habit_tree_3'),
     path('habit_tree_4', views.habit_tree_4, name = 'habit_tree_4'),
     path('info', views.info, name = 'info'),
+    path('settings', views.settings, name = 'settings'),
     path('congratulations', views.congratulations, name = 'congratulations'),
     
 ]

@@ -17,28 +17,40 @@
             width: 100%;
             margin-left: 120%;
         }
+
         h1 {
-			position: absolute;
-			margin-top: -10%;
-			margin-left: -2.5%;
-			font-family: 'Alice', sans-serif;
-			font-size: 80px;
-		}
-        #goaldif2{
-            position:relative;
+            position: absolute;
+            margin-top: -10%;
+            margin-left: -2.5%;
+            font-family: 'Alice', sans-serif;
+            font-size: 80px;
+        }
+
+        #goaldif2 {
+            position: relative;
             width: 120%;
-			margin-left: -2%;
+            margin-left: -2%;
             margin-top: -20%;
             padding-bottom: 10%;
             text-align: left;
         }
-        .info{
-            position:absolute;
-            bottom: -40%;
-            right: -10%;
+
+        .settings {
+            position: absolute;
+            bottom: -60%;
+            left: -10%;
             color: green !important;
             -webkit-filter: hue-rotate(-90deg);
         }
+
+        .info {
+            position: absolute;
+            bottom: 100px;
+            right: 10%;
+            color: green !important;
+            -webkit-filter: hue-rotate(-90deg);
+        }
+
         /* Popup container - can be anything you want */
         .popup {
             position: relative;
@@ -66,13 +78,15 @@
             text-align: center;
             box-shadow: 0px 0px 15px 5px #245E1B;
         }
+
         #learn-more {
             white-space: nowrap;
             font-size: 40px;
             margin-left: 100%;
-            
+
         }
-        #description{
+
+        #description {
             font-size: 45px;
             width: 120%;
             text-align: left;
@@ -80,10 +94,12 @@
             padding-bottom: 5%;
 
         }
-        .container{
+
+        .container {
             height: 110%;
             width: 110%;
         }
+
         .tasklist {
             font-size: 50px;
             text-align: left;
@@ -102,6 +118,7 @@
             font-weight: bold;
             text-decoration: underline;
         }
+
         #suggestions-box {
             position: relative;
             background: #49AC65;
@@ -111,16 +128,16 @@
             margin-left: -18%;
             height: 40%;
             padding: 1em;
-            margin-top:3em;
+            margin-top: 3em;
             margin-bottom: 3em;
         }
-        .habit-text{
+
+        .habit-text {
             position: relative;
             color: #FFFFFF;
             font-family: "Quicksand";
             font-size: 48px;
         }
-
     </style>
 
 </head>
@@ -133,7 +150,7 @@
         <div class="home-info">
             <h2 id="goaldif2"></h2>
             <h2 id="checklist" style="font-weight: bold;"><u> Task List </u></h2>
-            <h2 id="description" >Tap a task to navigate to the tree.</h2>
+            <h2 id="description">Tap a task to navigate to the tree.</h2>
             <!-- <ol class="tasklist" type="1">
                 <a href="#" id="habit1tree">
                     <li id="habit1" onclick="setInfo('habit1check')"></li>
@@ -149,41 +166,52 @@
                 </a>
             </ol> -->
 
-            <a href="#" id = "habit1tree" onclick="setInfo('habit1check')">
-                <div class = "container" id = "suggestions-box">
-                    <div id="habit1" class="habit-text" > </div>
+            <a href="#" id="habit1tree" onclick="setInfo('habit1check')">
+                <div class="container" id="suggestions-box">
+                    <div id="habit1" class="habit-text"> </div>
                 </div>
-             </a>
-             <a href="#" id = "habit2tree" onclick="setInfo('habit2check')">
-                <div class = "container" id = "suggestions-box">
-                    <div id="habit2" class="habit-text" > </div>
+            </a>
+            <a href="#" id="habit2tree" onclick="setInfo('habit2check')">
+                <div class="container" id="suggestions-box">
+                    <div id="habit2" class="habit-text"> </div>
                 </div>
-             </a>
-             <a href="#" id = "habit3tree" onclick="setInfo('habit3check')">
-                <div class = "container" id = "suggestions-box">
-                    <div id="habit3" class="habit-text" > </div>
+            </a>
+            <a href="#" id="habit3tree" onclick="setInfo('habit3check')">
+                <div class="container" id="suggestions-box">
+                    <div id="habit3" class="habit-text"> </div>
                 </div>
-             </a>
-             <a href="#" id = "habit4tree" onclick="setInfo('habit4check')">
-                <div class = "container" id = "suggestions-box">
-                    <div id="habit4" class="habit-text" > </div>
+            </a>
+            <a href="#" id="habit4tree" onclick="setInfo('habit4check')">
+                <div class="container" id="suggestions-box">
+                    <div id="habit4" class="habit-text"> </div>
                 </div>
-             </a>
-            
-            <div class = "info" >
-                <a href="/habit_planter/info">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor"
-                        class="bi bi-info-square" viewBox="0 0 16 16">
-                        <path
-                            d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
-                        <path
-                            d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
-                    </svg>
+            </a>
+            <div class="settings">
+                <a href="/habit_planter/settings">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-gear"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z" />
+                    <path
+                        d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z" />
+                </svg>
                 </a>
             </div>
+        </div>
+        <div class="info">
+            <a href="/habit_planter/info">
+                <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor"
+                    class="bi bi-info-square" viewBox="0 0 16 16">
+                    <path
+                        d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                    <path
+                        d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                </svg>
+            </a>
+        </div>
 
 
-            <!-- <div class="popup" onclick="popupFunction()">
+        <!-- <div class="popup" onclick="popupFunction()">
                 <br />
                 <h2 id="learn-more"> Tap me to learn more!</h2>
 
@@ -193,8 +221,8 @@
 
  -->
 
-                <!-- <span class="popuptext1" id="myPopup"> -->
-                    <!-- <h2 style="font-size: 40px; right: 10%;">
+        <!-- <span class="popuptext1" id="myPopup"> -->
+        <!-- <h2 style="font-size: 40px; right: 10%;">
                         <br />Click a label to see that tree!
                         <br />
                         <a href="/habit_planter/info">
@@ -208,9 +236,9 @@
                         </a>
                     </h2>
                 </span> -->
-            </div>
+    </div>
 
-        </div>
+    </div>
     </div>
 
     <script type="text/javascript">
