@@ -200,6 +200,11 @@ ul{
     visibility: hidden;
 }
 
+#addhabit {
+    background: #49AC65;
+    color: white;
+}
+
 #goal-label {
     position: absolute;
     font-size: 50px;
