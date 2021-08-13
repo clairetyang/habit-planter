@@ -79,3 +79,6 @@ def completedgardens(request):
 
 def completedgardenstitle(request):
     return render(request, 'habit_planter/completeGardenTitleScreen.html')
+
+def currentgarden(request):
+    return render(request, 'habit_planter/currentGardens.html')

@@ -28,6 +28,7 @@ urlpatterns = [
     path('menu', views.menu, name = 'menu'),
     path('congratulations', views.congratulations, name = 'congratulations'),
     path('completedgardens', views.completedgardens, name = 'completedgardens'),
-    path('completedgardenstitle', views.completedgardenstitle, name = 'completedgardenstitle')
+    path('completedgardenstitle', views.completedgardenstitle, name = 'completedgardenstitle'),
+    path('currentgarden', views.currentgarden, name = 'currentgarden')
 
 ]

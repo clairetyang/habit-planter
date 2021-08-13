@@ -1,0 +1,333 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Habit Tree</title>
+
+	<!-- font -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Alice&family=Quicksand&display=swap" rel="stylesheet">
+	<!-- jquery -->
+	<script type="text/javascript" src="{% static 'habit_planter/vendors/require.js' %}"></script>
+	<script type="text/javascript" src="{% static 'habit_planter/vendors/jquery/jquery-3.3.1.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'habit_planter/vendors/paper/paper-full.min.js' %}"></script>
+	<link rel="stylesheet" type="text/css" href="{% static 'habit_planter/vendors/bootstrap/css/bootstrap.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'habit_planter/style.css' %}" />
+
+
+	<style type="text/css">
+		#goal1-label {
+			width: 90%;
+			left: 3%;
+			margin-left: 6%;
+		}
+		h1 {
+			position: relative;
+			top: 5%;
+			font-family: 'Alice', sans-serif;
+			font-size: 80px;
+			margin-bottom: 10%;
+		}
+		h2{
+			font-family: 'Quicksand';
+			font-size: 53px;
+		}
+		#habit1 {
+			position: relative;
+			margin-left: 4%;
+			margin-top: 2em;
+			width: 100%;
+		}	
+		#dayordays{
+			margin-left: 5%;
+			position: relative;
+		}
+
+		#grass {
+			position: absolute;
+			bottom:-10%;
+			right:-10%;
+			width: 120%;
+			height: 25%;			
+		}
+		#flp{
+			background-color: none;
+			display: flex;
+			flex-wrap: wrap;
+			position: absolute;
+			bottom: -4.5%;
+			left: 25%;
+			font-size: 3vh;
+			padding: 0.5em;
+		}
+		#color-palette {
+			background-color: none;
+			display: flex;
+			flex-wrap: wrap;
+			position: absolute;
+			bottom: 4%;
+			left: 25%;
+		}
+		.swatch {
+			width: 90px;
+			height: 80px;
+			-moz-border-radius: 12px;
+			-webkit-border-radius: 12px;
+			border-radius: 12px;
+			margin: 3px;
+		}
+
+		#myCanvas {
+			background-image: url('/static/habit_planter/images/trunk.png');
+			background-repeat: no-repeat;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			margin-left: -400px;
+			bottom:-575px;
+		}
+		#prev-btn {
+			position:absolute;
+			bottom: -8%;
+			right: 60%;
+			font-size: 50px;
+			font-family: 'Quicksand', sans-serif;
+			color: #803333;
+			text-align: center;
+			width: 340px;
+			height: 100px;
+			background: #FECFB5;
+			box-shadow: 0px 4px 4px rgba(117, 110, 110, 0.5);
+			border-radius: 10px;
+		}
+		#next-btn {
+			position:absolute;
+			bottom: -8%;
+			right: -4%;
+			font-size: 50px;
+			font-family: 'Quicksand', sans-serif;
+			color: #803333;
+			text-align: center;
+			width: 340px;
+			height: 100px;
+			background: #FECFB5;
+			box-shadow: 0px 4px 4px rgba(117, 110, 110, 0.5);
+			border-radius: 10px;
+		}
+
+	/* Popup container - can be anything you want */
+		.popup {
+			position: relative;
+			display: inline-block;
+			cursor: pointer;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+			right: 300px;
+		}
+
+		.popup .popuptext1 {
+			visibility: hidden;
+			background-color: white;
+			position: absolute;
+			z-index: 2;
+			/* bottom: 125%; */
+			/* top: 1000px; */
+			width: 800px;
+			height: 420px;
+			padding: 40px 40px 40px 40px;
+			border-radius: 30px;
+			font-size: 30px;
+			text-align: center;
+			box-shadow: 0px 0px 15px 5px #245E1B;
+		}
+
+		.popup .popuptext2 {
+			visibility: hidden;
+			background-color: white;
+			position: absolute;
+			z-index: 2;
+			/* bottom: 125%; */
+			/* top: 1000px; */
+			width: 800px;
+			height: 490px;
+			padding: 40px 40px 40px 40px;
+			border-radius: 30px;
+			font-size: 30px;
+			text-align: center;
+			box-shadow: 0px 0px 15px 5px #245E1B;
+		}
+
+		.popup .show {
+			visibility: visible;
+			-webkit-animation: fadeIn .2s;
+			animation: fadeIn .2s;
+		}
+		.butterfly {
+			text-align:right;
+		}
+		
+		#butterfly2 {
+			position: absolute;
+			top: 53%;
+			z-index: 1;
+			left: 64%;
+			transform: rotateY(0deg);
+			transition: 0.5s;
+		}
+
+		#butterfly3 {
+			display: "none";
+			position: absolute;
+			top: 61.5%;
+			left: 35%;
+			z-index: 1;
+			transform: rotateY(180deg);
+			transition: 0.5s;
+		}
+		#butterfly4 {
+			position: absolute;
+			z-index: 1;
+			top: 40%;
+			transform: rotateY(30deg);
+			transition: 0.5s;
+		}
+		#alpaca2 {
+			position: absolute;
+			top: 73%;
+			right: 10%;
+			z-index: 1;
+			width: 30%;
+			transform: rotateY(0deg);
+			transition: 0.5s;
+		}
+		@-webkit-keyframes fadeIn {
+			from {
+				opacity: 0;
+			}
+
+			to {
+				opacity: 1;
+			}
+		}
+
+		@keyframes fadeIn {
+			from {
+				opacity: 0;
+			}
+
+			to {
+				opacity: 1;
+			}
+		}
+	</style>
+</head>
+
+<body style="text-align:center">
+	<img id="butterfly2" src='/static/habit_planter/images/butterfly.png' >
+	<img id="butterfly3" src='/static/habit_planter/images/butterfly.png'>
+	<img id="butterfly4" src='/static/habit_planter/images/butterfly.png'>
+	<img id="alpaca2" src='/static/habit_planter/images/alpaca.png' >
+
+	<h1 id = "goal1-label"></h1>
+	<h2 id = "habit1"></h2>
+	<canvas id="myCanvas"></canvas>
+	<img id="grass" src="{% static 'habit_planter/images/grass.png' %}">
+	<div id="color-palette"></div>
+	
+	<a href = # id= link2> 
+		<button id="prev-btn" onclick=prevButton() type="button">Back</button>
+	</a>
+	<button id="next-btn" onclick=nextButton() type="button">Next</button>
+
+	<script src = "{% static 'habit_planter/vendors/FileSaver.js-master/src/FileSaver.js' %}"></script>
+	<script type="text/javascript" canvas="canvas">
+		var counter = 1; 		
+		function nextButton(){
+			counter++;
+			let habitname = document.getElementById('habit1');
+			habitname.innerHTML = "Habit: " + localStorage.getItem("habit"+counter);
+
+			svg = localStorage.getItem("leaves_big_habit"+counter);
+			paper.project.importSVG(svg, function (item) {
+				//print("hello");
+				mandala.item = item._children["design-freepik"];
+				console.log(item);
+				paper.project.insertLayer(0, mandala.item);
+				console.log(paper.project.getItems(mandala));
+
+			});
+			if (counter == 4){
+				document.getElementById('next-btn').style.visibility = "hidden";
+			}
+		}
+
+		function prevButton(){
+			counter--;
+			if (counter == 0){
+				totalUrl = "http://localhost:8000/habit_planter/completedgardenstitle?"
+				document.getElementById("link2").href = totalUrl
+				return;
+			}
+			let habitname = document.getElementById('habit1');
+			habitname.innerHTML = "Habit: " + localStorage.getItem("habit"+counter);
+
+			svg = localStorage.getItem("leaves_big_habit"+counter);
+			paper.project.importSVG(svg, function (item) {
+				//print("hello");
+				mandala.item = item._children["design-freepik"];
+				console.log(item);
+				paper.project.insertLayer(0, mandala.item);
+				console.log(paper.project.getItems(mandala));
+
+			});
+			if (counter == 3){
+				document.getElementById('next-btn').style.visibility = "visible";
+			}
+		}
+		var url = window.location.href;
+        var queryString = window.location.search;
+
+			// coloring page
+			var mandala = {
+				item: null,
+				lastClicked: null,
+				filePath: '/static/habit_planter/images/comphabittree'
+			};
+
+		window.onload = function () {
+			var canvas = document.getElementById('myCanvas');
+			var lastColor = null;			
+			function init(custom) {
+				paper.setup(canvas);
+				console.log(svg);
+				var svg = localStorage.getItem("leaves_big_habit"+1);
+				paper.project.importSVG(svg, function (item) {
+					//print("hello");
+					mandala.item = item._children["design-freepik"];
+					console.log(item);
+					paper.project.insertLayer(0, mandala.item);
+					console.log(paper.project.getItems(mandala));
+
+				});
+			}
+
+			// Set up the mandala interactivity.
+			init(true);
+		
+			let goalfocus = document.getElementById('goal1-label');
+			goalfocus.innerHTML = "Goal:" + localStorage.getItem("goal");
+
+			let habitname = document.getElementById('habit1');
+			habitname.innerHTML = "Habit: " + localStorage.getItem("habit1");
+        }
+    </script>
+
+</body>
+
+</html>
