@@ -77,6 +77,10 @@
                 Goal: Open a sucessful Etsy shop
             </button>
         </a>
+        <a href="{% url 'currentgarden' %}">
+            <button class="btn next-btn" id = "btn1" type="submit" value="submit" style="left: 20%; top: 45%; width: 800px; height: 180px; margin-left: -10%; font-size: 50px; ">
+            </button>
+        </a>
         
         <a href="{% url 'menu' %}" onclick="sendMessage()">
             <button class="btn next-btn" type="submit" value="submit" style="bottom: 60px;">Back</button>
@@ -86,6 +90,13 @@
 
 
     </div>
+    <script>
+        if (localStorage.getItem("complete")){
+            btn1  = document.getElementById("btn1");
+            btn1.style.visibility = "visibile"
+            btn1.innerHTML = "Goal: "+localStorage.getItem("1goal");
+        }
+    </script>
 
 </body>
 

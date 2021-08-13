@@ -295,6 +295,12 @@
 			localStorage.setItem("streakCounter_habit3", streakCounter)
 		}
 
+		if (streakCounter == 0){
+			localStorage.setItem("butterfly2-3", "hidden");
+			localStorage.setItem("butterfly3-3", "hidden");
+			localStorage.setItem("butterfly4-3", "hidden");
+			localStorage.setItem("alpaca2-3", "hidden");
+		}
 		var weekCounter = document.getElementById("weekCounter");
 		console.log(new Date().toString());
 
@@ -463,16 +469,16 @@
 			habitname.innerHTML = "Habit 3: " + localStorage.getItem("habit3");
 
 			if (localStorage.getItem("butterfly2-3")){
-				document.getElementById('butterfly2-3').style.visibility = "visible";
+				document.getElementById('butterfly2-3').style.visibility = localStorage.getItem("butterfly2-3");
 			}
 			if (localStorage.getItem("butterfly3-3")){
-				document.getElementById('butterfly3-3').style.visibility = "visible";
+				document.getElementById('butterfly3-3').style.visibility = localStorage.getItem("butterfly3-3");
 			}
 			if (localStorage.getItem("butterfly4-3")){
-				document.getElementById('butterfly4-3').style.visibility = "visible";
+				document.getElementById('butterfly4-3').style.visibility = localStorage.getItem("butterfly4-3");
 			}
 			if (localStorage.getItem("alpaca2-3")){
-				document.getElementById('alpaca2-3').style.visibility = "visible";
+				document.getElementById('alpaca2-3').style.visibility = localStorage.getItem("alpaca2-3");
 			}
         
         }

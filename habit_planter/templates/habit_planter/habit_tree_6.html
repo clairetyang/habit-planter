@@ -295,6 +295,12 @@
 			streakCounter += counterdifName;
 			localStorage.setItem("streakCounter_habit6", streakCounter)
 		}
+		if (streakCounter == 0){
+			localStorage.setItem("butterfly2-6", "hidden");
+			localStorage.setItem("butterfly3-6", "hidden");
+			localStorage.setItem("butterfly4-6", "hidden");
+			localStorage.setItem("alpaca2-6", "hidden");
+		}
 
 		var weekCounter = document.getElementById("weekCounter");
 		console.log(new Date().toString());

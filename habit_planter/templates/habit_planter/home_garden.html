@@ -136,23 +136,6 @@
            
             
         }
-            
-        /* #habit4tree, #habit5tree, #habit6tree, #habit7tree, #habit8tree {
-            visibility: hidden;
-        } */
-        /* #suggestions-box {
-            position: relative;
-            background: #49AC65;
-            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-            border-radius: 20px !important;
-
-            width: 110%;
-            margin-left: -18%;
-            height: 40%;
-            padding: 1em;
-            margin-top: 3em;
-            margin-bottom: 3em; 
-        } */
 
         #taskGreenBox {
             position: relative;
@@ -182,20 +165,6 @@
             <h2 id="goaldif2"></h2>
             <h2 id="checklist" style="font-weight: bold;"><u> Habit List </u></h2>
             <h2 id="description">Tap on a habit to navigate to the tree.</h2>
-            <!-- <ol class="tasklist" type="1">
-                <a href="#" id="habit1tree">
-                    <li id="habit1" onclick="setInfo('habit1check')"></li>
-                </a>
-                <a href="#" id="habit2tree">
-                    <li id="habit2" onclick="setInfo('habit2check')"></li>
-                </a>
-                <a href="#" id="habit3tree">
-                    <li id="habit3" onclick="setInfo('habit3check')"></li>
-                </a>
-                <a href="#" id="habit4tree">
-                    <li id="habit4" onclick="setInfo('habit4check')"></li>
-                </a>
-            </ol> -->
 
             <div class = "habitListContainer">
                 <div class = "a-container">
@@ -271,40 +240,12 @@
                 </svg>
             </a>
         </div>
-
-
-        <!-- <div class="popup" onclick="popupFunction()">
-                <br />
-                <h2 id="learn-more"> Tap me to learn more!</h2>
-
-                <br />
-                <img class="alpaca" style="margin-right: 5%;" src='/static/habit_planter/images/alpaca.png'>
-                <br />
-
- -->
-
-        <!-- <span class="popuptext1" id="myPopup"> -->
-        <!-- <h2 style="font-size: 40px; right: 10%;">
-                        <br />Click a label to see that tree!
-                        <br />
-                        <a href="/habit_planter/info">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor"
-                                class="bi bi-info-square" viewBox="0 0 16 16">
-                                <path
-                                    d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
-                                <path
-                                    d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
-                            </svg>
-                        </a>
-                    </h2>
-                </span> -->
     </div>
 
     </div>
     </div>
 
     <script type="text/javascript">
-        // localStorage.clear();
         // localStorage.removeItem("streakCounter_habit1");
         // localStorage.removeItem("leaves_big_habit1");
         // localStorage.removeItem("leaves_big_habit2");
@@ -327,38 +268,10 @@
             var streak6 = parseInt(localStorage.getItem("streakCounter_habit6"), 10);
             var streak7 = parseInt(localStorage.getItem("streakCounter_habit7"), 10);
             var streak8 = parseInt(localStorage.getItem("streakCounter_habit8"), 10);
-            // console.log("1: " + streak1);
-            // console.log("2: " + streak2);
-            // console.log("3: " + streak3);
-            // console.log("4: " + streak4);
-            // console.log("5: " + streak5);
-            // console.log("6: " + streak6);
-            // console.log("7: " + streak7);
-            // console.log("8: " + streak8);
             if (streak1 > 27 && streak2 > 27 && streak3 > 27 && streak4 > 27) {
-                localStorage.setItem("completedScreen", true);
+                localStorage.setItem("complete", true);
                 window.location.replace("http://localhost:8000/habit_planter/congratulations");
             }
-
-            
-            // document.getElementById("habit4tree").style.visibility = "visible";
-            
-            // if (localStorage.getItem('habit1check')) {
-            //     var check1 = document.getElementById("habit1check");
-            //     check1.setAttribute('checked', true);
-            // }
-            // if (localStorage.getItem('habit2check')) {
-            //     var check2 = document.getElementById("habit2check");
-            //     check2.setAttribute('checked', true);
-            // }
-            // if (localStorage.getItem('habit3check')) {
-            //     var check3 = document.getElementById("habit3check");
-            //     check3.setAttribute('checked', true);
-            // }
-            // if (localStorage.getItem('habit4check')) {
-            //     var check4 = document.getElementById("habit4check");
-            //     check4.setAttribute('checked', true);
-            // }
         }
         function setInfo(message) {
             localStorage.setItem(message, true)
@@ -436,17 +349,6 @@
             document.getElementById("habit8tree").style.visibility = "visible";
             habit8.innerHTML = habit8id;
         }
-
-        // function sendMessage() {
-        //     // var counter = urlParams.get('habit1counter');
-        //     // if (counter){
-        //     //     counter = parseInt(counter, 10);
-        //     //     console.log(counter);
-        //     //     urlParams.append("habit1counter", counter);
-        //     // }
-        //     totalUrl = "http://localhost:8000/habit_planter/" + 'habit_tree_1?' + urlParams.toString();
-        //     document.getElementById("link2").href = totalUrl;
-        // }
     </script>
 </body>
 

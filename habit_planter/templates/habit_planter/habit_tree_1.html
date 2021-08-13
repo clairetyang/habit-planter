@@ -296,6 +296,15 @@
 			localStorage.setItem("streakCounter_habit1", streakCounter)
 		}
 
+		if (streakCounter == 0){
+			console.log("here")
+			localStorage.setItem("butterfly2-1", "hidden");
+			localStorage.setItem("butterfly3-1", "hidden");
+			localStorage.setItem("butterfly4-1", "hidden");
+			localStorage.setItem("alpaca2-1", "hidden");
+
+
+		}
 		var weekCounter = document.getElementById("weekCounter");
 		console.log(new Date().toString());
 
@@ -472,16 +481,16 @@
 			// localStorage.removeItem("butterfly4");
 			// localStorage.removeItem("alpaca2");
 			if (localStorage.getItem("butterfly2-1")){
-				document.getElementById('butterfly2-1').style.visibility = "visible";
+				document.getElementById('butterfly2-1').style.visibility = localStorage.getItem("butterfly2-1");
 			}
 			if (localStorage.getItem("butterfly3-1")){
-				document.getElementById('butterfly3-1').style.visibility = "visible";
+				document.getElementById('butterfly3-1').style.visibility = localStorage.getItem("butterfly3-1");
 			}
 			if (localStorage.getItem("butterfly4-1")){
-				document.getElementById('butterfly4').style.visibility = "visible";
+				document.getElementById('butterfly4-1').style.visibility = localStorage.getItem("butterfly4-1");
 			}
 			if (localStorage.getItem("alpaca2-1")){
-				document.getElementById('alpaca2-1').style.visibility = "visible";
+				document.getElementById('alpaca2-1').style.visibility = localStorage.getItem("alpaca2-1");
 			}
         }
     </script>

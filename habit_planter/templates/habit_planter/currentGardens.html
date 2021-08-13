@@ -251,9 +251,9 @@
 		function nextButton(){
 			counter++;
 			let habitname = document.getElementById('habit1');
-			habitname.innerHTML = "Habit: " + localStorage.getItem("habit"+counter);
+			habitname.innerHTML = "Habit: " + localStorage.getItem("1habit"+counter);
 
-			svg = localStorage.getItem("leaves_big_habit"+counter);
+			svg = localStorage.getItem("1leaves_big_habit"+counter);
 			paper.project.importSVG(svg, function (item) {
 				//print("hello");
 				mandala.item = item._children["design-freepik"];
@@ -270,14 +270,22 @@
 		function prevButton(){
 			counter--;
 			if (counter == 0){
-				totalUrl = "http://localhost:8000/habit_planter/completedgardenstitle?"
+				var url = window.location.href;
+				var queryString = window.location.search;
+				const urlParams = new URLSearchParams(queryString);
+				if (urlParams.get("goback")){
+					totalUrl = "http://localhost:8000/habit_planter/congratulations?"
+				}
+				else{
+					totalUrl = "http://localhost:8000/habit_planter/completedgardenstitle?"
+				}
 				document.getElementById("link2").href = totalUrl
 				return;
 			}
 			let habitname = document.getElementById('habit1');
-			habitname.innerHTML = "Habit: " + localStorage.getItem("habit"+counter);
+			habitname.innerHTML = "Habit: " + localStorage.getItem("1habit"+counter);
 
-			svg = localStorage.getItem("leaves_big_habit"+counter);
+			svg = localStorage.getItem("1leaves_big_habit"+counter);
 			paper.project.importSVG(svg, function (item) {
 				//print("hello");
 				mandala.item = item._children["design-freepik"];
@@ -306,7 +314,7 @@
 			function init(custom) {
 				paper.setup(canvas);
 				console.log(svg);
-				var svg = localStorage.getItem("leaves_big_habit"+1);
+				var svg = localStorage.getItem("1leaves_big_habit"+1);
 				paper.project.importSVG(svg, function (item) {
 					//print("hello");
 					mandala.item = item._children["design-freepik"];
@@ -321,10 +329,10 @@
 			init(true);
 		
 			let goalfocus = document.getElementById('goal1-label');
-			goalfocus.innerHTML = "Goal:" + localStorage.getItem("goal");
+			goalfocus.innerHTML = "Goal:" + localStorage.getItem("1goal");
 
 			let habitname = document.getElementById('habit1');
-			habitname.innerHTML = "Habit: " + localStorage.getItem("habit1");
+			habitname.innerHTML = "Habit: " + localStorage.getItem("1habit1");
         }
     </script>
 

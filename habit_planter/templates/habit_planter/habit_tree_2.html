@@ -294,6 +294,13 @@
 			streakCounter += counterdifName;
 			localStorage.setItem("streakCounter_habit2", streakCounter)
 		}
+		if (streakCounter == 0){
+			console.log("here");
+			localStorage.setItem("butterfly2-2", "hidden");
+			localStorage.setItem("butterfly3-2", "hidden");
+			localStorage.setItem("butterfly4-2", "hidden");
+			localStorage.setItem("alpaca2-2", "hidden");
+		}
 
 		var weekCounter = document.getElementById("weekCounter");
 		console.log(new Date().toString());
@@ -463,16 +470,16 @@
 			habitname.innerHTML = "Habit 2: " + localStorage.getItem("habit2");
 
 			if (localStorage.getItem("butterfly2-2")){
-				document.getElementById('butterfly2-2').style.visibility = "visible";
+				document.getElementById('butterfly2-2').style.visibility = localStorage.getItem("butterfly2-2");
 			}
 			if (localStorage.getItem("butterfly3-2")){
-				document.getElementById('butterfly3-2').style.visibility = "visible";
+				document.getElementById('butterfly3-2').style.visibility = localStorage.getItem("butterfly3-2");
 			}
 			if (localStorage.getItem("butterfly4-2")){
-				document.getElementById('butterfly4-2').style.visibility = "visible";
+				document.getElementById('butterfly4-2').style.visibility = localStorage.getItem("butterfly4-2");
 			}
 			if (localStorage.getItem("alpaca2-2")){
-				document.getElementById('alpaca2-2').style.visibility = "visible";
+				document.getElementById('alpaca2-2').style.visibility = localStorage.getItem("alpaca2-2");
 			}
         }
     </script>
