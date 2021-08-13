@@ -304,8 +304,9 @@
     </div>
 
     <script type="text/javascript">
-        // localStorage.removeItem("leaves_big_habit1");
+        // localStorage.clear();
         // localStorage.removeItem("streakCounter_habit1");
+        // localStorage.removeItem("leaves_big_habit1");
         // localStorage.removeItem("leaves_big_habit2");
         // localStorage.removeItem("streakCounter_habit2");
         // localStorage.removeItem("leaves_big_habit3");
@@ -326,15 +327,16 @@
             var streak6 = parseInt(localStorage.getItem("streakCounter_habit6"), 10);
             var streak7 = parseInt(localStorage.getItem("streakCounter_habit7"), 10);
             var streak8 = parseInt(localStorage.getItem("streakCounter_habit8"), 10);
-            console.log("1: " + streak1);
-            console.log("2: " + streak2);
-            console.log("3: " + streak3);
-            console.log("4: " + streak4);
-            console.log("5: " + streak5);
-            console.log("6: " + streak6);
-            console.log("7: " + streak7);
-            console.log("8: " + streak8);
-            if (streak1 > 27 && streak2 > 27 && streak3 > 27 && streak4 > 27 && streak5 > 27 && streak6 > 27 && streak7 > 27 && streak8 > 27) {
+            // console.log("1: " + streak1);
+            // console.log("2: " + streak2);
+            // console.log("3: " + streak3);
+            // console.log("4: " + streak4);
+            // console.log("5: " + streak5);
+            // console.log("6: " + streak6);
+            // console.log("7: " + streak7);
+            // console.log("8: " + streak8);
+            if (streak1 > 27 && streak2 > 27 && streak3 > 27 && streak4 > 27) {
+                localStorage.setItem("completedScreen", true);
                 window.location.replace("http://localhost:8000/habit_planter/congratulations");
             }
 
